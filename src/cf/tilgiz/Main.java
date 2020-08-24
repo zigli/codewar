@@ -37,7 +37,17 @@ public class Main {
 //        int[] array = new int[] {4, 2, 30, -5};
 //        System.out.println(Solution.isSortedAndHow(array));
 
-        System.out.println(new SquareDigit().squareDigits(9119));
+//        System.out.println(new SquareDigit().squareDigits(9119));
+
+//        System.out.println("printerError Fixed Tests");
+//        String s="aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz";
+//        String s="abmxyz";
+//        System.out.println(Printer.printerError(s));
+
+        System.out.println(RowSumOddNumbers.rowSumOddNumbers(4));
+
+//        int n=3;
+//        System.out.println(((n * n) - (n - 1)));
 
     }
 
