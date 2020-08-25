@@ -1,10 +1,4 @@
-package cf.tilgiz;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package cf.tilgiz.codewars;
 
 public class Main {
 
@@ -44,10 +38,13 @@ public class Main {
 //        String s="abmxyz";
 //        System.out.println(Printer.printerError(s));
 
-        System.out.println(RowSumOddNumbers.rowSumOddNumbers(4));
+//        System.out.println(RowSumOddNumbers.rowSumOddNumbers(4));
 
-//        int n=3;
-//        System.out.println(((n * n) - (n - 1)));
+
+        String input = "the_Stealth_Warrior";
+//        String input = "the-stealth-warrior";
+        System.out.println("input: "+input);
+        System.out.println(Solution.toCamelCase(input));
 
     }
 

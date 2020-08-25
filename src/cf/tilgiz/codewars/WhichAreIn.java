@@ -1,4 +1,4 @@
-package cf.tilgiz;
+package cf.tilgiz.codewars;
 
 import java.util.*;
 
