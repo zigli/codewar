@@ -60,4 +60,20 @@ public class Solution {
 //        return builder.toString().replaceAll("[-]+", "-").replaceAll("^-|-$","");
             return String.valueOf(num).replaceAll("-", "").replaceAll("([13579])","-$1-").replaceAll("[-]+", "-").replaceAll("^-|-$","");
     }
+
+    public static String[] capitalizeOddEven(String s){
+        StringBuilder odd = new StringBuilder();
+        StringBuilder even = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            String str = String.valueOf(s.charAt(i)).toUpperCase();
+            if (i % 2 == 1){
+                odd.append(str);
+                even.append(s.charAt(i));
+            } else {
+                even.append(str);
+                odd.append(s.charAt(i));
+            }
+        }
+        return new String[]{even.toString(),odd.toString()};
+    }
 }
