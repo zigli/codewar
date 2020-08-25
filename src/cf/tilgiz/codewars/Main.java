@@ -50,12 +50,16 @@ public class Main {
 //        System.out.println(conversion.solution(3189));
 
 
-        System.out.println(Solution.whoLikesIt());
-        System.out.println(Solution.whoLikesIt("Peter"));
-        System.out.println(Solution.whoLikesIt("Jacob", "Alex"));
-        System.out.println(Solution.whoLikesIt("Max", "John", "Mark"));
-        System.out.println(Solution.whoLikesIt("Alex", "Jacob", "Mark", "Max"));
+//        System.out.println(Solution.whoLikesIt());
+//        System.out.println(Solution.whoLikesIt("Peter"));
+//        System.out.println(Solution.whoLikesIt("Jacob", "Alex"));
+//        System.out.println(Solution.whoLikesIt("Max", "John", "Mark"));
+//        System.out.println(Solution.whoLikesIt("Alex", "Jacob", "Mark", "Max"));
 
+
+        System.out.println(Solution.dashatize(5311));
+
+//        System.out.println((4%2));
     }
 
 }

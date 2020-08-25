@@ -1,5 +1,8 @@
 package cf.tilgiz.codewars;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @author Ilgiz Tukhvatov
  */
@@ -42,7 +45,19 @@ public class Solution {
         else if (names.length == 1) return names[0] + " likes this";
         else if (names.length == 2) return names[0] + " and " + names[1] + " like this";
         else if (names.length == 3) return names[0] + ", " + names[1] + " and " + names[2] + " like this";
-        else if (names.length > 3) return names[0] + ", " + names[1] + " and " + (names.length - 2) + " others like this";
+        else if (names.length > 3)
+            return names[0] + ", " + names[1] + " and " + (names.length - 2) + " others like this";
         return null;
+    }
+
+    public static String dashatize(int num) {
+//        String s = String.valueOf(num).replaceAll("-", "");
+//        StringBuilder builder = new StringBuilder();
+//        for (int i = 0; i < s.length(); i++) {
+//            if (s.charAt(i) % 2 == 1) builder.append("-" + s.charAt(i) + "-");
+//            else builder.append(s.charAt(i));
+//        }
+//        return builder.toString().replaceAll("[-]+", "-").replaceAll("^-|-$","");
+            return String.valueOf(num).replaceAll("-", "").replaceAll("([13579])","-$1-").replaceAll("[-]+", "-").replaceAll("^-|-$","");
     }
 }
