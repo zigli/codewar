@@ -57,9 +57,9 @@ public class Main {
 //        System.out.println(Solution.whoLikesIt("Alex", "Jacob", "Mark", "Max"));
 
 
-        System.out.println(Solution.dashatize(5311));
+//        System.out.println(Solution.dashatize(5311));
 
-//        System.out.println((4%2));
+        System.out.println(Kata.findEvenIndex(new int[]{1,2,3,4,5,6}));
     }
 
 }
