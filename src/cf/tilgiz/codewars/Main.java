@@ -41,10 +41,15 @@ public class Main {
 //        System.out.println(RowSumOddNumbers.rowSumOddNumbers(4));
 
 
-        String input = "the_Stealth_Warrior";
+//        String input = "the_Stealth_Warrior";
 //        String input = "the-stealth-warrior";
-        System.out.println("input: "+input);
-        System.out.println(Solution.toCamelCase(input));
+//        System.out.println("input: "+input);
+//        System.out.println(Solution.toCamelCase(input));
+
+        Conversion conversion = new Conversion();
+        System.out.println(conversion.solution(3189));
+
+
 
     }
 
