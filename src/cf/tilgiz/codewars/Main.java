@@ -1,8 +1,6 @@
 package cf.tilgiz.codewars;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class Main {
 
@@ -67,21 +65,33 @@ public class Main {
 
 //        System.out.println(Arrays.toString(Solution.capitalizeOddEven("abcdef")));
 
-        System.out.println(Solution.rangeExtraction(new int[]{-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 21}));
+//        System.out.println(Solution.rangeExtraction(new int[]{-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 21}));
 
-//        HashMap<Integer, ArrayList<Integer>> arrayListHashMap = new HashMap<>();
-//        ArrayList<Integer> range = new ArrayList<>();
-//        for (int i = 0; i < 5; i++) {
-//            range = new ArrayList<>(range);
-//            range.add((i*256));
-//            arrayListHashMap.put(i,range);
-//            System.out.println(arrayListHashMap);
-//            range = new ArrayList<>();
-//            if(i%5==0)range.clear();
-//            System.out.println(range);
-//            System.out.println("===============");
-//        }
-//        System.out.println(arrayListHashMap);
+
+        PaginationHelper<Character> helper = new PaginationHelper(Arrays.asList('a'), 4);
+//        PaginationHelper<Character> helper = new PaginationHelper(Arrays.asList('a', 'b', 'c', 'd', 'e', 'f'), 4);
+        System.out.println(helper.pageCount()); //should == 2
+        System.out.println(helper.itemCount()); //should == 6
+        System.out.println(helper.pageItemCount(0)); //should == 4
+        System.out.println(helper.pageItemCount(1)); // last page - should == 2
+        System.out.println(helper.pageItemCount(2)); // should == -1 since the page is invalid
+// pageIsoutex takes an item index and returns the page tha)t it belongs on
+        System.out.println(helper.pageIndex(5)); //should == 1 (zero based index)
+        System.out.println(helper.pageIndex(2)); //should == 0
+        System.out.println(helper.pageIndex(20)); //should == -1
+        System.out.println(helper.pageIndex(-10)); //should == -1
+
+//        Character[][] a = new Character[2][];
+//        Character[] b1 = new Character[1];
+//        Character[] b2 = new Character[3];
+//
+//        b1[0] = 'w';
+//        b2[0] = 'r';
+//        b2[1] = 't';
+//        a[0] = b1;
+//        a[1] = b2;
+//        System.out.println(Arrays.deepToString(a));
+//        System.out.println(b2.length);
 
 
     }
