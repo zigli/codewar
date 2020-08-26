@@ -1,6 +1,7 @@
 package cf.tilgiz.codewars;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Main {
 
@@ -89,7 +90,9 @@ public class Main {
 //        String str2 = String.format("%10s", str).replace(' ', '0');
 //        System.out.println(str2);
 
+        System.out.println(Kata.nextBiggerNumber(10990));
 
+//        System.out.println(Integer.parseInt("888", 10));
 
     }
 
