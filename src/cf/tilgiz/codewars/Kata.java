@@ -17,4 +17,21 @@ public class Kata {
         }
         return -1;
     }
+
+    public static String longToIP(long ip) {
+        String binaryIp = String.format("%32s", Long.toBinaryString(ip)).replace(' ', '0');
+        return Integer.parseInt(binaryIp.substring(0, 8), 2) + "."
+                + Integer.parseInt(binaryIp.substring(8, 16), 2) + "."
+                + Integer.parseInt(binaryIp.substring(16, 24), 2) + "."
+                + Integer.parseInt(binaryIp.substring(24, 32), 2);
+    }
+    public static int binaryToDecimal(String binary) {
+        int num = 0;
+        for (int i = 0; i < binary.length(); i++) {
+            num += (int) Math.pow(2, i) * Integer.parseInt(String.valueOf(binary.charAt(binary.length() - 1 - i)));
+        }
+        return num;
+    }
+
+
 }
