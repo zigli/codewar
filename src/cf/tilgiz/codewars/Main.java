@@ -1,6 +1,8 @@
 package cf.tilgiz.codewars;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Main {
 
@@ -63,7 +65,25 @@ public class Main {
 
 //        System.out.println(Kata.findEvenIndex(new int[]{1,2,3,4,5,6}));
 
-        System.out.println(Arrays.toString(Solution.capitalizeOddEven("abcdef")));
+//        System.out.println(Arrays.toString(Solution.capitalizeOddEven("abcdef")));
+
+        System.out.println(Solution.rangeExtraction(new int[]{-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 21}));
+
+//        HashMap<Integer, ArrayList<Integer>> arrayListHashMap = new HashMap<>();
+//        ArrayList<Integer> range = new ArrayList<>();
+//        for (int i = 0; i < 5; i++) {
+//            range = new ArrayList<>(range);
+//            range.add((i*256));
+//            arrayListHashMap.put(i,range);
+//            System.out.println(arrayListHashMap);
+//            range = new ArrayList<>();
+//            if(i%5==0)range.clear();
+//            System.out.println(range);
+//            System.out.println("===============");
+//        }
+//        System.out.println(arrayListHashMap);
+
+
     }
 
 }

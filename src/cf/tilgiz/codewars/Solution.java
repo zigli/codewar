@@ -1,7 +1,8 @@
 package cf.tilgiz.codewars;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * @author Ilgiz Tukhvatov
@@ -58,15 +59,15 @@ public class Solution {
 //            else builder.append(s.charAt(i));
 //        }
 //        return builder.toString().replaceAll("[-]+", "-").replaceAll("^-|-$","");
-            return String.valueOf(num).replaceAll("-", "").replaceAll("([13579])","-$1-").replaceAll("[-]+", "-").replaceAll("^-|-$","");
+        return String.valueOf(num).replaceAll("-", "").replaceAll("([13579])", "-$1-").replaceAll("[-]+", "-").replaceAll("^-|-$", "");
     }
 
-    public static String[] capitalizeOddEven(String s){
+    public static String[] capitalizeOddEven(String s) {
         StringBuilder odd = new StringBuilder();
         StringBuilder even = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
             String str = String.valueOf(s.charAt(i)).toUpperCase();
-            if (i % 2 == 1){
+            if (i % 2 == 1) {
                 odd.append(str);
                 even.append(s.charAt(i));
             } else {
@@ -74,6 +75,77 @@ public class Solution {
                 odd.append(s.charAt(i));
             }
         }
-        return new String[]{even.toString(),odd.toString()};
+        return new String[]{even.toString(), odd.toString()};
     }
+
+
+    public static String rangeExtraction(int[] arr) {
+        StringBuilder builder = new StringBuilder();
+        HashMap<Integer, ArrayList<Integer>> arrayListHashMap = new HashMap<>();
+        ArrayList<Integer> range = new ArrayList<>();
+        int index = 0;
+        for (int i = 0; i < arr.length; i++) {
+//            System.out.print("iteration:" + i + ", Number is: " + arr[i]);
+            range = new ArrayList<>(range);
+            if (i == (arr.length - 1)) {
+                if ((arr[i] - 1) == arr[i - 1]) {
+//                    System.out.println("heee");
+                    range.add(arr[i]);
+                    arrayListHashMap.put(index, range);
+//                    System.out.println(range);
+//                    System.out.println(arrayListHashMap);
+                }else{
+//                    System.out.println(" No = index: " + index);
+                    range.add(arr[i]);
+                    arrayListHashMap.put(index, range);
+                    range = new ArrayList<>();
+//                    System.out.println(range);
+//                    System.out.println(arrayListHashMap);
+                }
+            } else {
+                if ((arr[i] + 1) == arr[i + 1]) {
+//                    System.out.println(" Yes = index: " + index);
+                    range.add(arr[i]);
+//                    System.out.println(range);
+//                    System.out.println(arrayListHashMap);
+                } else {
+//                    System.out.println(" No = index: " + index);
+                    range.add(arr[i]);
+                    arrayListHashMap.put(index, range);
+                    range = new ArrayList<>();
+//                    System.out.println(range);
+//                    System.out.println(arrayListHashMap);
+                    index++;
+                }
+            }
+//            System.out.println(range);
+//            System.out.println(arrayListHashMap);
+//            System.out.println("===================================");
+
+        }
+//        System.out.println(arrayListHashMap);
+//        System.out.println(Arrays.toString(arrayListHashMap.values().toArray()));
+
+        StringBuilder stringBuilder = new StringBuilder();
+//        Integer[] ints = arrayListHashMap.values().toArray(new Integer[arrayListHashMap.size()]);
+//        for (Integer it: ints ) {
+//            System.out.println(it.toString());
+//        }
+//        for (int i = 0; i < ints.length; i++) {
+//            System.out.println(ints[i]);
+////            if(ints[i])
+//        }
+
+        for (HashMap.Entry<Integer, ArrayList<Integer>> entry : arrayListHashMap.entrySet()) {
+            //System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+            if (entry.getValue().size()>2) stringBuilder.append(",").append(entry.getValue().get(0)).append("-").append(entry.getValue().get(entry.getValue().size() - 1));
+            else {
+                for (int i = 0; i < entry.getValue().size(); i++) {
+                    stringBuilder.append(",").append(entry.getValue().get(i));
+                }
+            }
+        }
+        return stringBuilder.toString().replaceAll("^,", "");
+    }
+
 }
