@@ -2,6 +2,7 @@ package cf.tilgiz.codewars;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
@@ -93,19 +94,19 @@ public class Main {
         long leftLimit  = 1000000000000L;
         long rightLimit = 10000000000000L;
         long generatedLong = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
-//        long generatedLong = 1056406940;
-        long num = 144;
         System.out.println(generatedLong);
         System.out.println(Kata.nextBiggerNumber(generatedLong));
-        System.out.println(Kata.nextBiggerNumber1(generatedLong));
+//        System.out.println(Kata.nextBiggerNumber1(generatedLong));
 //        System.out.println(Kata.nextBiggerNumber1("098"));
 
-//        String temp = Integer.toString(6542331);
-//        String[] newGuess = new String[temp.length()];
-//        for (int i = 0; i < temp.length(); i++) newGuess[i] = String.valueOf(temp.charAt(i));
-//        Arrays.sort(newGuess);
-//        System.out.println(String.join("", newGuess));
 
+//        Scanner keyboard = new Scanner(System.in);
+//        String line = null;
+//        int sum = 0, max = 5;
+//        while(!(line = keyboard.nextLine()).isEmpty() && max > 0) {
+//            sum += Integer.parseInt(line);
+//            max--;
+//        }
+//        System.out.print(sum);
     }
-
 }
