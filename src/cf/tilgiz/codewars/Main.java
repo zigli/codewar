@@ -1,6 +1,7 @@
 package cf.tilgiz.codewars;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -90,12 +91,12 @@ public class Main {
 //        String str = "129018";
 //        String str2 = String.format("%10s", str).replace(' ', '0');
 //        System.out.println(str2);
-
-        long leftLimit  = 1000000000000L;
-        long rightLimit = 10000000000000L;
-        long generatedLong = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
-        System.out.println(generatedLong);
-        System.out.println(Kata.nextBiggerNumber(generatedLong));
+//
+//        long leftLimit  = 1000000000000L;
+//        long rightLimit = 10000000000000L;
+//        long generatedLong = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
+//        System.out.println(generatedLong);
+//        System.out.println(Kata.nextBiggerNumber(generatedLong));
 //        System.out.println(Kata.nextBiggerNumber1(generatedLong));
 //        System.out.println(Kata.nextBiggerNumber1("098"));
 
@@ -108,5 +109,7 @@ public class Main {
 //            max--;
 //        }
 //        System.out.print(sum);
+
+        System.out.println(School.getAverage(new int[]{1,1,1,1,1,1,1,2}));
     }
 }
