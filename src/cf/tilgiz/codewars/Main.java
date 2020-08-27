@@ -90,9 +90,21 @@ public class Main {
 //        String str2 = String.format("%10s", str).replace(' ', '0');
 //        System.out.println(str2);
 
-        System.out.println(Kata.nextBiggerNumber(10990));
+        long leftLimit  = 1000000000000L;
+        long rightLimit = 10000000000000L;
+        long generatedLong = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
+//        long generatedLong = 1056406940;
+        long num = 144;
+        System.out.println(generatedLong);
+        System.out.println(Kata.nextBiggerNumber(generatedLong));
+        System.out.println(Kata.nextBiggerNumber1(generatedLong));
+//        System.out.println(Kata.nextBiggerNumber1("098"));
 
-//        System.out.println(Integer.parseInt("888", 10));
+//        String temp = Integer.toString(6542331);
+//        String[] newGuess = new String[temp.length()];
+//        for (int i = 0; i < temp.length(); i++) newGuess[i] = String.valueOf(temp.charAt(i));
+//        Arrays.sort(newGuess);
+//        System.out.println(String.join("", newGuess));
 
     }
 
