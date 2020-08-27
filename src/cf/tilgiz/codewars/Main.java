@@ -110,6 +110,11 @@ public class Main {
 //        }
 //        System.out.print(sum);
 
-        System.out.println(School.getAverage(new int[]{1,1,1,1,1,1,1,2}));
+//        System.out.println(School.getAverage(new int[]{1,1,1,1,1,1,1,2}));
+
+        System.out.println(ParseMolecule.getAtoms("H2O"));
+        System.out.println(ParseMolecule.getAtoms("Mg(OH)2"));
+        System.out.println(ParseMolecule.getAtoms("K4[ON(SO3)2]2"));
+
     }
 }
