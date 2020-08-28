@@ -1,9 +1,6 @@
 package cf.tilgiz.codewars;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -115,6 +112,8 @@ public class Main {
         System.out.println(ParseMolecule.getAtoms("H2O"));
         System.out.println(ParseMolecule.getAtoms("Mg(OH)2"));
         System.out.println(ParseMolecule.getAtoms("K4[ON(SO3)2]2"));
+
+
 
     }
 }
