@@ -195,17 +195,36 @@ public class Main {
 //        System.out.println(SillyAdditon.add(26,39));
 //        System.out.println(SillyAdditon.add(122,81));
 
-        System.out.println(16%10/1);
-        System.out.println(16%100/10);
-        System.out.println(16%1000/100);
+//        System.out.println(16%10/1);
+//        System.out.println(16%100/10);
+//        System.out.println(16%1000/100);
+//
+//        System.out.println(145%10/1);
+//        System.out.println(145%100/10);
+//        System.out.println(145%1000/100);
+//        System.out.println(145/10);
+//        System.out.println(14/10);
 
-        System.out.println(145%10/1);
-        System.out.println(145%100/10);
-        System.out.println(145%1000/100);
-        System.out.println(145/10);
-        System.out.println(14/10);
 
+        System.out.println("==");
+//        System.out.println(StripComments.stripComments("apples, pears # and bananas\n\ngrapes  \nbananas !apples", new String[]{"#", "!"}));
+//        System.out.println(StripComments.stripComments("a #b\nc\nd $e f g", new String[]{"#", "$"}));
+//        System.out.println(StripComments.stripComments("a\n\n\n$$dd", new String[]{"#", "$", "!", "-"}));
+        System.out.println(StripComments.stripComments("      ", new String[]{"#"}));
+        System.out.println("==");
 
+//        String data = "text 1 {\ntext 2\ntext 3\n}";
+////        System.out.println(data.replaceAll("\\{[^{}]*}", ""));
+//        System.out.println(data.replaceAll("(?<=\\{).*?(?=\\})", ""));
+//
+//        String str = "\n\nf\n\nb\n\ne\n\n!bc\nfc\n\nc\n\ndfeabe\n\ne\n\nd\n\nc\n\ncd\naeaa\n\nc\n\nf\n\nbe\n\ncdfd!\n\neb\n\nf\n\n\n\n\ndd\nea\n\nf\n\ndd\n\nbb\n\n\n\n\na\n\n!\n\nd\n\ncc\n\nd\n\nc\n\nd\n\ne\n\nbcbe\n\n\n\n\n\n!ce!\n\nbbacd!!\n\nc\n\nf\n\ncc\n\nf\n\nf\n\ndb!\n\n!e\n\n!\n\n\n\n\n\nc\n\n!\n\ne\n\n\nb!ae\n\neb\n\n\n!f\n\nb\n\nbf\n\na\n\n\n!e\n\n\n\n\nc\n\na\n\n!d\n\nc!\n\ne!\n\naab\n\na\n\na\n\nc\n\n\n\n\n\n\n\ncfc\n\nc";
+//        str = "\n\nffc $abe\n\n b \n\na$eca$f$\n\n!bc\nfc\naa!fa\nc\n\ndfe !abe\n\ne\n";
+//        String comment = "$";
+//        String regex = "\\s?+\\" + comment + ".*?\n";
+//        String s = str.replaceAll(regex, "\n").replaceAll("\\s+\n", "\n\n");
+////        replaceAll("(?<=\\w)\\s+(?=\n)", "\n")
+//        System.out.println(s);
+//        System.out.println(StripComments.stripComments(str, new String[]{"#", "$", "!", "-"}));
 
     }
 
