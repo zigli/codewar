@@ -187,8 +187,25 @@ public class Main {
 //        System.out.println(SumFct.perimeter(BigInteger.valueOf(5)));
 
 
-        Cockroach cockroach = new Cockroach();
-        System.out.println(cockroach.cockroachSpeed(1.08));
+//        Cockroach cockroach = new Cockroach();
+//        System.out.println(cockroach.cockroachSpeed(1.08));
+
+
+//        System.out.println(SillyAdditon.add(16, 18));
+//        System.out.println(SillyAdditon.add(26,39));
+//        System.out.println(SillyAdditon.add(122,81));
+
+        System.out.println(16%10/1);
+        System.out.println(16%100/10);
+        System.out.println(16%1000/100);
+
+        System.out.println(145%10/1);
+        System.out.println(145%100/10);
+        System.out.println(145%1000/100);
+        System.out.println(145/10);
+        System.out.println(14/10);
+
+
 
     }
 
