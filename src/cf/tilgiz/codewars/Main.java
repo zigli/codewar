@@ -116,17 +116,70 @@ public class Main {
 //        System.out.println(ParseMolecule.getAtoms("H2O"));
 //        System.out.println(ParseMolecule.getAtoms("Mg(OH]2"));
 //        System.out.println(ParseMolecule.getAtoms("K4[ON(SO3)2]2"));
-        System.out.println(ParseMolecule.getAtoms("{[Co(NH3)4(OH)2]3Co}(SO4)3"));
+//        System.out.println(ParseMolecule.getAtoms("{[Co(NH3)4(OH)2]3Co}(SO4)3"));
 //        System.out.println(ParseMolecule.getAtoms("Au5(C2H5[OH)3Li]3"));
 //        System.out.println(ParseMolecule.getAtoms("(C5H5)Fe(CO)2CrH3"));
 //        System.out.println(ParseMolecule.getAtoms("Pd[P(C6H5)3]4"));
 //        System.out.println(ParseMolecule.getAtoms("{((H)2)[O]}"));
+        System.out.println(ParseMolecule.getAtoms("MgOH)2"));
 
 
 //        System.out.println(ParseMolecule.removeBrackets("[Pg1C18H15]4", '[', ']'));
 
 //        String s = "(Au5(C2H5([OH))3Li]3)";
-//        System.out.println(ParseMolecule.isMirror(s));
+//        String s = "{[Co(NH3)4(OH)2]3Co}(SO4)3";
+//        String s = "{((H)2)[O]}";
+//        System.out.println("{((H)2)[O]}".replaceAll("\\([A-Z]+\\)", ""));
+//        System.out.println("{[Co(NH3)4(OgH)2]3Co}(SO4)3".replaceAll("\\([A-Z]+[0-9]?\\)", ""));
+//        System.out.println("{[Co(NH3)4(OgH)2]3Co}(SO4)3".replaceAll("\\([A-Za-z]+\\)", ""));
+        String s1 = "{[Co" +
+                "(N)4" +
+                "(N2)4" +
+
+                "(Ng)4" +
+                "(Ng2)4" +
+
+                "(NH)4" +
+                "(N3H)4" +
+                "(NH3)4" +
+                "(N3H3)4" +
+
+                "(NgH)5" +
+                "(NgH2)5" +
+                "(Ng2H)5" +
+                "(Ng2H2)5" +
+
+                "(NHg)3" +
+                "(N2Hg)3" +
+                "(NHg2)3" +
+                "(N2Hg2)3" +
+
+                "(N2(N2Hg2)Hg22)3" +
+
+                "]3Co}(SO4)3";
+
+        s1 = "{((H)2)[O]}";
+        s1 = "{[Co(NH3)4(OH)2]3Co}(SO4)3";
+        s1 = "(K4[ON(SO3)2]2)";
+        String regex = "(" +
+                "\\([A-Za-z]+\\)" +
+                "|\\([A-Za-z]+\\d?\\)" +
+                "|\\([A-Za-z]+\\d+?\\)" +
+                "|\\([A-Z]\\d?[A-Z]\\d?\\)" +
+                "|\\([A-Z]\\d+?[A-Z]\\d?\\)" +
+                "|\\([A-Z]\\d?[A-Z]\\d+?\\)" +
+                "|\\([A-Z]\\d+?[A-Z]\\d+?\\)" +
+                "|\\([A-Za-z]+\\d?[A-Za-z]+\\d?\\)" +
+                "|\\([A-Za-z]+\\d+?[A-Za-z]+\\d?\\)" +
+                "|\\([A-Za-z]+\\d?[A-Za-z]+\\d+?\\)" +
+                "|\\([A-Za-z]+\\d+?[A-Za-z]+\\d+?\\)" +
+                "|\\(\\d+\\)" +
+                ")";
+
+//        System.out.println(s1.replaceAll(regex, ""));
+//        System.out.println(s1.replaceAll(regex, "").replaceAll(regex, ""));
+//        System.out.println(s.replaceAll("\\([A-Za-z?0-9+]\\)", ""));
+//        System.out.println(ParseMolecule.isMirror(s1));
 
 
     }

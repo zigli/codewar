@@ -13,27 +13,29 @@ import java.util.regex.Pattern;
 public class ParseMolecule {
 
     public static Map<String, Integer> getAtoms(String formula) {
+        if(!isMirror(formula))
+            throw new IllegalArgumentException();
+
         Map<String, Integer> resultHashMap = new HashMap<>();
-        System.out.println(formula);
+//        System.out.println(formula);
         formula = "(" + formula + ")";
 
-        System.out.println(checkBrackets(formula, "(\\()", "(\\))"));
-        System.out.println(checkBrackets(formula, "(\\{)", "(\\})"));
-        System.out.println(checkBrackets(formula, "(\\[)", "(\\])"));
-        System.out.println(formula);
-        System.out.println(isMirror(formula));
+//        System.out.println(checkBrackets(formula, "(\\()", "(\\))"));
+//        System.out.println(checkBrackets(formula, "(\\{)", "(\\})"));
+//        System.out.println(checkBrackets(formula, "(\\[)", "(\\])"));
+//        System.out.println(formula);
+//        System.out.println(isMirror(formula));
 
-        if(!(checkBrackets(formula,"(\\()","(\\))")
-                && checkBrackets(formula,"(\\{)","(\\})")
-                && checkBrackets(formula,"(\\[)","(\\])")
-                && isMirror(formula)
+        if(!(checkBrackets(formula,'(',')')
+                && checkBrackets(formula,'{','}')
+                && checkBrackets(formula,'[',']')
                 ))
             throw new IllegalArgumentException();
 
         formula = putOnes(formula);
         formula = putOnes(formula);
 
-        System.out.println(formula + " ----------");
+//        System.out.println(formula + " ----------");
 
         do {
             Pattern pattern = Pattern.compile("(\\([A-Za-z0-9]+\\))[0-9]");
@@ -45,7 +47,7 @@ public class ParseMolecule {
             }
         } while (formula.substring(1).matches(".*\\(.*"));
 
-        System.out.println(formula);
+//        System.out.println(formula);
 
         Pattern pattern1 = Pattern.compile("(\\[[A-Za-z0-9]+\\])[0-9]");
         Matcher matcher1 = pattern1.matcher(formula);
@@ -55,7 +57,7 @@ public class ParseMolecule {
             formula = formula.replace(group, removedBrackets);
         }
 
-        System.out.println(formula);
+//        System.out.println(formula);
 //        System.out.println("========");
 
         Pattern pattern2 = Pattern.compile("(\\{[A-Za-z0-9]+\\})[0-9]");
@@ -87,17 +89,9 @@ public class ParseMolecule {
         return resultHashMap;
     }
 
-    private static boolean checkBrackets(String formula, String regexStart, String regexStop) {
-        Pattern patternOpen = Pattern.compile(regexStart);
-        Matcher matcherOpen = patternOpen.matcher(formula);
-        int sizeOpen = 0;
-        while (matcherOpen.find()) sizeOpen++;
-
-        Pattern patternClose = Pattern.compile(regexStop);
-        Matcher matcherClose = patternClose.matcher(formula);
-        int sizeClose = 0;
-        while (matcherClose.find()) sizeClose++;
-
+    private static boolean checkBrackets(String formula, char regexStart, char regexStop) {
+        long sizeOpen = formula.chars().filter(ch -> ch == regexStart).count();
+        long sizeClose = formula.chars().filter(ch -> ch == regexStop).count();
         return (sizeOpen == sizeClose);
     }
 
@@ -106,14 +100,14 @@ public class ParseMolecule {
         Matcher matcher0 = pattern0.matcher(formula);
         int offset = 0;
         while (matcher0.find()) {
-            System.out.println("group = " + matcher0.group());
+//            System.out.println("group = " + matcher0.group());
             if (matcher0.start() + 1 + offset >= formula.length() || !isMatched(String.valueOf(formula.charAt(matcher0.start() + 1 + offset)), "[0-9]")) {
                 if (matcher0.group().length() > 1)
                     formula = formula.substring(0, (matcher0.start() + matcher0.group().length() - 1 + offset)) + "1" + formula.substring((matcher0.start() + matcher0.group().length() - 1 + offset));
                 else
                     formula = formula.substring(0, (matcher0.start() + 1 + offset)) + "1" + formula.substring((matcher0.start() + 1 + offset));
                 offset++;
-                System.out.println(formula);
+//                System.out.println(formula);
             }
         }
         return formula;
@@ -163,7 +157,7 @@ public class ParseMolecule {
         return string.matches(matcher);
     }
 
-    public static boolean isMirror(String s) {
+    public static boolean isMirror2(String s) {
         char[] brackets = new char[( s.split("[\\(\\{\\[\\)\\}\\]]", -1).length ) - 1];
         for (int i = 0, k = 0; i < s.length(); i++) {
             if(ParseMolecule.isMatched(String.valueOf(s.charAt(i)), "[\\(\\{\\[\\)\\}\\]]")) {
@@ -171,6 +165,7 @@ public class ParseMolecule {
             }
         }
         boolean isMirror = true;
+        System.out.println(Arrays.toString(brackets));
         for (int i = 0; i < brackets.length/2; i++) {
             if (Math.abs((int) brackets[i] - (int) brackets[brackets.length - 1 - i]) > 2 ) {
                 isMirror = false;
@@ -178,6 +173,46 @@ public class ParseMolecule {
             }
         }
         return isMirror;
+    }
+    public static boolean isMirror(String s) {
+        String regex = "(" +
+                "\\([A-Za-z]+\\)" +
+                "|\\([A-Za-z]+\\d?\\)" +
+                "|\\([A-Za-z]+\\d+?\\)" +
+                "|\\([A-Z]\\d?[A-Z]\\d?\\)" +
+                "|\\([A-Z]\\d+?[A-Z]\\d?\\)" +
+                "|\\([A-Z]\\d?[A-Z]\\d+?\\)" +
+                "|\\([A-Z]\\d+?[A-Z]\\d+?\\)" +
+                "|\\([A-Za-z]+\\d?[A-Za-z]+\\d?\\)" +
+                "|\\([A-Za-z]+\\d+?[A-Za-z]+\\d?\\)" +
+                "|\\([A-Za-z]+\\d?[A-Za-z]+\\d+?\\)" +
+                "|\\([A-Za-z]+\\d+?[A-Za-z]+\\d+?\\)" +
+                "|\\(\\d+\\)" +
+                ")";
+
+        long count = s.chars().filter(ch -> ch == '(').count();
+        for (int i = 0; i < count; i++) {
+            s = s.replaceAll(regex, "");
+        }
+//        count = s.chars().filter(ch -> ch == '(').count();
+//        System.out.println(count);
+        return s.chars().filter(ch -> ch == '(').count() == 0;
+//
+//        char[] brackets = new char[( s.split("[\\(\\{\\[\\)\\}\\]]", -1).length ) - 1];
+//        for (int i = 0, k = 0; i < s.length(); i++) {
+//            if(ParseMolecule.isMatched(String.valueOf(s.charAt(i)), "[\\(\\{\\[\\)\\}\\]]")) {
+//                brackets[k++] = s.charAt(i);
+//            }
+//        }
+//        boolean isMirror = true;
+//        System.out.println(Arrays.toString(brackets));
+//        for (int i = 0; i < brackets.length/2; i++) {
+//            if (Math.abs((int) brackets[i] - (int) brackets[brackets.length - 1 - i]) > 2 ) {
+//                isMirror = false;
+//                break;
+//            }
+//        }
+//        return isMirror;
     }
 
     public static Map<String, Integer> getAtoms1(String formula) {
