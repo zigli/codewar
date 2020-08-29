@@ -184,8 +184,11 @@ public class Main {
 
 
 //        System.out.println(SumFct.perimeter(BigInteger.valueOf(5)));
-        System.out.println(SumFct.perimeter(BigInteger.valueOf(5)));
+//        System.out.println(SumFct.perimeter(BigInteger.valueOf(5)));
 
+
+        Cockroach cockroach = new Cockroach();
+        System.out.println(cockroach.cockroachSpeed(1.08));
 
     }
 
