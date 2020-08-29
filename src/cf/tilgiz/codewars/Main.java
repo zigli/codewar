@@ -1,6 +1,7 @@
 package cf.tilgiz.codewars;
 
 import javax.xml.bind.ParseConversionEvent;
+import java.math.BigInteger;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -121,7 +122,7 @@ public class Main {
 //        System.out.println(ParseMolecule.getAtoms("(C5H5)Fe(CO)2CrH3"));
 //        System.out.println(ParseMolecule.getAtoms("Pd[P(C6H5)3]4"));
 //        System.out.println(ParseMolecule.getAtoms("{((H)2)[O]}"));
-        System.out.println(ParseMolecule.getAtoms("MgOH)2"));
+//        System.out.println(ParseMolecule.getAtoms("MgOH)2"));
 
 
 //        System.out.println(ParseMolecule.removeBrackets("[Pg1C18H15]4", '[', ']'));
@@ -132,54 +133,58 @@ public class Main {
 //        System.out.println("{((H)2)[O]}".replaceAll("\\([A-Z]+\\)", ""));
 //        System.out.println("{[Co(NH3)4(OgH)2]3Co}(SO4)3".replaceAll("\\([A-Z]+[0-9]?\\)", ""));
 //        System.out.println("{[Co(NH3)4(OgH)2]3Co}(SO4)3".replaceAll("\\([A-Za-z]+\\)", ""));
-        String s1 = "{[Co" +
-                "(N)4" +
-                "(N2)4" +
-
-                "(Ng)4" +
-                "(Ng2)4" +
-
-                "(NH)4" +
-                "(N3H)4" +
-                "(NH3)4" +
-                "(N3H3)4" +
-
-                "(NgH)5" +
-                "(NgH2)5" +
-                "(Ng2H)5" +
-                "(Ng2H2)5" +
-
-                "(NHg)3" +
-                "(N2Hg)3" +
-                "(NHg2)3" +
-                "(N2Hg2)3" +
-
-                "(N2(N2Hg2)Hg22)3" +
-
-                "]3Co}(SO4)3";
-
-        s1 = "{((H)2)[O]}";
-        s1 = "{[Co(NH3)4(OH)2]3Co}(SO4)3";
-        s1 = "(K4[ON(SO3)2]2)";
-        String regex = "(" +
-                "\\([A-Za-z]+\\)" +
-                "|\\([A-Za-z]+\\d?\\)" +
-                "|\\([A-Za-z]+\\d+?\\)" +
-                "|\\([A-Z]\\d?[A-Z]\\d?\\)" +
-                "|\\([A-Z]\\d+?[A-Z]\\d?\\)" +
-                "|\\([A-Z]\\d?[A-Z]\\d+?\\)" +
-                "|\\([A-Z]\\d+?[A-Z]\\d+?\\)" +
-                "|\\([A-Za-z]+\\d?[A-Za-z]+\\d?\\)" +
-                "|\\([A-Za-z]+\\d+?[A-Za-z]+\\d?\\)" +
-                "|\\([A-Za-z]+\\d?[A-Za-z]+\\d+?\\)" +
-                "|\\([A-Za-z]+\\d+?[A-Za-z]+\\d+?\\)" +
-                "|\\(\\d+\\)" +
-                ")";
+//        String s1 = "{[Co" +
+//                "(N)4" +
+//                "(N2)4" +
+//
+//                "(Ng)4" +
+//                "(Ng2)4" +
+//
+//                "(NH)4" +
+//                "(N3H)4" +
+//                "(NH3)4" +
+//                "(N3H3)4" +
+//
+//                "(NgH)5" +
+//                "(NgH2)5" +
+//                "(Ng2H)5" +
+//                "(Ng2H2)5" +
+//
+//                "(NHg)3" +
+//                "(N2Hg)3" +
+//                "(NHg2)3" +
+//                "(N2Hg2)3" +
+//
+//                "(N2(N2Hg2)Hg22)3" +
+//
+//                "]3Co}(SO4)3";
+//
+//        s1 = "{((H)2)[O]}";
+//        s1 = "{[Co(NH3)4(OH)2]3Co}(SO4)3";
+//        s1 = "(K4[ON(SO3)2]2)";
+//        String regex = "(" +
+//                "\\([A-Za-z]+\\)" +
+//                "|\\([A-Za-z]+\\d?\\)" +
+//                "|\\([A-Za-z]+\\d+?\\)" +
+//                "|\\([A-Z]\\d?[A-Z]\\d?\\)" +
+//                "|\\([A-Z]\\d+?[A-Z]\\d?\\)" +
+//                "|\\([A-Z]\\d?[A-Z]\\d+?\\)" +
+//                "|\\([A-Z]\\d+?[A-Z]\\d+?\\)" +
+//                "|\\([A-Za-z]+\\d?[A-Za-z]+\\d?\\)" +
+//                "|\\([A-Za-z]+\\d+?[A-Za-z]+\\d?\\)" +
+//                "|\\([A-Za-z]+\\d?[A-Za-z]+\\d+?\\)" +
+//                "|\\([A-Za-z]+\\d+?[A-Za-z]+\\d+?\\)" +
+//                "|\\(\\d+\\)" +
+//                ")";
 
 //        System.out.println(s1.replaceAll(regex, ""));
 //        System.out.println(s1.replaceAll(regex, "").replaceAll(regex, ""));
 //        System.out.println(s.replaceAll("\\([A-Za-z?0-9+]\\)", ""));
 //        System.out.println(ParseMolecule.isMirror(s1));
+
+
+//        System.out.println(SumFct.perimeter(BigInteger.valueOf(5)));
+        System.out.println(SumFct.perimeter(BigInteger.valueOf(5)));
 
 
     }
