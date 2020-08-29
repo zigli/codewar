@@ -1,6 +1,9 @@
 package cf.tilgiz.codewars;
 
+import javax.xml.bind.ParseConversionEvent;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -111,17 +114,21 @@ public class Main {
 
 //        System.out.println(ParseMolecule.getAtoms("pie"));
 //        System.out.println(ParseMolecule.getAtoms("H2O"));
-//        System.out.println(ParseMolecule.getAtoms("Mg(OH)2"));
+//        System.out.println(ParseMolecule.getAtoms("Mg(OH]2"));
 //        System.out.println(ParseMolecule.getAtoms("K4[ON(SO3)2]2"));
         System.out.println(ParseMolecule.getAtoms("{[Co(NH3)4(OH)2]3Co}(SO4)3"));
 //        System.out.println(ParseMolecule.getAtoms("Au5(C2H5[OH)3Li]3"));
+//        System.out.println(ParseMolecule.getAtoms("(C5H5)Fe(CO)2CrH3"));
+//        System.out.println(ParseMolecule.getAtoms("Pd[P(C6H5)3]4"));
+//        System.out.println(ParseMolecule.getAtoms("{((H)2)[O]}"));
 
-//        String word = "ddd(ghfg)d(dgd)";
-//        int index = word.indexOf("(");
-//        while (index >= 0) {
-//            System.out.println(index);
-//            index = word.indexOf("(", index + 1);
-//        }
+
+//        System.out.println(ParseMolecule.removeBrackets("[Pg1C18H15]4", '[', ']'));
+
+//        String s = "(Au5(C2H5([OH))3Li]3)";
+//        System.out.println(ParseMolecule.isMirror(s));
+
 
     }
+
 }
