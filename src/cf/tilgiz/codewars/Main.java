@@ -227,12 +227,13 @@ public class Main {
 //        System.out.println(StripComments.stripComments(str, new String[]{"#", "$", "!", "-"}));
 
 
-        String[] names = new String[] { "Sheldon", "Leonard", "Penny", "Rajesh", "Howard" };
-//        String[] names = new String[]{"Sheldon", "Leonard", "Penny"};
-        int n = 63;
-        System.out.println(new Line().WhoIsNext(names, n));
+//        String[] names = new String[] { "Sheldon", "Leonard", "Penny", "Rajesh", "Howard" };
+////        String[] names = new String[]{"Sheldon", "Leonard", "Penny"};
+//        int n = 63;
+//        System.out.println(new Line().WhoIsNext(names, n));
 
 
+        System.out.println(Troll.disemvowel("This website is for losers LOL!"));
 
     }
 
