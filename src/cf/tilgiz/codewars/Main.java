@@ -206,12 +206,12 @@ public class Main {
 //        System.out.println(14/10);
 
 
-        System.out.println("==");
-//        System.out.println(StripComments.stripComments("apples, pears # and bananas\n\ngrapes  \nbananas !apples", new String[]{"#", "!"}));
-//        System.out.println(StripComments.stripComments("a #b\nc\nd $e f g", new String[]{"#", "$"}));
-//        System.out.println(StripComments.stripComments("a\n\n\n$$dd", new String[]{"#", "$", "!", "-"}));
-        System.out.println(StripComments.stripComments("      ", new String[]{"#"}));
-        System.out.println("==");
+//        System.out.println("==");
+////        System.out.println(StripComments.stripComments("apples, pears # and bananas\n\ngrapes  \nbananas !apples", new String[]{"#", "!"}));
+////        System.out.println(StripComments.stripComments("a #b\nc\nd $e f g", new String[]{"#", "$"}));
+////        System.out.println(StripComments.stripComments("a\n\n\n$$dd", new String[]{"#", "$", "!", "-"}));
+//        System.out.println(StripComments.stripComments("      ", new String[]{"#"}));
+//        System.out.println("==");
 
 //        String data = "text 1 {\ntext 2\ntext 3\n}";
 ////        System.out.println(data.replaceAll("\\{[^{}]*}", ""));
@@ -225,6 +225,14 @@ public class Main {
 ////        replaceAll("(?<=\\w)\\s+(?=\n)", "\n")
 //        System.out.println(s);
 //        System.out.println(StripComments.stripComments(str, new String[]{"#", "$", "!", "-"}));
+
+
+        String[] names = new String[] { "Sheldon", "Leonard", "Penny", "Rajesh", "Howard" };
+//        String[] names = new String[]{"Sheldon", "Leonard", "Penny"};
+        int n = 63;
+        System.out.println(new Line().WhoIsNext(names, n));
+
+
 
     }
 
