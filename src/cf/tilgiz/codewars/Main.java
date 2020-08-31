@@ -233,7 +233,12 @@ public class Main {
 //        System.out.println(new Line().WhoIsNext(names, n));
 
 
-        System.out.println(Troll.disemvowel("This website is for losers LOL!"));
+//        System.out.println(Troll.disemvowel("This website is for losers LOL!"));
+
+
+        System.out.println(Parser.parseInt("one"));
+        System.out.println(Parser.parseInt("twenty"));
+        System.out.println(Parser.parseInt("two hundred forty-six"));
 
     }
 
