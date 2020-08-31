@@ -2,7 +2,7 @@ package cf.tilgiz.codewars;
 
 import java.util.HashMap;
 
-public class Conversion {
+public class RomanNumeralsEncoder {
     public String solution(int n) {
         HashMap<Integer, String> hashMap = new HashMap<>();
         hashMap.put(1, "I");
