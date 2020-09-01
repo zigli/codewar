@@ -49,14 +49,13 @@ public class Parser {
                 num1 = num0 * 1000;
                 num0 = 0;
             } else if (split[i].contains("hundred")) {
-                num0 = Integer.parseInt(String.valueOf(digits.get(split[i]))) * num0;
+                num0 = num0 * Integer.parseInt(String.valueOf(digits.get(split[i])));
             } else if (split[i].contains("-")) {
                 String[] splitDash = split[i].split("[-]");
                 num0 = num0 + Integer.parseInt(String.valueOf(digits.get(splitDash[0]))) + Integer.parseInt(String.valueOf(digits.get(splitDash[1])));
             } else {
                 num0 = num0 + digits.get(split[i]);
             }
-
         }
         return num0 + num1 + num2;
     }
