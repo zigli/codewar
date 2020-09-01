@@ -245,7 +245,10 @@ public class Main {
 //        System.out.println(Parser.parseInt("two hundred fifty million seven hundred eighty-three thousand nine hundred and nineteen"));
 
 
-        System.out.println(GrassHopper.weatherInfo(56));
+//        System.out.println(GrassHopper.weatherInfo(56));
+
+
+        System.out.println(Solution.areaOrPerimeter(6,10));
     }
 
 }

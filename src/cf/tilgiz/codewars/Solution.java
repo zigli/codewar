@@ -94,7 +94,7 @@ public class Solution {
                     arrayListHashMap.put(index, range);
 //                    System.out.println(range);
 //                    System.out.println(arrayListHashMap);
-                }else{
+                } else {
 //                    System.out.println(" No = index: " + index);
                     range.add(arr[i]);
                     arrayListHashMap.put(index, range);
@@ -138,7 +138,8 @@ public class Solution {
 
         for (HashMap.Entry<Integer, ArrayList<Integer>> entry : arrayListHashMap.entrySet()) {
             //System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
-            if (entry.getValue().size()>2) stringBuilder.append(",").append(entry.getValue().get(0)).append("-").append(entry.getValue().get(entry.getValue().size() - 1));
+            if (entry.getValue().size() > 2)
+                stringBuilder.append(",").append(entry.getValue().get(0)).append("-").append(entry.getValue().get(entry.getValue().size() - 1));
             else {
                 for (int i = 0; i < entry.getValue().size(); i++) {
                     stringBuilder.append(",").append(entry.getValue().get(i));
@@ -146,6 +147,10 @@ public class Solution {
             }
         }
         return stringBuilder.toString().replaceAll("^,", "");
+    }
+
+    public static int areaOrPerimeter(int l, int w) {
+        return (l == w) ? l * l : 2 * (l + w);
     }
 
 }
