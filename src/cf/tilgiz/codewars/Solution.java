@@ -153,4 +153,8 @@ public class Solution {
         return (l == w) ? l * l : 2 * (l + w);
     }
 
+    public static String repeatStr(final int repeat, final String string) {
+        return (repeat == 0) ? "" : String.format("%" + (repeat + string.length() - 1) + "s", string).replaceAll(" ", string.replaceAll("\\$", "\\\\\\\\\\\\\\$")).replace("\\", "");
+    }
+
 }

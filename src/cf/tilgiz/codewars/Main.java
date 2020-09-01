@@ -248,7 +248,12 @@ public class Main {
 //        System.out.println(GrassHopper.weatherInfo(56));
 
 
-        System.out.println(Solution.areaOrPerimeter(6,10));
+//        System.out.println(Solution.areaOrPerimeter(6,10));
+
+
+        System.out.println("tetwe$etw".replaceAll("\\$", "\\\\\\\\\\\\\\$"));
+        System.out.println(Solution.repeatStr(31, "t,(P:I.72NQkPsHbV$x/?b"));
+
     }
 
 }
