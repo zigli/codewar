@@ -34,7 +34,8 @@ public class Parser {
         digits.put("eighty", 80);
         digits.put("ninety", 90);
         digits.put("hundred", 100);
-        digits.put("thousand", 100);
+        digits.put("thousand", 1000);
+        digits.put("million", 1000000);
 
         HashMap<String, Integer> numbers10 = new HashMap<>();
         numbers10.put("eleven", 11);
@@ -64,25 +65,33 @@ public class Parser {
         numStr = numStr.replaceAll("(\\sand\\s)", " ");
         System.out.println(numStr);
         int num = 0;
+        int numDashed = 0;
+        int num0 = 0;
+        int num1 = 0;
         String[] split = numStr.split(" ");
         for (int i = 0; i < split.length; i++) {
-            if (split[i].contains("-")) {
-                String[] splitDash = split[i].split("[-]");
-                for (int j = 0; j < splitDash.length; j++) {
-                    System.out.print(" ==> " + splitDash[j] + " => " + digits.get(splitDash[j]) + " ");
-                }
+            if (split[i].contains("thousand")) {
+                num1 = num0 * 1000;
+                num0 = 0;
             } else {
-                if (split[i].contains("hundred")) {
-                    System.out.println(split[i] + " => " + digits.get(split[i]));
-                    num = Integer.parseInt(String.valueOf(digits.get(split[i]))) * Integer.parseInt(String.valueOf(digits.get(split[i-1])));
-                    System.out.println(num);
+                if (split[i].contains("-")) {
+                    String[] splitDash = split[i].split("[-]");
+                    numDashed = Integer.parseInt(String.valueOf(digits.get(splitDash[0]))) + Integer.parseInt(String.valueOf(digits.get(splitDash[1])));
+                    num0 = num0 + numDashed;
+                } else if (split[i].contains("hundred")) {
+                    num0 = Integer.parseInt(String.valueOf(digits.get(split[i]))) * num0;
                 } else {
-
+                    num0 = num0 + digits.get(split[i]);
                 }
             }
+            System.out.println("num1 = " + num1);
+            System.out.println("num0 = " + num0);
         }
+
+        int numTotal = num0 + num1;
+        System.out.println(numTotal);
         System.out.println("==========");
         // Your code here!
-        return 15;
+        return numTotal;
     }
 }
