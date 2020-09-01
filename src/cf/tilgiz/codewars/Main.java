@@ -251,9 +251,10 @@ public class Main {
 //        System.out.println(Solution.areaOrPerimeter(6,10));
 
 
-        System.out.println("tetwe$etw".replaceAll("\\$", "\\\\\\\\\\\\\\$"));
-        System.out.println(Solution.repeatStr(31, "t,(P:I.72NQkPsHbV$x/?b"));
+//        System.out.println("tetwe$etw".replaceAll("\\$", "\\\\\\\\\\\\\\$"));
+//        System.out.println(Solution.repeatStr(31, "t,(P:I.72NQkPsHbV$x/?b"));
 
+        System.out.println(FakeBinary.fakeBin("45385593107843568"));
     }
 
 }
