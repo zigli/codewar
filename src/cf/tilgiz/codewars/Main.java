@@ -2,7 +2,10 @@ package cf.tilgiz.codewars;
 
 import javax.xml.bind.ParseConversionEvent;
 import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -254,7 +257,20 @@ public class Main {
 //        System.out.println("tetwe$etw".replaceAll("\\$", "\\\\\\\\\\\\\\$"));
 //        System.out.println(Solution.repeatStr(31, "t,(P:I.72NQkPsHbV$x/?b"));
 
-        System.out.println(FakeBinary.fakeBin("45385593107843568"));
+//        System.out.println(FakeBinary.fakeBin("45385593107843568"));
+
+
+//        System.out.println(Solution.passwordCracker("e6fb06210fafc02fd7479ddbed2d042cc3a5155e"));
+        long START_TIME = System.currentTimeMillis();
+        System.out.println(Solution.passwordCracker("130b9d1f6651ea00d9070dd797982dbcf1b6aeac"));
+        long STOP_TIME = System.currentTimeMillis();
+        long duration = STOP_TIME - START_TIME;
+        System.out.println("Password cracked in " + TimeUnit.MILLISECONDS.toSeconds(duration) + "." + TimeUnit.MILLISECONDS.toMillis(duration) + " sec.");
+
+
+//        System.out.println(Solution.passwordCracker("f7a9e24777ec23212c54d7a350bc5bea5477fdbb"));
+
+
     }
 
 }

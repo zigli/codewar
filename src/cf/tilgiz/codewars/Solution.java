@@ -1,7 +1,13 @@
 package cf.tilgiz.codewars;
 
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.HashMap;
 
 /**
@@ -157,4 +163,148 @@ public class Solution {
         return (repeat == 0) ? "" : String.format("%" + (repeat + string.length() - 1) + "s", string).replaceAll(" ", string.replaceAll("\\$", "\\\\\\\\\\\\\\$")).replace("\\", "");
     }
 
+
+    public static MessageDigest digest = null;
+
+    public static String passwordCracker(String hash) {
+        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        String code = null;
+        boolean next0 = false;
+        boolean next1 = false;
+        boolean next2 = false;
+        boolean next3 = false;
+        for (int i0 = 0; i0 < alphabet.length; i0++) {
+            code = "" + alphabet[i0];
+//            System.out.println(code);
+            if (!next0 && hash.equals(getSha1(code))) return code;
+            if (!next0 && i0 == alphabet.length - 1) {
+//                System.out.println("11111111111111111111111111111111111111111111111111");
+                next0 = true;
+                i0 = 0;
+            }
+            if (next0) {
+                for (int i1 = 0; i1 < alphabet.length; i1++) {
+                    code = "" + alphabet[i0] + alphabet[i1];
+//                    if (!next1) System.out.println(code);
+                    if (!next1 && hash.equals(getSha1(code))) return code;
+                    if (!next1 && i0 == alphabet.length - 1 && i1 == alphabet.length - 1) {
+//                        System.out.println("222222222222222222222222222222222222222222222");
+                        next1 = true;
+                        i0 = i1 = 0;
+                    }
+                    if (next1) {
+                        for (int i2 = 0; i2 < alphabet.length; i2++) {
+                            code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2];
+//                            if (!next2) System.out.println(code);
+                            if (!next2 && hash.equals(getSha1(code))) return code;
+                            if (!next2 && i0 == alphabet.length - 1 && i1 == alphabet.length - 1 && i2 == alphabet.length - 1) {
+//                                System.out.println("33333333333333333333333333333333333333333333");
+                                next2 = true;
+                                i0 = i1 = i2 = 0;
+                            }
+                            if (next2) {
+                                for (int i3 = 0; i3 < alphabet.length; i3++) {
+                                    code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2] + alphabet[i3];
+//                                    if (!next3) System.out.println(code);
+                                    if (!next3 && hash.equals(getSha1(code))) return code;
+                                    if (!next3 && i0 == alphabet.length - 1 && i1 == alphabet.length - 1 && i2 == alphabet.length - 1 && i3 == alphabet.length - 1) {
+//                                        System.out.println("444444444444444444444444444444444444444444444");
+                                        next3 = true;
+                                        i0 = i1 = i2 = i3 = 0;
+                                    }
+                                    if (next3) {
+                                        for (int i4 = 0; i4 < alphabet.length; i4++) {
+                                            code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2] + alphabet[i3] + alphabet[i4];
+//                                            System.out.println(code);
+                                            if (hash.equals(getSha1(code))) return code;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return code;
+    }
+
+    public static String passwordCracker1(String hash) {
+        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        String code = null;
+        for (int i0 = 0; i0 < alphabet.length; i0++) {
+            code = "" + alphabet[i0];
+            if (hash.equals(getSha1(code))) return code;
+        }
+        for (int i0 = 0; i0 < alphabet.length; i0++) {
+            for (int i1 = 0; i1 < alphabet.length; i1++) {
+                code = "" + alphabet[i0] + alphabet[i1];
+                if (hash.equals(getSha1(code))) return code;
+            }
+        }
+        for (int i0 = 0; i0 < alphabet.length; i0++) {
+            for (int i1 = 0; i1 < alphabet.length; i1++) {
+                for (int i2 = 0; i2 < alphabet.length; i2++) {
+                    code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2];
+                    if (hash.equals(getSha1(code))) return code;
+                }
+            }
+        }
+        for (int i0 = 0; i0 < alphabet.length; i0++) {
+            for (int i1 = 0; i1 < alphabet.length; i1++) {
+                for (int i2 = 0; i2 < alphabet.length; i2++) {
+                    for (int i3 = 0; i3 < alphabet.length; i3++) {
+                        code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2] + alphabet[i3];
+                        if (hash.equals(getSha1(code))) return code;
+                    }
+                }
+            }
+        }
+        for (int i0 = 0; i0 < alphabet.length; i0++) {
+            for (int i1 = 0; i1 < alphabet.length; i1++) {
+                for (int i2 = 0; i2 < alphabet.length; i2++) {
+                    for (int i3 = 0; i3 < alphabet.length; i3++) {
+                        for (int i4 = 0; i4 < alphabet.length; i4++) {
+                            code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2] + alphabet[i3] + alphabet[i4];
+                            if (hash.equals(getSha1(code))) return code;
+                        }
+                    }
+                }
+            }
+        }
+        return code;
+    }
+
+    private static String getSha1(String value) {
+        try {
+            digest = MessageDigest.getInstance("SHA-1");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+//        digest.reset();
+//        digest.update(value.getBytes(StandardCharsets.UTF_8));
+        String sha1 = String.format("%040x", new BigInteger(1, digest.digest(value.getBytes(StandardCharsets.UTF_8))));
+        return sha1;
+    }
+
+    private static byte[] getSha1Bytes(String value) {
+        MessageDigest digest = null;
+        try {
+            digest = MessageDigest.getInstance("SHA-1");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        digest.reset();
+        digest.update(value.getBytes(StandardCharsets.UTF_8));
+        return digest.digest();
+    }
+
+    public static String getSha1_(String convertme) {
+        try {
+            digest = MessageDigest.getInstance("SHA-1");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return Base64.getEncoder().encodeToString((digest.digest(convertme.getBytes(StandardCharsets.UTF_8))));
+    }
 }
