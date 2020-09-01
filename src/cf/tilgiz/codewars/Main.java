@@ -236,9 +236,11 @@ public class Main {
 //        System.out.println(Troll.disemvowel("This website is for losers LOL!"));
 
 
+        System.out.println(Parser.parseInt("zero"));
         System.out.println(Parser.parseInt("one"));
         System.out.println(Parser.parseInt("twenty"));
         System.out.println(Parser.parseInt("two hundred forty-six"));
+        System.out.println(Parser.parseInt("seven hundred eighty-three thousand nine hundred and nineteen"));
 
     }
 
