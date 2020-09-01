@@ -240,7 +240,9 @@ public class Main {
 //        System.out.println(Parser.parseInt("one"));
 //        System.out.println(Parser.parseInt("twenty"));
 //        System.out.println(Parser.parseInt("two hundred forty-six"));
-        System.out.println(Parser.parseInt("seven hundred eighty-three thousand nine hundred and nineteen"));
+//        System.out.println(Parser.parseInt("two hundred fifty"));
+//        System.out.println(Parser.parseInt("seven hundred eighty-three thousand nine hundred and nineteen"));
+        System.out.println(Parser.parseInt("two hundred fifty million seven hundred eighty-three thousand nine hundred and nineteen"));
 
     }
 
