@@ -275,16 +275,35 @@ public class Solution {
         return code;
     }
 
-    private static String getSha1(String value) {
+    public static String getSha12(String value) {
         try {
             digest = MessageDigest.getInstance("SHA-1");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-//        digest.reset();
-//        digest.update(value.getBytes(StandardCharsets.UTF_8));
-        String sha1 = String.format("%040x", new BigInteger(1, digest.digest(value.getBytes(StandardCharsets.UTF_8))));
+        digest.reset();
+        digest.update(value.getBytes(StandardCharsets.UTF_8));
+        String sha1 = String.format("%040x", new BigInteger(1, digest.digest()));
+//        String sha1 = String.format("%040x", new BigInteger(1, digest.digest(value.getBytes(StandardCharsets.UTF_8))));
         return sha1;
+    }
+
+    public static String getSha1(String input)
+    {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            byte[] messageDigest = md.digest(input.getBytes());
+            BigInteger no = new BigInteger(1, messageDigest);
+//            System.out.println(no);
+            String hashtext = no.toString(16);
+//            while (hashtext.length() < 32) {
+//                hashtext = "0" + hashtext;
+//            }
+            return hashtext;
+        }
+        catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static byte[] getSha1Bytes(String value) {

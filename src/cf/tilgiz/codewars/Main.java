@@ -261,12 +261,17 @@ public class Main {
 
 
 //        System.out.println(Solution.passwordCracker("e6fb06210fafc02fd7479ddbed2d042cc3a5155e"));
+
         long START_TIME = System.currentTimeMillis();
-        System.out.println(Solution.passwordCracker("130b9d1f6651ea00d9070dd797982dbcf1b6aeac"));
+//        System.out.println(Solution.passwordCracker("130b9d1f6651ea00d9070dd797982dbcf1b6aeac"));
+        System.out.println(Solution.passwordCracker("e6fb06210fafc02fd7479ddbed2d042cc3a5155e"));
+        System.out.println(Solution.passwordCracker("a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"));
         long STOP_TIME = System.currentTimeMillis();
         long duration = STOP_TIME - START_TIME;
         System.out.println("Password cracked in " + TimeUnit.MILLISECONDS.toSeconds(duration) + "." + TimeUnit.MILLISECONDS.toMillis(duration) + " sec.");
 
+//        System.out.println(Solution.getSha1("z"));
+//        System.out.println(Solution.getSha12("z"));
 
 //        System.out.println(Solution.passwordCracker("f7a9e24777ec23212c54d7a350bc5bea5477fdbb"));
 
