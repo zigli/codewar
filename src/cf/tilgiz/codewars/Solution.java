@@ -1,13 +1,12 @@
 package cf.tilgiz.codewars;
 
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Base64;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -288,8 +287,7 @@ public class Solution {
         return sha1;
     }
 
-    public static String getSha1(String input)
-    {
+    public static String getSha1(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
             byte[] messageDigest = md.digest(input.getBytes());
@@ -300,8 +298,7 @@ public class Solution {
 //                hashtext = "0" + hashtext;
 //            }
             return hashtext;
-        }
-        catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
     }
@@ -325,5 +322,24 @@ public class Solution {
             e.printStackTrace();
         }
         return Base64.getEncoder().encodeToString((digest.digest(convertme.getBytes(StandardCharsets.UTF_8))));
+    }
+
+
+    public static String solve(String eq) {
+        String[] split = eq.split("[/\\-*+]");
+        ArrayList<String> arrayList = new ArrayList<>();
+        int index = 0;
+        for (int i = 0; i < split.length; i++) {
+            arrayList.add(split[i]);
+            int itemPosition = eq.indexOf(split[i], index);
+            int itemLength = split[i].length();
+            if (i < split.length - 1) {
+                arrayList.add(eq.substring(itemPosition + split[i].length(), itemPosition + itemLength + 1));
+                index = index + itemLength + 1;
+            }
+        }
+        Collections.reverse(arrayList);
+        return String.join("", arrayList);
+
     }
 }

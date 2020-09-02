@@ -278,24 +278,30 @@ public class Main {
 //        System.out.println(Solution.passwordCracker("f7a9e24777ec23212c54d7a350bc5bea5477fdbb"));
 
 
-        System.out.println(TopWords.top3("a a a  b  c c  d d d d  e e e e e"));
-        System.out.println(TopWords.top3("e e e e     ddd  d : ddd ddd aa a   a bb cc c  e e e"));
-        System.out.println(TopWords.top3("  //wont won't won't "));
-        System.out.println(TopWords.top3("  , e   .. "));
-        System.out.println(TopWords.top3("  ...  "));
-        System.out.println(TopWords.top3("  '  "));
-        System.out.println(TopWords.top3("  '''  "));
-        System.out.println(TopWords.top3("m  yn      k  vwfo v  yton k  vwfo v x   ww k'ezgsf     yton  dz u     -k'ezgsf  :y abui u   m     eg p    yton r a  k  vwfo v-x   ww y  l  dz u r a  y  lg p  k  vwfo v   m  yn :k  vwfo v:  m  yn y  l k  vwfo v v   grg   mv a  : '  auq  mv a  :g p    yton k  vwfo vk  vwfo v   xf    yton  dz u  dz u y  l   yton k'ezgsf  g p   v   grg  :g p    dz ur a           g p   k  vwfo v-y  lk'ezgsf     ix  g p   y abui u   yton   ytony  l   xf  g p    dz u v   grg    dz u g p    dz u y abui u   m  yn  k  vwfo v y  l y  l   m  yn        m  yn  k'ezgsf   mv a   k  vwfo v   yton     -y abui u r a  v   grg   r a  k'ezgsf   k  vwfo v   m  yn  k'ezgsf   mv a   g p  y  l   yton  '  auq  k  vwfo v x   ww      y abui u:mv a  -k  vwfo v  '  auq    ix  y  l k  vwfo v y  l x   ww y  l y  l k'ezgsf     ix   dz u  '  auq   m  yn r a  dz u x   ww  yton x   ww     k'ezgsf   v   grg   v   grg  -y  l '  auq  r a   dz u mv a  -r a     x   ww r a  k'ezgsf    '  auq  r a   yton   m  yn  y  lg p   y  l v   grg   k'ezgsf  k'ezgsf  y  l y  l g p     yton v   grg     m  yn   dz u mv a     yton      x   wwr a    ix  k'ezgsf   dz u k  vwfo v   m     er a  r a    m  yn  mv a  :g p   k'ezgsf   g p   mv a  y  l g p   k  vwfo v   yton g p  :r a  v   grg   k'ezgsf     m  yn    m     e      dz u  yton x   ww   yton  yton   ix mv a     yton   m  yn :mv a    dz u:k  vwfo v  dz u-r a    yton x   ww  dz u k  vwfo v k  vwfo v   yton k'ezgsf    dz u   ix   dz u   xf   dz u   yton:r a   yton x   ww  yton  '  auq :x   ww x   ww  yton   m  yn   '  auq   m  yn  dz u k  vwfo v r a    xf  y  l '  auq   dz u mv a   g p   k'ezgsf   k'ezgsf    m  yn  k'ezgsf  -  m     ek  vwfo v      mv a     ix  g p        k  vwfo v  dz u r a  k  vwfo v x   ww y abui u  yton  dz u y  l x   ww mv a   v   grg   mv a   g p   y  l r a y  l   yton   m  yn    ix  k  vwfo v g p   y  l   m  yn  k'ezgsf  y  l   ix  g p   x   ww      y  l   yton k'ezgsf        k'ezgsf  x   ww  '  auq  x   ww-k  vwfo v x   wwx   ww     -y  l mv a   v   grg    m  yn :r a    ix  r a  g p     m  yn :  yton y  l    -v   grg   r a x   wwg p     m  yn  y abui u x   ww x   ww g p   y abui u"));
-        System.out.println(TopWords.top3(Stream
-                .of("In a village of La Mancha, the name of which I have no desire to call to",
-                        "mind, there lived not long since one of those gentlemen that keep a lance",
-                        "in the lance-rack, an old buckler, a lean hack, and a greyhound for",
-                        "coursing. An olla of rather more beef than mutton, a salad on most",
-                        "nights, scraps on Saturdays, lentils on Fridays, and a pigeon or so extra",
-                        "on Sundays, made away with three-quarters of his income.")
-                .collect(Collectors.joining("\n")) ));
+//        System.out.println(TopWords.top3("a a a  b  c c  d d d d  e e e e e"));
+//        System.out.println(TopWords.top3("e e e e     ddd  d : ddd ddd aa a   a bb cc c  e e e"));
+//        System.out.println(TopWords.top3("  //wont won't won't "));
+//        System.out.println(TopWords.top3("  , e   .. "));
+//        System.out.println(TopWords.top3("  ...  "));
+//        System.out.println(TopWords.top3("  '  "));
+//        System.out.println(TopWords.top3("  '''  "));
+//        System.out.println(TopWords.top3("m  yn      k  vwfo v  yton k  vwfo v x   ww k'ezgsf     yton  dz u     -k'ezgsf  :y abui u   m     eg p    yton r a  k  vwfo v-x   ww y  l  dz u r a  y  lg p  k  vwfo v   m  yn :k  vwfo v:  m  yn y  l k  vwfo v v   grg   mv a  : '  auq  mv a  :g p    yton k  vwfo vk  vwfo v   xf    yton  dz u  dz u y  l   yton k'ezgsf  g p   v   grg  :g p    dz ur a           g p   k  vwfo v-y  lk'ezgsf     ix  g p   y abui u   yton   ytony  l   xf  g p    dz u v   grg    dz u g p    dz u y abui u   m  yn  k  vwfo v y  l y  l   m  yn        m  yn  k'ezgsf   mv a   k  vwfo v   yton     -y abui u r a  v   grg   r a  k'ezgsf   k  vwfo v   m  yn  k'ezgsf   mv a   g p  y  l   yton  '  auq  k  vwfo v x   ww      y abui u:mv a  -k  vwfo v  '  auq    ix  y  l k  vwfo v y  l x   ww y  l y  l k'ezgsf     ix   dz u  '  auq   m  yn r a  dz u x   ww  yton x   ww     k'ezgsf   v   grg   v   grg  -y  l '  auq  r a   dz u mv a  -r a     x   ww r a  k'ezgsf    '  auq  r a   yton   m  yn  y  lg p   y  l v   grg   k'ezgsf  k'ezgsf  y  l y  l g p     yton v   grg     m  yn   dz u mv a     yton      x   wwr a    ix  k'ezgsf   dz u k  vwfo v   m     er a  r a    m  yn  mv a  :g p   k'ezgsf   g p   mv a  y  l g p   k  vwfo v   yton g p  :r a  v   grg   k'ezgsf     m  yn    m     e      dz u  yton x   ww   yton  yton   ix mv a     yton   m  yn :mv a    dz u:k  vwfo v  dz u-r a    yton x   ww  dz u k  vwfo v k  vwfo v   yton k'ezgsf    dz u   ix   dz u   xf   dz u   yton:r a   yton x   ww  yton  '  auq :x   ww x   ww  yton   m  yn   '  auq   m  yn  dz u k  vwfo v r a    xf  y  l '  auq   dz u mv a   g p   k'ezgsf   k'ezgsf    m  yn  k'ezgsf  -  m     ek  vwfo v      mv a     ix  g p        k  vwfo v  dz u r a  k  vwfo v x   ww y abui u  yton  dz u y  l x   ww mv a   v   grg   mv a   g p   y  l r a y  l   yton   m  yn    ix  k  vwfo v g p   y  l   m  yn  k'ezgsf  y  l   ix  g p   x   ww      y  l   yton k'ezgsf        k'ezgsf  x   ww  '  auq  x   ww-k  vwfo v x   wwx   ww     -y  l mv a   v   grg    m  yn :r a    ix  r a  g p     m  yn :  yton y  l    -v   grg   r a x   wwg p     m  yn  y abui u x   ww x   ww g p   y abui u"));
+//        System.out.println(TopWords.top3(Stream
+//                .of("In a village of La Mancha, the name of which I have no desire to call to",
+//                        "mind, there lived not long since one of those gentlemen that keep a lance",
+//                        "in the lance-rack, an old buckler, a lean hack, and a greyhound for",
+//                        "coursing. An olla of rather more beef than mutton, a salad on most",
+//                        "nights, scraps on Saturdays, lentils on Fridays, and a pigeon or so extra",
+//                        "on Sundays, made away with three-quarters of his income.")
+//                .collect(Collectors.joining("\n")) ));
 
 
+//        System.out.println(Solution.solve("100*b/y"));
+//        System.out.println(Solution.solve("a+b-c/d*30"));
+//        System.out.println(Solution.solve("a*b/c+50"));
+        System.out.println(Solution.solve("54/84/i+h-i/l-t+c/15/f/u-6+f-64/15"));
+//        String s = "54/84/i+h-i/l-t+c/15/f/u-6+f-64/15";
+//        System.out.println(s.indexOf("f", 22));
     }
 
 }
