@@ -8,6 +8,8 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -262,18 +264,35 @@ public class Main {
 
 //        System.out.println(Solution.passwordCracker("e6fb06210fafc02fd7479ddbed2d042cc3a5155e"));
 
-        long START_TIME = System.currentTimeMillis();
-//        System.out.println(Solution.passwordCracker("130b9d1f6651ea00d9070dd797982dbcf1b6aeac"));
-        System.out.println(Solution.passwordCracker("e6fb06210fafc02fd7479ddbed2d042cc3a5155e"));
-        System.out.println(Solution.passwordCracker("a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"));
-        long STOP_TIME = System.currentTimeMillis();
-        long duration = STOP_TIME - START_TIME;
-        System.out.println("Password cracked in " + TimeUnit.MILLISECONDS.toSeconds(duration) + "." + TimeUnit.MILLISECONDS.toMillis(duration) + " sec.");
+//        long START_TIME = System.currentTimeMillis();
+////        System.out.println(Solution.passwordCracker("130b9d1f6651ea00d9070dd797982dbcf1b6aeac"));
+//        System.out.println(Solution.passwordCracker("e6fb06210fafc02fd7479ddbed2d042cc3a5155e"));
+//        System.out.println(Solution.passwordCracker("a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"));
+//        long STOP_TIME = System.currentTimeMillis();
+//        long duration = STOP_TIME - START_TIME;
+//        System.out.println("Password cracked in " + TimeUnit.MILLISECONDS.toSeconds(duration) + "." + TimeUnit.MILLISECONDS.toMillis(duration) + " sec.");
 
 //        System.out.println(Solution.getSha1("z"));
 //        System.out.println(Solution.getSha12("z"));
 
 //        System.out.println(Solution.passwordCracker("f7a9e24777ec23212c54d7a350bc5bea5477fdbb"));
+
+
+        System.out.println(TopWords.top3("a a a  b  c c  d d d d  e e e e e"));
+        System.out.println(TopWords.top3("e e e e DDD ddd DdD: ddd ddd aa aA Aa, bb cc cC e e e"));
+        System.out.println(TopWords.top3("  //wont won't won't "));
+        System.out.println(TopWords.top3("  , e   .. "));
+        System.out.println(TopWords.top3("  ...  "));
+        System.out.println(TopWords.top3("  '  "));
+        System.out.println(TopWords.top3("  '''  "));
+        System.out.println(TopWords.top3(Stream
+                .of("In a village of La Mancha, the name of which I have no desire to call to",
+                        "mind, there lived not long since one of those gentlemen that keep a lance",
+                        "in the lance-rack, an old buckler, a lean hack, and a greyhound for",
+                        "coursing. An olla of rather more beef than mutton, a salad on most",
+                        "nights, scraps on Saturdays, lentils on Fridays, and a pigeon or so extra",
+                        "on Sundays, made away with three-quarters of his income.")
+                .collect(Collectors.joining("\n")) ));
 
 
     }
