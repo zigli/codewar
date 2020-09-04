@@ -1,8 +1,11 @@
 package cf.tilgiz.codewars;
 
 import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -309,20 +312,31 @@ public class Main {
 //        System.out.println(TimeUtils.convertTime(-33));
 
 
-        FindOccurrence occurrence = new FindOccurrence();
-        String string = "This is an example. Return the nth occurrence of example in this example string.";
-        System.out.println(occurrence.findOccurrence("example", string, 3));
+//        FindOccurrence occurrence = new FindOccurrence();
+//        String string = "This is an example. Return the nth occurrence of example in this example string.";
+//        System.out.println(occurrence.findOccurrence("example", string, 3));
+//
+//        System.out.println(occurrence.findOccurrence("TestTest", "TestTestTestTest", 4));
 
-        System.out.println(occurrence.findOccurrence("TestTest", "TestTestTestTest", 4));
 
-//        Pattern pattern = Pattern.compile("TestTest");
-//        Matcher matcher = pattern.matcher("TestTestTestTest");
-//        System.out.println(matcher.groupCount());
-//        while (matcher.find()) {
-//            System.out.println(matcher.group());
+//        String[][] tests = {
+//                {"hello", "0.1.2.2.3"},
+//                {"heLlo", "0.1.2.2.3"},
+//                {"helLo", "0.1.2.2.3"},
+//                {"Hippopotomonstrosesquippedaliophobia", "0.1.2.2.3.2.3.4.3.5.3.6.7.4.8.3.7.9.7.10.11.1.2.2.9.12.13.14.1.3.2.0.3.15.1.13"},
+//        };
+//        for(String[] arr: tests){
+//            System.out.println(Crypto.wordPattern(arr[0]));
 //        }
 
 
+        String[] array = new String [] {"Begin on Road A","Right on Road B","Right on Road C","Left on Road D"};
+
+        String[] objects = IntStream.rangeClosed(1, array.length)
+                .mapToObj(i -> array[array.length - i])
+                .toArray(String[]::new);
+
+        System.out.println(Arrays.toString(objects));
     }
 
 }
