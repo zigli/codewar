@@ -295,8 +295,16 @@ public class Main {
 //        System.out.println(s.indexOf("f", 22));
 
 
-        System.out.println(LineNumbering.number(Arrays.asList("a", "b", "c")));
-        System.out.println(LineNumbering.number(Arrays.asList("", "", "", "", "")));
+//        System.out.println(LineNumbering.number(Arrays.asList("a", "b", "c")));
+//        System.out.println(LineNumbering.number(Arrays.asList("", "", "", "", "")));
+
+
+        System.out.println(TimeUtils.convertTime(900061));
+        System.out.println(TimeUtils.convertTime(-90061));
+        System.out.println(TimeUtils.convertTime(93660));
+        System.out.println(TimeUtils.convertTime(7260));
+        System.out.println(TimeUtils.convertTime(98));
+        System.out.println(TimeUtils.convertTime(-33));
 
     }
 
