@@ -1,15 +1,6 @@
 package cf.tilgiz.codewars;
 
-import javax.xml.bind.ParseConversionEvent;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.Arrays;
 
 public class Main {
 
@@ -299,9 +290,14 @@ public class Main {
 //        System.out.println(Solution.solve("100*b/y"));
 //        System.out.println(Solution.solve("a+b-c/d*30"));
 //        System.out.println(Solution.solve("a*b/c+50"));
-        System.out.println(Solution.solve("54/84/i+h-i/l-t+c/15/f/u-6+f-64/15"));
+//        System.out.println(Solution.solve("54/84/i+h-i/l-t+c/15/f/u-6+f-64/15"));
 //        String s = "54/84/i+h-i/l-t+c/15/f/u-6+f-64/15";
 //        System.out.println(s.indexOf("f", 22));
+
+
+        System.out.println(LineNumbering.number(Arrays.asList("a", "b", "c")));
+        System.out.println(LineNumbering.number(Arrays.asList("", "", "", "", "")));
+
     }
 
 }
