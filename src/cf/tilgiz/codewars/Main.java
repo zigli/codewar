@@ -1,6 +1,8 @@
 package cf.tilgiz.codewars;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -299,12 +301,27 @@ public class Main {
 //        System.out.println(LineNumbering.number(Arrays.asList("", "", "", "", "")));
 
 
-        System.out.println(TimeUtils.convertTime(900061));
-        System.out.println(TimeUtils.convertTime(-90061));
-        System.out.println(TimeUtils.convertTime(93660));
-        System.out.println(TimeUtils.convertTime(7260));
-        System.out.println(TimeUtils.convertTime(98));
-        System.out.println(TimeUtils.convertTime(-33));
+//        System.out.println(TimeUtils.convertTime(900061));
+//        System.out.println(TimeUtils.convertTime(-90061));
+//        System.out.println(TimeUtils.convertTime(93660));
+//        System.out.println(TimeUtils.convertTime(7260));
+//        System.out.println(TimeUtils.convertTime(98));
+//        System.out.println(TimeUtils.convertTime(-33));
+
+
+        FindOccurrence occurrence = new FindOccurrence();
+        String string = "This is an example. Return the nth occurrence of example in this example string.";
+        System.out.println(occurrence.findOccurrence("example", string, 3));
+
+        System.out.println(occurrence.findOccurrence("TestTest", "TestTestTestTest", 4));
+
+//        Pattern pattern = Pattern.compile("TestTest");
+//        Matcher matcher = pattern.matcher("TestTestTestTest");
+//        System.out.println(matcher.groupCount());
+//        while (matcher.find()) {
+//            System.out.println(matcher.group());
+//        }
+
 
     }
 
