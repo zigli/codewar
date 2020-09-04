@@ -330,14 +330,19 @@ public class Main {
 //        }
 
 
-        String[] array = new String [] {"Begin on Road A","Right on Road B","Right on Road C","Left on Road D"};
-        System.out.println(Arrays.toString(Solution.solve(array)));
+//        String[] array = new String [] {"Begin on Road A","Right on Road B","Right on Road C","Left on Road D"};
+//        System.out.println(Arrays.toString(Solution.solve(array)));
 //
 //        String[] objects = IntStream.rangeClosed(1, array.length)
 //                .mapToObj(i -> array[array.length - i])
 //                .toArray(String[]::new);
 //
 //        System.out.println(Arrays.toString(objects));
+
+
+        System.out.println(Kata.dutyFree(12, 50, 1000));
+        System.out.println(Kata.dutyFree(17,10,500));
+        System.out.println(Kata.dutyFree(24,35,300));
     }
 
 }

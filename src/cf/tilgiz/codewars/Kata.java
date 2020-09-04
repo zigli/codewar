@@ -120,27 +120,36 @@ public class Kata {
 
     public static long nextBiggerNumber1(long n) {
         return LongStream.range(n + 1,
-                    Long.parseLong(
+                Long.parseLong(
                         new StringBuilder(
-                            Stream.of(String.valueOf(n).split(""))
-                            .sorted()
-                            .collect(Collectors.joining())
+                                Stream.of(String.valueOf(n).split(""))
+                                        .sorted()
+                                        .collect(Collectors.joining())
                         )
-                        .reverse()
-                        .toString()
-                    ) + 1
-                )
+                                .reverse()
+                                .toString()
+                ) + 1
+        )
                 .filter(v -> Stream.of(String.valueOf(n).split(""))
-                    .sorted()
-                    .collect(Collectors.joining())
-                    .equals(Stream.of(String.valueOf(v).split(""))
                         .sorted()
                         .collect(Collectors.joining())
-                    )
+                        .equals(Stream.of(String.valueOf(v).split(""))
+                                .sorted()
+                                .collect(Collectors.joining())
+                        )
                 )
                 .findFirst()
                 .orElse(-1);
     }
 
+
+    public static int dutyFree(int normPrice, int discount, int hol) {
+//        float pers = (float) discount / 100;
+//
+//        System.out.println(hol / (normPrice * pers));
+
+        return (int) (hol / (normPrice * ((float)discount / 100)));
+
+    }
 
 }
