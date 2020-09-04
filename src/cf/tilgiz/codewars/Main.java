@@ -331,12 +331,13 @@ public class Main {
 
 
         String[] array = new String [] {"Begin on Road A","Right on Road B","Right on Road C","Left on Road D"};
-
-        String[] objects = IntStream.rangeClosed(1, array.length)
-                .mapToObj(i -> array[array.length - i])
-                .toArray(String[]::new);
-
-        System.out.println(Arrays.toString(objects));
+        System.out.println(Arrays.toString(Solution.solve(array)));
+//
+//        String[] objects = IntStream.rangeClosed(1, array.length)
+//                .mapToObj(i -> array[array.length - i])
+//                .toArray(String[]::new);
+//
+//        System.out.println(Arrays.toString(objects));
     }
 
 }

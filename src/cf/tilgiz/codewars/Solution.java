@@ -4,10 +4,9 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.Collections;
-import java.util.HashMap;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Ilgiz Tukhvatov
@@ -343,11 +342,30 @@ public class Solution {
 
     }
 
-    public static String [] solve(String [] arr){
+    public static String[] solve(String[] arr) {
+        System.out.println(Arrays.toString(arr));
         for (int i = 0; i < arr.length / 2; i++) {
             String temp = arr[i];
             arr[i] = arr[arr.length - 1 - i];
             arr[arr.length - 1 - i] = temp;
+        }
+        System.out.println(Arrays.toString(arr));
+        String tempItem = "";
+        String temp = "";
+        for (int i = 0; i < arr.length; i++) {
+            Pattern pattern = Pattern.compile("(.*) on");
+            Matcher matcher = pattern.matcher(tempItem);
+            if (matcher.find()) {
+                temp = matcher.group(0);
+            }
+            tempItem = arr[i];
+            if (i == 0) {
+                arr[i] = arr[i].replaceAll("(.*) on", "Begin on");
+            }
+            else {
+                if(temp.contains("Right on")) arr[i] = arr[i].replaceAll("(.*) on", "Left on");
+                if(temp.contains("Left on")) arr[i] = arr[i].replaceAll("(.*) on", "Right on");
+            }
         }
         return arr;
     }
