@@ -348,8 +348,12 @@ public class Main {
 //        System.out.println(Kata.subtractSum(325));
 
 
-        Solution sol = new Solution();
-        System.out.println(Arrays.toString(sol.splitByValue(5, new int[]{1, 3, 5, 7, 6, 4, 2})));
+//        Solution sol = new Solution();
+//        System.out.println(Arrays.toString(sol.splitByValue(5, new int[]{1, 3, 5, 7, 6, 4, 2})));
+
+
+        System.out.println(Kata.alternateCase("abc"));
+
     }
 
 }

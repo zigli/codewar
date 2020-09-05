@@ -276,4 +276,24 @@ public class Kata {
         return nOrig - sum;
     }
 
+
+    static String alternateCase(final String string) {
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < string.length(); i++) {
+            if(Character.isLowerCase(string.charAt(i))) stringBuffer.append(String.valueOf(string.charAt(i)).toUpperCase());
+            else stringBuffer.append(String.valueOf(string.charAt(i)).toLowerCase());
+//            if((int)string.charAt(i) > 91) stringBuffer.append(String.valueOf(string.charAt(i)).toUpperCase());
+//            else stringBuffer.append(String.valueOf(string.charAt(i)).toLowerCase());
+        }
+        return stringBuffer.toString();
+
+//        return string.chars()
+//                .mapToObj(i -> new Character((char) i))
+//                .map(i -> Character.isUpperCase(i) ? Character.toLowerCase(i) : Character.toUpperCase(i))
+//                .map(i -> i.toString())
+//                .collect(Collectors.joining(""));
+
+
+    }
+
 }
