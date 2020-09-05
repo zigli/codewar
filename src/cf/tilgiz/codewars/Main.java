@@ -340,9 +340,12 @@ public class Main {
 //        System.out.println(Arrays.toString(objects));
 
 
-        System.out.println(Kata.dutyFree(12, 50, 1000));
-        System.out.println(Kata.dutyFree(17,10,500));
-        System.out.println(Kata.dutyFree(24,35,300));
+//        System.out.println(Kata.dutyFree(12, 50, 1000));
+//        System.out.println(Kata.dutyFree(17,10,500));
+//        System.out.println(Kata.dutyFree(24,35,300));
+
+//        System.out.println(Kata.subtractSum(10));
+        System.out.println(Kata.subtractSum(325));
     }
 
 }

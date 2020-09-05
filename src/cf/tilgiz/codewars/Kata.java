@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
@@ -148,8 +149,131 @@ public class Kata {
 //
 //        System.out.println(hol / (normPrice * pers));
 
-        return (int) (hol / (normPrice * ((float)discount / 100)));
+        return (int) (hol / (normPrice * ((float) discount / 100)));
 
+    }
+
+    public static String subtractSum(int n) {
+        String[] fruits = new String[101];
+        fruits[1] = "kiwi";
+        fruits[2] = "pear";
+        fruits[3] = "kiwi";
+        fruits[4] = "banana";
+        fruits[5] = "melon";
+        fruits[6] = "banana";
+        fruits[7] = "melon";
+        fruits[8] = "pineapple";
+        fruits[9] = "apple";
+        fruits[10] = "pineapple";
+        fruits[11] = "cucumber";
+        fruits[12] = "pineapple";
+        fruits[13] = "cucumber";
+        fruits[14] = "orange";
+        fruits[15] = "grape";
+        fruits[16] = "orange";
+        fruits[17] = "grape";
+        fruits[18] = "apple";
+        fruits[19] = "grape";
+        fruits[20] = "cherry";
+        fruits[21] = "pear";
+        fruits[22] = "cherry";
+        fruits[23] = "pear";
+        fruits[24] = "kiwi";
+        fruits[25] = "banana";
+        fruits[26] = "kiwi";
+        fruits[27] = "apple";
+        fruits[28] = "melon";
+        fruits[29] = "banana";
+        fruits[30] = "melon";
+        fruits[31] = "pineapple";
+        fruits[32] = "melon";
+        fruits[33] = "pineapple";
+        fruits[34] = "cucumber";
+        fruits[35] = "orange";
+        fruits[36] = "apple";
+        fruits[37] = "orange";
+        fruits[38] = "grape";
+        fruits[39] = "orange";
+        fruits[40] = "grape";
+        fruits[41] = "cherry";
+        fruits[42] = "pear";
+        fruits[43] = "cherry";
+        fruits[44] = "pear";
+        fruits[45] = "apple";
+        fruits[46] = "pear";
+        fruits[47] = "kiwi";
+        fruits[48] = "banana";
+        fruits[49] = "kiwi";
+        fruits[50] = "banana";
+        fruits[51] = "melon";
+        fruits[52] = "pineapple";
+        fruits[53] = "melon";
+        fruits[54] = "apple";
+        fruits[55] = "cucumber";
+        fruits[56] = "pineapple";
+        fruits[57] = "cucumber";
+        fruits[58] = "orange";
+        fruits[59] = "cucumber";
+        fruits[60] = "orange";
+        fruits[61] = "grape";
+        fruits[62] = "cherry";
+        fruits[63] = "apple";
+        fruits[64] = "cherry";
+        fruits[65] = "pear";
+        fruits[66] = "cherry";
+        fruits[67] = "pear";
+        fruits[68] = "kiwi";
+        fruits[69] = "pear";
+        fruits[70] = "kiwi";
+        fruits[71] = "banana";
+        fruits[72] = "apple";
+        fruits[73] = "banana";
+        fruits[74] = "melon";
+        fruits[75] = "pineapple";
+        fruits[76] = "melon";
+        fruits[77] = "pineapple";
+        fruits[78] = "cucumber";
+        fruits[79] = "pineapple";
+        fruits[80] = "cucumber";
+        fruits[81] = "apple";
+        fruits[82] = "grape";
+        fruits[83] = "orange";
+        fruits[84] = "grape";
+        fruits[85] = "cherry";
+        fruits[86] = "grape";
+        fruits[87] = "cherry";
+        fruits[88] = "pear";
+        fruits[89] = "cherry";
+        fruits[90] = "apple";
+        fruits[91] = "kiwi";
+        fruits[92] = "banana";
+        fruits[93] = "kiwi";
+        fruits[94] = "banana";
+        fruits[95] = "melon";
+        fruits[96] = "banana";
+        fruits[97] = "melon";
+        fruits[98] = "pineapple";
+        fruits[99] = "apple";
+        fruits[100] = "pineapple";
+
+        int result = n;
+        do{
+            result = getResult(result);
+        }while (result > 100);
+
+        return fruits[result];
+    }
+
+    public static int getResult (int n){
+        int sum = 0;
+        int nOrig = n;
+        while (n > 0) {
+            int d = n / 10;
+            int k = n - d * 10;
+            n = d;
+            sum += k;
+        }
+        return nOrig - sum;
     }
 
 }
