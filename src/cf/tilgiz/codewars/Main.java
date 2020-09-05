@@ -345,7 +345,11 @@ public class Main {
 //        System.out.println(Kata.dutyFree(24,35,300));
 
 //        System.out.println(Kata.subtractSum(10));
-        System.out.println(Kata.subtractSum(325));
+//        System.out.println(Kata.subtractSum(325));
+
+
+        Solution sol = new Solution();
+        System.out.println(Arrays.toString(sol.splitByValue(5, new int[]{1, 3, 5, 7, 6, 4, 2})));
     }
 
 }

@@ -369,4 +369,17 @@ public class Solution {
         }
         return arr;
     }
+
+
+    public int[] splitByValue(int k, int[] elements) {
+        ArrayList<Integer> lt = new ArrayList<>();
+        ArrayList<Integer> gt = new ArrayList<>();
+        for (int item: elements ) {
+            if (item < k) lt.add(item);
+            else gt.add(item);
+        }
+        lt.addAll(gt);
+        int[] array = lt.stream().mapToInt(i->i).toArray();
+        return array;
+    }
 }
