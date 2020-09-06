@@ -352,7 +352,14 @@ public class Main {
 //        System.out.println(Arrays.toString(sol.splitByValue(5, new int[]{1, 3, 5, 7, 6, 4, 2})));
 
 
-        System.out.println(Kata.alternateCase("abc"));
+//        System.out.println(Kata.alternateCase("abc"));
+
+
+//        System.out.println(Solution.solveReverse("codewars"));
+//        System.out.println(Solution.solveReverse("your code"));
+//        System.out.println(Solution.solveReverse("qzndndzpgksa rj moblgswmcrvqxotpfk jobocy yamp zx foek eawkhr"));
+//        System.out.println(Solution.solveReverse("oxsrqwzo xlgbeuwbuyyzwdyfsulitmoyfozt tyzkdddyvuvd hdawfwiqgsqv osdwbmis pybwggukgtylxzqu faee czdjahpvh"));
+        System.out.println(Solution.solveReverse("voexjfaw mb ajlf oaeviv yufq dxrvoxmcrxsxprgjqbfchxvf czmy hihqhonj ybul lpiq ig xb yl dmyf hn djqqjm ylyc idul cn fo jdcbybyzsk nwmqut"));
 
     }
 

@@ -1,5 +1,7 @@
 package cf.tilgiz.codewars;
 
+import com.sun.org.apache.xerces.internal.xs.StringList;
+
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -7,6 +9,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
 /**
  * @author Ilgiz Tukhvatov
@@ -381,5 +384,38 @@ public class Solution {
         lt.addAll(gt);
         int[] array = lt.stream().mapToInt(i->i).toArray();
         return array;
+    }
+
+    public static String solveReverse(String s){
+//        System.out.println(s);
+//        System.out.println();
+/*
+        HashMap<Integer,Integer> hashMap = new LinkedHashMap<>();
+        String[] split = s.split(" ");
+        int index = 0;
+        for (int i = 0; i < split.length; i++) {
+//            System.out.println(split[i]);
+//            int start = s.replaceAll(" ", "").indexOf(split[i],index);
+//            int stop = s.replaceAll(" ", "").indexOf(split[i],index) + split[i].length();
+            hashMap.put(s.replaceAll(" ", "").indexOf(split[i],index),s.replaceAll(" ", "").indexOf(split[i],index) + split[i].length());
+            index = s.replaceAll(" ", "").indexOf(split[i],index) + split[i].length();
+        }
+        StringBuilder reverse = new StringBuilder(s.replaceAll(" ", "")).reverse();
+        StringJoiner joiner = new StringJoiner(" ");
+        for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
+//            System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
+//            System.out.println(reverse.substring(entry.getKey(), entry.getValue()));
+            joiner.add(reverse.substring(entry.getKey(), entry.getValue()));
+        }
+//        System.out.println(hashMap);
+        return joiner.toString();
+*/
+
+        StringBuilder str = new StringBuilder(s.replaceAll(" ", "")).reverse();
+        IntStream.range(0, s.length())
+                .filter(i -> s.charAt(i) == ' ')
+//                .forEach(j -> System.out.println(j));
+                .forEach(j -> str.insert(j, ' '));
+        return str.toString();
     }
 }
