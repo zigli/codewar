@@ -368,18 +368,12 @@ public class Main {
 //        System.out.println(HQ.HQ9('9'));
 
 
-        System.out.println(FindOdd.findIt(new int[]{20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5}));
+//        System.out.println(FindOdd.findIt(new int[]{20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5}));
 
-//        String[] array = {"name1","name2","name3","name4", "name5", "name2"};
-//        int[] array = {20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5};
-//        Map<Integer, List<Integer>> result =
-//                IntStream.range(0, array.length)
-//                        .boxed()
-//                        .collect(Collectors.groupingBy(i -> array[i], Collectors.toList()));
-//        result.forEach((k, v) -> {
-////            if (v.size() % 2 != 0 ) System.out.println(k + " " + v.size());
-//            if (v.size() % 2 != 0 ) return v.size();
-//        });
+
+        CodeWars objTF = new CodeWars();
+        System.out.println(objTF.encode("hey"));
+        System.out.println(objTF.decode("100111111000111001000010000111111000000111001111000111110110111000010111"));
     }
 
 }

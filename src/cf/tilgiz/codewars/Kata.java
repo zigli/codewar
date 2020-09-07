@@ -29,6 +29,7 @@ public class Kata {
 
     public static String longToIP(long ip) {
         String binaryIp = String.format("%32s", Long.toBinaryString(ip)).replace(' ', '0');
+//        System.out.println(binaryIp);
         return Integer.parseInt(binaryIp.substring(0, 8), 2) + "."
                 + Integer.parseInt(binaryIp.substring(8, 16), 2) + "."
                 + Integer.parseInt(binaryIp.substring(16, 24), 2) + "."
