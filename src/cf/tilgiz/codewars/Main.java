@@ -359,8 +359,10 @@ public class Main {
 //        System.out.println(Solution.solveReverse("your code"));
 //        System.out.println(Solution.solveReverse("qzndndzpgksa rj moblgswmcrvqxotpfk jobocy yamp zx foek eawkhr"));
 //        System.out.println(Solution.solveReverse("oxsrqwzo xlgbeuwbuyyzwdyfsulitmoyfozt tyzkdddyvuvd hdawfwiqgsqv osdwbmis pybwggukgtylxzqu faee czdjahpvh"));
-        System.out.println(Solution.solveReverse("voexjfaw mb ajlf oaeviv yufq dxrvoxmcrxsxprgjqbfchxvf czmy hihqhonj ybul lpiq ig xb yl dmyf hn djqqjm ylyc idul cn fo jdcbybyzsk nwmqut"));
+//        System.out.println(Solution.solveReverse("voexjfaw mb ajlf oaeviv yufq dxrvoxmcrxsxprgjqbfchxvf czmy hihqhonj ybul lpiq ig xb yl dmyf hn djqqjm ylyc idul cn fo jdcbybyzsk nwmqut"));
 
+
+        System.out.println(HQ.HQ9('9'));
     }
 
 }
