@@ -2,8 +2,11 @@ package cf.tilgiz.codewars;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -362,7 +365,21 @@ public class Main {
 //        System.out.println(Solution.solveReverse("voexjfaw mb ajlf oaeviv yufq dxrvoxmcrxsxprgjqbfchxvf czmy hihqhonj ybul lpiq ig xb yl dmyf hn djqqjm ylyc idul cn fo jdcbybyzsk nwmqut"));
 
 
-        System.out.println(HQ.HQ9('9'));
+//        System.out.println(HQ.HQ9('9'));
+
+
+        System.out.println(FindOdd.findIt(new int[]{20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5}));
+
+//        String[] array = {"name1","name2","name3","name4", "name5", "name2"};
+//        int[] array = {20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5};
+//        Map<Integer, List<Integer>> result =
+//                IntStream.range(0, array.length)
+//                        .boxed()
+//                        .collect(Collectors.groupingBy(i -> array[i], Collectors.toList()));
+//        result.forEach((k, v) -> {
+////            if (v.size() % 2 != 0 ) System.out.println(k + " " + v.size());
+//            if (v.size() % 2 != 0 ) return v.size();
+//        });
     }
 
 }
