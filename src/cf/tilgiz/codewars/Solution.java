@@ -431,13 +431,13 @@ public class Solution {
         }
 //        System.out.println();
 //        System.out.println("cycle:" + cycle);
-//        System.out.println("count:" + count);
-//        System.out.println("n:" + n);
-//        System.out.println("last:" + last);
-//        System.out.println("n - last " + n + "-" + last + "=" + (n - last));
-        int number = (int) (n - (last));
+        System.out.println("n:" + n);
+        System.out.println("count:" + count);
+        System.out.println("last:" + last);
+        System.out.println("n - last => " + n + "-" + last + "=" + (n - last));
+        long number = n - (last);
         if (cycle < 10) {
-            return number;
+            return (int) number;
         } else {
 //            int newnum = number - 1;
 //            System.out.println(newnum);
@@ -445,8 +445,35 @@ public class Solution {
         }
     }
 
+    public static int solve1(long n) {
+        System.out.println("n:" + n);
+        long i = 0;
+        long num = 0;
+        while (num < n) {
+            num = i * (i + 1) / 2;
+//            System.out.println(num);
+            i++;
+        }
+        System.out.println(i);
+        i--;i--;
+        System.out.println(i);
+        long last = i * (i + 1) / 2;
+        System.out.println("last:" + last);
+        System.out.println(num);
+        return 1;
+    }
+// 3 digits
+//    2889=192+(n-1)*3
+//    n = (2889-192)/3 + 1
+//    Sn=n/2(2a1+(n-1)d)
+
+//    4 digits
+//    38889=2893+(n-1)*4
+//    n=(38889-2893)/4+1
+//    Sn=n(a1+an)/2
+
     public static int nthNumber(long n) {
-        System.out.println(n);
+//        System.out.println(n);
         int l = 0;
         long num = 0;
         while (num < n) {
