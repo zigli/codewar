@@ -376,7 +376,9 @@ public class Main {
 //        System.out.println(objTF.decode("100111111000111001000010000111111000000111001111000111110110111000010111"));
 
 
-        System.out.println(Arrays.toString(Solution.nameValue(new String[]{"abc", "abc abc"})));
+//        System.out.println(Arrays.toString(Solution.nameValue(new String[]{"abc", "abc abc"})));
+
+        System.out.println(Arrays.toString(MexicanWave.wave("hello ilgiz")));
 
     }
 
