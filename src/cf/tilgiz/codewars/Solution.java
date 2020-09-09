@@ -437,6 +437,16 @@ public class Solution {
             out[i] = (i + 1) * count;
         }
         return out;
+
+
+//        int[] result = new int[arr.length];
+//        for (int i = 0; i < arr.length; i++){
+//            result[i] = arr[i].chars().filter(e -> e != ' ').map(e -> e - 96).sum() * (i+1);
+//        }
+//        return result;
+
+//        return rangeClosed(1, arr.length).map(i -> i * arr[i - 1].chars().reduce(0, (s, c) -> s + Math.max(c - 96, 0))).toArray();
+
     }
 
 }
