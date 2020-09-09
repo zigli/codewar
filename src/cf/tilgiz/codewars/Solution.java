@@ -1,7 +1,5 @@
 package cf.tilgiz.codewars;
 
-import com.sun.org.apache.xerces.internal.xs.StringList;
-
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -364,10 +362,9 @@ public class Solution {
             tempItem = arr[i];
             if (i == 0) {
                 arr[i] = arr[i].replaceAll("(.*) on", "Begin on");
-            }
-            else {
-                if(temp.contains("Right on")) arr[i] = arr[i].replaceAll("(.*) on", "Left on");
-                if(temp.contains("Left on")) arr[i] = arr[i].replaceAll("(.*) on", "Right on");
+            } else {
+                if (temp.contains("Right on")) arr[i] = arr[i].replaceAll("(.*) on", "Left on");
+                if (temp.contains("Left on")) arr[i] = arr[i].replaceAll("(.*) on", "Right on");
             }
         }
         return arr;
@@ -377,16 +374,16 @@ public class Solution {
     public int[] splitByValue(int k, int[] elements) {
         ArrayList<Integer> lt = new ArrayList<>();
         ArrayList<Integer> gt = new ArrayList<>();
-        for (int item: elements ) {
+        for (int item : elements) {
             if (item < k) lt.add(item);
             else gt.add(item);
         }
         lt.addAll(gt);
-        int[] array = lt.stream().mapToInt(i->i).toArray();
+        int[] array = lt.stream().mapToInt(i -> i).toArray();
         return array;
     }
 
-    public static String solveReverse(String s){
+    public static String solveReverse(String s) {
 //        System.out.println(s);
 //        System.out.println();
 /*
@@ -417,5 +414,123 @@ public class Solution {
 //                .forEach(j -> System.out.println(j));
                 .forEach(j -> str.insert(j, ' '));
         return str.toString();
+    }
+
+    public static int solve(long n) {
+        long count = 0, last = 0;
+        long cycle = 0;
+        for (long i = 1; count < n; i++, cycle++) {
+            last = count;
+            for (long j = 1; j <= i; j++) {
+                count = count + String.valueOf(j).length();
+//                count = count + 1;
+//                System.out.print(j);
+            }
+
+//            System.out.print("");
+        }
+//        System.out.println();
+//        System.out.println("cycle:" + cycle);
+        System.out.println("n:" + n);
+        System.out.println("count:" + count);
+        System.out.println("last:" + last);
+        System.out.println("n - last => " + n + "-" + last + "=" + (n - last));
+        long number = n - (last);
+        if (cycle < 10) {
+            return (int) number;
+        } else {
+//            int newnum = number - 1;
+//            System.out.println(newnum);
+            return nthNumber(number);
+        }
+    }
+
+    public static int solve1(long n) {
+        System.out.println("n:" + n);
+        long i = 0;
+        long num = 0;
+        while (num < n) {
+            num = i * (i + 1) / 2;
+//            System.out.println(num);
+            i++;
+        }
+        System.out.println(i);
+        i--;i--;
+        System.out.println(i);
+        long last = i * (i + 1) / 2;
+        System.out.println("last:" + last);
+        System.out.println(num);
+        return 1;
+    }
+// 3 digits
+//    2889=192+(n-1)*3
+//    n = (2889-192)/3 + 1
+//    Sn=n/2(2a1+(n-1)d)
+
+//    4 digits
+//    38889=2893+(n-1)*4
+//    n=(38889-2893)/4+1
+//    Sn=n(a1+an)/2
+
+    public static int nthNumber(long n) {
+//        System.out.println(n);
+        int l = 0;
+        long num = 0;
+        while (num < n) {
+//            System.out.println(l);
+            num = (long) ((9 * (l + 1) * Math.pow(10, l) - Math.pow(10, l + 1) + 1) / 9);
+//            System.out.println(num);
+            l++;
+//            System.out.println("========");
+        }
+        --l;
+//        System.out.println(num);
+//        System.out.println("l=" + l);
+        long i = (long) (Math.pow(10, l) - 1 - Math.floor((num - n) / l));
+//        System.out.println(i);
+        long l1 = (long) (num - n) % l;
+//        System.out.println(l1);
+        int pos = (int) (String.valueOf(i).length() - 1 - l1);
+        return Integer.parseInt(String.valueOf(String.valueOf(i).charAt(pos)));
+    }
+
+    public static int nthNumber100(int n) {
+        int sum = 0, num = 0;
+        do {
+            num += 1;
+            sum += String.valueOf(num).length();
+        } while (n > sum);
+//        System.out.println("n:" + n);
+//        System.out.println("num:" + num);
+//        System.out.println("sum:" + sum);
+        String numStr = String.valueOf(num);
+        int pos = n - (sum - numStr.length()) - 1;
+        int dig = Integer.parseInt(String.valueOf(numStr.charAt(pos)));
+        return dig;
+    }
+
+    public static int[] nameValue(String[] arr) {
+        int[] out = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].replaceAll(" ", "");
+            int count = 0;
+            for (int j = 0; j < arr[i].length(); j++) {
+                count += (int) arr[i].charAt(j) - 96;
+//                System.out.println(i1);
+            }
+//            System.out.println(count);
+            out[i] = (i + 1) * count;
+        }
+        return out;
+
+
+//        int[] result = new int[arr.length];
+//        for (int i = 0; i < arr.length; i++){
+//            result[i] = arr[i].chars().filter(e -> e != ' ').map(e -> e - 96).sum() * (i+1);
+//        }
+//        return result;
+
+//        return rangeClosed(1, arr.length).map(i -> i * arr[i - 1].chars().reduce(0, (s, c) -> s + Math.max(c - 96, 0))).toArray();
+
     }
 }
