@@ -364,10 +364,9 @@ public class Solution {
             tempItem = arr[i];
             if (i == 0) {
                 arr[i] = arr[i].replaceAll("(.*) on", "Begin on");
-            }
-            else {
-                if(temp.contains("Right on")) arr[i] = arr[i].replaceAll("(.*) on", "Left on");
-                if(temp.contains("Left on")) arr[i] = arr[i].replaceAll("(.*) on", "Right on");
+            } else {
+                if (temp.contains("Right on")) arr[i] = arr[i].replaceAll("(.*) on", "Left on");
+                if (temp.contains("Left on")) arr[i] = arr[i].replaceAll("(.*) on", "Right on");
             }
         }
         return arr;
@@ -377,16 +376,16 @@ public class Solution {
     public int[] splitByValue(int k, int[] elements) {
         ArrayList<Integer> lt = new ArrayList<>();
         ArrayList<Integer> gt = new ArrayList<>();
-        for (int item: elements ) {
+        for (int item : elements) {
             if (item < k) lt.add(item);
             else gt.add(item);
         }
         lt.addAll(gt);
-        int[] array = lt.stream().mapToInt(i->i).toArray();
+        int[] array = lt.stream().mapToInt(i -> i).toArray();
         return array;
     }
 
-    public static String solveReverse(String s){
+    public static String solveReverse(String s) {
 //        System.out.println(s);
 //        System.out.println();
 /*
@@ -418,4 +417,26 @@ public class Solution {
                 .forEach(j -> str.insert(j, ' '));
         return str.toString();
     }
+
+    public static int solve(long n) {
+
+        return 1;
+    }
+
+
+    public static int[] nameValue(String[] arr) {
+        int[] out = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].replaceAll(" ", "");
+            int count = 0;
+            for (int j = 0; j < arr[i].length(); j++) {
+                count += (int) arr[i].charAt(j) - 96;
+//                System.out.println(i1);
+            }
+//            System.out.println(count);
+            out[i] = (i + 1) * count;
+        }
+        return out;
+    }
+
 }

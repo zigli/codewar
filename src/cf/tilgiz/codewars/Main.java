@@ -371,9 +371,13 @@ public class Main {
 //        System.out.println(FindOdd.findIt(new int[]{20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5}));
 
 
-        CodeWars objTF = new CodeWars();
-        System.out.println(objTF.encode("hey"));
-        System.out.println(objTF.decode("100111111000111001000010000111111000000111001111000111110110111000010111"));
+//        CodeWars objTF = new CodeWars();
+//        System.out.println(objTF.encode("hey"));
+//        System.out.println(objTF.decode("100111111000111001000010000111111000000111001111000111110110111000010111"));
+
+
+        System.out.println(Arrays.toString(Solution.nameValue(new String[]{"abc", "abc abc"})));
+
     }
 
 }
