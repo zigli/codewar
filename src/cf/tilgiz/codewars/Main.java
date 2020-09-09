@@ -383,6 +383,10 @@ public class Main {
 //        System.out.println(Solution.nthNumber(123456789999999L));
 //        System.out.println(Solution.nthNumber100(33));
 
+//        System.out.println(Arrays.toString(Solution.nameValue(new String[]{"abc", "abc abc"})));
+
+        System.out.println(Arrays.toString(MexicanWave.wave("hello ilgiz")));
+
     }
 
 }
