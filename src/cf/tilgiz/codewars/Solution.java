@@ -448,13 +448,15 @@ public class Solution {
     public static int solve1(long n) {
         System.out.println("n:" + n);
         long i = 1, icount = 0, last = 0, num = 0;
-        int temp = 0;
+        int temp = 1;
         while (num < n) {
             int len = String.valueOf(i).length();
-            if(temp != len) System.out.println("len = " + len + "; i = " + i + "; icount = " + icount + "; num = " + num);
+            if (temp != len)
+                System.out.println("len = " + (len - 1) + "; i = " + i + "; icount = " + icount + "; num = " + num);
             icount += len;
             num += icount;
 //            System.out.println("len = " + len + "; i = " + i + "; icount = " + icount + "; num = " + num);
+//            if(temp != len) System.out.println("len = " + len + "; i = " + i + "; icount = " + icount + "; num = " + num);
             i++;
             temp = len;
         }
@@ -463,7 +465,7 @@ public class Solution {
         System.out.println("last = num - icount:" + num + " - " + icount + " => " + last);
         System.out.println("n - last => " + n + "-" + last + "=" + (n - last));
         System.out.println(num);
-        return nthNumber(n-last);
+        return nthNumber(n - last);
 //        return 1;
     }
 // 3 digits

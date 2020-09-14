@@ -393,6 +393,8 @@ public class Main {
 //        double pow = Math.pow(10, n);
 //        long v = (n - 1) * (long) Math.pow(10, n) + ((long) (Math.pow(10, n - 1) - 1) / 9) * 8 * 10 + 9;
 //        System.out.println(v);
+
+
     }
 
 }
