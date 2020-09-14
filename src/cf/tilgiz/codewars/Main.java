@@ -376,10 +376,9 @@ public class Main {
 //        System.out.println(objTF.decode("100111111000111001000010000111111000000111001111000111110110111000010111"));
 
 
-//        System.out.println(Solution.solve(123456L));
-//        System.out.println(Solution.solve1(123456L));
+//        System.out.println(Solution.solve1(100));
 //        System.out.println(Solution.solve1(9999999999L));
-//        System.out.println(Solution.solve(999999999999999999L));
+        System.out.println(Solution.solve1(999999999999999999L));
 //        System.out.println(Solution.nthNumber(123456789999999L));
 //        System.out.println(Solution.nthNumber100(33));
 
@@ -388,7 +387,7 @@ public class Main {
 //        System.out.println(Arrays.toString(MexicanWave.wave("hello ilgiz")));
 
 
-        System.out.println(Kata.dative("virág"));
+//        System.out.println(Kata.dative("virág"));
     }
 
 }

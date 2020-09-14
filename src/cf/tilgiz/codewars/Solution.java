@@ -447,20 +447,24 @@ public class Solution {
 
     public static int solve1(long n) {
         System.out.println("n:" + n);
-        long i = 0;
-        long num = 0;
+        long i = 1, icount = 0, last = 0, num = 0;
+        int temp = 0;
         while (num < n) {
-            num = i * (i + 1) / 2;
-//            System.out.println(num);
+            int len = String.valueOf(i).length();
+            if(temp != len) System.out.println("len = " + len + "; i = " + i + "; icount = " + icount + "; num = " + num);
+            icount += len;
+            num += icount;
+//            System.out.println("len = " + len + "; i = " + i + "; icount = " + icount + "; num = " + num);
             i++;
+            temp = len;
         }
-        System.out.println(i);
-        i--;i--;
-        System.out.println(i);
-        long last = i * (i + 1) / 2;
-        System.out.println("last:" + last);
+        System.out.println("i = " + i + "; icount = " + icount + "; num = " + num);
+        last = num - icount;
+        System.out.println("last = num - icount:" + num + " - " + icount + " => " + last);
+        System.out.println("n - last => " + n + "-" + last + "=" + (n - last));
         System.out.println(num);
-        return 1;
+        return nthNumber(n-last);
+//        return 1;
     }
 // 3 digits
 //    2889=192+(n-1)*3
