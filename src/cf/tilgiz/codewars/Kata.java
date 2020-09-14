@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -295,6 +297,19 @@ public class Kata {
 //                .collect(Collectors.joining(""));
 
 
+    }
+
+
+    public static String dative(String word) {
+        System.out.println(word);
+
+        Pattern pattern = Pattern.compile("[aáoóuúeéiíöőüű]");
+        Matcher matcher = pattern.matcher(word);
+        String find = word;
+        while (matcher.find()) {
+            find = String.valueOf(matcher.group());
+        }
+        return (find.matches("(.*)([aáoóuú])(.*)")) ? word + "nak" : (find.matches("(.*)([eéiíöőüű])(.*)")) ? word + "nek" : word;
     }
 
 }

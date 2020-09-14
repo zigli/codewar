@@ -385,8 +385,10 @@ public class Main {
 
 //        System.out.println(Arrays.toString(Solution.nameValue(new String[]{"abc", "abc abc"})));
 
-        System.out.println(Arrays.toString(MexicanWave.wave("hello ilgiz")));
+//        System.out.println(Arrays.toString(MexicanWave.wave("hello ilgiz")));
 
+
+        System.out.println(Kata.dative("virág"));
     }
 
 }
