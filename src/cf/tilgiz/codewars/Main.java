@@ -266,7 +266,7 @@ public class Main {
 //        System.out.println(Solution.passwordCracker("e6fb06210fafc02fd7479ddbed2d042cc3a5155e"));
 
 //        System.out.println(Runtime.getRuntime().availableProcessors());
-        long START_TIME = System.currentTimeMillis();
+//        long START_TIME = System.currentTimeMillis();
 //        System.out.println(Solution.passwordCracker("4330e2971cd93ada66ce16735a4f28e002fce20d"));
 //        System.out.println(Solution.passwordCracker("592a6e96e2417c82f570b318e37dfb3dac7ab68a"));
 //        System.out.println(Solution.passwordCracker("4faf17233b46977774e50235ad81818571294a5b"));
@@ -275,12 +275,12 @@ public class Main {
 //        System.out.println(Solution.passwordCracker("b54950fd34f2c35c32971c1867a3d323e0f45938"));
 //        System.out.println(Solution.passwordCracker("3929b84d0cff7394ceb3a9651c7624cbe80fbbc5"));
 //        System.out.println(Solution.passwordCracker("a67acd6e68f872b807a1c9afe3a2453564e57877"));
-        System.out.println(Solution.passwordCracker("da39a3ee5e6b4b0d3255bfef95601890afd80709"));
-        long STOP_TIME = System.currentTimeMillis();
-        long duration = STOP_TIME - START_TIME;
-        System.out.println("Password cracked in " + TimeUnit.MILLISECONDS.toSeconds(duration) + "." + TimeUnit.MILLISECONDS.toMillis(duration) + " sec.");
-
-        System.out.println(Solution.getSha1(""));
+//        System.out.println(Solution.passwordCracker("da39a3ee5e6b4b0d3255bfef95601890afd80709"));
+//        long STOP_TIME = System.currentTimeMillis();
+//        long duration = STOP_TIME - START_TIME;
+//        System.out.println("Password cracked in " + TimeUnit.MILLISECONDS.toSeconds(duration) + "." + TimeUnit.MILLISECONDS.toMillis(duration) + " sec.");
+//
+//        System.out.println(Solution.getSha1(""));
 //        System.out.println(Solution.getSha1("qak"));
 //        System.out.println(Solution.getSha1("nnnnn"));
 //        System.out.println(Solution.getSha12("z"));
@@ -290,12 +290,14 @@ public class Main {
 
 //        System.out.println(TopWords.top3("a a a  b  c c  d d d d  e e e e e"));
 //        System.out.println(TopWords.top3("e e e e     ddd  d : ddd ddd aa a   a bb cc c  e e e"));
+//        System.out.println(TopWords.top3("e e e e DDD ddd DdD: ddd ddd aa aA Aa, bb cc cC e e e"));
 //        System.out.println(TopWords.top3("  //wont won't won't "));
 //        System.out.println(TopWords.top3("  , e   .. "));
 //        System.out.println(TopWords.top3("  ...  "));
 //        System.out.println(TopWords.top3("  '  "));
 //        System.out.println(TopWords.top3("  '''  "));
-//        System.out.println(TopWords.top3("m  yn      k  vwfo v  yton k  vwfo v x   ww k'ezgsf     yton  dz u     -k'ezgsf  :y abui u   m     eg p    yton r a  k  vwfo v-x   ww y  l  dz u r a  y  lg p  k  vwfo v   m  yn :k  vwfo v:  m  yn y  l k  vwfo v v   grg   mv a  : '  auq  mv a  :g p    yton k  vwfo vk  vwfo v   xf    yton  dz u  dz u y  l   yton k'ezgsf  g p   v   grg  :g p    dz ur a           g p   k  vwfo v-y  lk'ezgsf     ix  g p   y abui u   yton   ytony  l   xf  g p    dz u v   grg    dz u g p    dz u y abui u   m  yn  k  vwfo v y  l y  l   m  yn        m  yn  k'ezgsf   mv a   k  vwfo v   yton     -y abui u r a  v   grg   r a  k'ezgsf   k  vwfo v   m  yn  k'ezgsf   mv a   g p  y  l   yton  '  auq  k  vwfo v x   ww      y abui u:mv a  -k  vwfo v  '  auq    ix  y  l k  vwfo v y  l x   ww y  l y  l k'ezgsf     ix   dz u  '  auq   m  yn r a  dz u x   ww  yton x   ww     k'ezgsf   v   grg   v   grg  -y  l '  auq  r a   dz u mv a  -r a     x   ww r a  k'ezgsf    '  auq  r a   yton   m  yn  y  lg p   y  l v   grg   k'ezgsf  k'ezgsf  y  l y  l g p     yton v   grg     m  yn   dz u mv a     yton      x   wwr a    ix  k'ezgsf   dz u k  vwfo v   m     er a  r a    m  yn  mv a  :g p   k'ezgsf   g p   mv a  y  l g p   k  vwfo v   yton g p  :r a  v   grg   k'ezgsf     m  yn    m     e      dz u  yton x   ww   yton  yton   ix mv a     yton   m  yn :mv a    dz u:k  vwfo v  dz u-r a    yton x   ww  dz u k  vwfo v k  vwfo v   yton k'ezgsf    dz u   ix   dz u   xf   dz u   yton:r a   yton x   ww  yton  '  auq :x   ww x   ww  yton   m  yn   '  auq   m  yn  dz u k  vwfo v r a    xf  y  l '  auq   dz u mv a   g p   k'ezgsf   k'ezgsf    m  yn  k'ezgsf  -  m     ek  vwfo v      mv a     ix  g p        k  vwfo v  dz u r a  k  vwfo v x   ww y abui u  yton  dz u y  l x   ww mv a   v   grg   mv a   g p   y  l r a y  l   yton   m  yn    ix  k  vwfo v g p   y  l   m  yn  k'ezgsf  y  l   ix  g p   x   ww      y  l   yton k'ezgsf        k'ezgsf  x   ww  '  auq  x   ww-k  vwfo v x   wwx   ww     -y  l mv a   v   grg    m  yn :r a    ix  r a  g p     m  yn :  yton y  l    -v   grg   r a x   wwg p     m  yn  y abui u x   ww x   ww g p   y abui u"));
+        System.out.println(TopWords.top3("utrnooqrht utrnooqrht utrnooqrht utrnooqrht utrnooqrht-utrnooqrhtutrnooqrhtutrnooqrht"));
+//        System.out.println(TopWords.top3("ma'vtq gmhyqkold ma'vtqdthiidsgmhyqkold gmhyqkold gmhyqkold gmhyqkold:gmhyqkold:dthiidsgmhyqkold-gmhyqkold dthiids yvghosma'vtqdthiids gmhyqkold gmhyqkolddthiids-ma'vtq dthiidsgmhyqkold dthiids dthiids dthiids ma'vtq dthiids gmhyqkold gmhyqkold gmhyqkold dthiids dthiids dthiids ma'vtq dthiids:dthiids gmhyqkold:gmhyqkolddthiids-dthiidsgmhyqkold:ma'vtqgmhyqkold ma'vtq dthiids:dthiids gmhyqkold gmhyqkoldgmhyqkold dthiidsgmhyqkold yvghosgmhyqkold dthiids ma'vtq gmhyqkold dthiids ma'vtq gmhyqkold dthiids ma'vtq gmhyqkold:dthiids dthiids dthiids gmhyqkold dthiids gmhyqkold"));
 //        System.out.println(TopWords.top3(Stream
 //                .of("In a village of La Mancha, the name of which I have no desire to call to",
 //                        "mind, there lived not long since one of those gentlemen that keep a lance",
