@@ -1,9 +1,11 @@
 package cf.tilgiz.codewars;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -12,7 +14,7 @@ import java.util.stream.Stream;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
 
 //        System.out.print(ReversWords.reverse("This is test"));
 
@@ -263,15 +265,24 @@ public class Main {
 
 //        System.out.println(Solution.passwordCracker("e6fb06210fafc02fd7479ddbed2d042cc3a5155e"));
 
-//        long START_TIME = System.currentTimeMillis();
-////        System.out.println(Solution.passwordCracker("130b9d1f6651ea00d9070dd797982dbcf1b6aeac"));
-//        System.out.println(Solution.passwordCracker("e6fb06210fafc02fd7479ddbed2d042cc3a5155e"));
-//        System.out.println(Solution.passwordCracker("a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"));
-//        long STOP_TIME = System.currentTimeMillis();
-//        long duration = STOP_TIME - START_TIME;
-//        System.out.println("Password cracked in " + TimeUnit.MILLISECONDS.toSeconds(duration) + "." + TimeUnit.MILLISECONDS.toMillis(duration) + " sec.");
+//        System.out.println(Runtime.getRuntime().availableProcessors());
+        long START_TIME = System.currentTimeMillis();
+//        System.out.println(Solution.passwordCracker("4330e2971cd93ada66ce16735a4f28e002fce20d"));
+//        System.out.println(Solution.passwordCracker("592a6e96e2417c82f570b318e37dfb3dac7ab68a"));
+//        System.out.println(Solution.passwordCracker("4faf17233b46977774e50235ad81818571294a5b"));
+//        System.out.println(Solution.passwordCracker("b31471ac6288900f967649e2b6594b57feb6ce5f"));
+//        System.out.println(Solution.passwordCracker("8f2dbbdf4dd1b70d00b87ce3786ed11847fda2e1"));
+//        System.out.println(Solution.passwordCracker("b54950fd34f2c35c32971c1867a3d323e0f45938"));
+//        System.out.println(Solution.passwordCracker("3929b84d0cff7394ceb3a9651c7624cbe80fbbc5"));
+//        System.out.println(Solution.passwordCracker("a67acd6e68f872b807a1c9afe3a2453564e57877"));
+        System.out.println(Solution.passwordCracker("da39a3ee5e6b4b0d3255bfef95601890afd80709"));
+        long STOP_TIME = System.currentTimeMillis();
+        long duration = STOP_TIME - START_TIME;
+        System.out.println("Password cracked in " + TimeUnit.MILLISECONDS.toSeconds(duration) + "." + TimeUnit.MILLISECONDS.toMillis(duration) + " sec.");
 
-//        System.out.println(Solution.getSha1("z"));
+        System.out.println(Solution.getSha1(""));
+//        System.out.println(Solution.getSha1("qak"));
+//        System.out.println(Solution.getSha1("nnnnn"));
 //        System.out.println(Solution.getSha12("z"));
 
 //        System.out.println(Solution.passwordCracker("f7a9e24777ec23212c54d7a350bc5bea5477fdbb"));
@@ -378,7 +389,7 @@ public class Main {
 
 //        System.out.println(Solution.solve1(100));
 //        System.out.println(Solution.solve1(9999999999L));
-        System.out.println(Solution.solve1(999999999999999999L));
+//        System.out.println(Solution.solve1(999999999999999999L));
 //        System.out.println(Solution.nthNumber(123456789999999L));
 //        System.out.println(Solution.nthNumber100(33));
 

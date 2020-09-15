@@ -165,7 +165,25 @@ public class Solution {
 
     public static MessageDigest digest = null;
 
+    public static String passwordCracker0(String hash) {
+        String out = null;
+        try {
+            out = new Cracker(1, 5,hash).doWork();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return (out == null)? "" : out;
+    }
+
     public static String passwordCracker(String hash) {
+        System.out.println(hash);
+        byte[] hexStringToByteArray = hexStringToByteArray(hash);
+        MessageDigest digest = null;
+        try {
+            digest = MessageDigest.getInstance("SHA-1");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
         char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         String code = null;
         boolean next0 = false;
@@ -175,9 +193,9 @@ public class Solution {
         for (int i0 = 0; i0 < alphabet.length; i0++) {
             code = "" + alphabet[i0];
 //            System.out.println(code);
-            if (!next0 && hash.equals(getSha1(code))) return code;
+            if (!next0 && Arrays.equals(digest.digest(code.getBytes()), hexStringToByteArray)) return code;
             if (!next0 && i0 == alphabet.length - 1) {
-//                System.out.println("11111111111111111111111111111111111111111111111111");
+//                System.out.println("11111111111111111111111111111111111111111111");
                 next0 = true;
                 i0 = 0;
             }
@@ -185,7 +203,7 @@ public class Solution {
                 for (int i1 = 0; i1 < alphabet.length; i1++) {
                     code = "" + alphabet[i0] + alphabet[i1];
 //                    if (!next1) System.out.println(code);
-                    if (!next1 && hash.equals(getSha1(code))) return code;
+                    if (!next1 && Arrays.equals(digest.digest(code.getBytes()), hexStringToByteArray)) return code;
                     if (!next1 && i0 == alphabet.length - 1 && i1 == alphabet.length - 1) {
 //                        System.out.println("222222222222222222222222222222222222222222222");
                         next1 = true;
@@ -194,8 +212,8 @@ public class Solution {
                     if (next1) {
                         for (int i2 = 0; i2 < alphabet.length; i2++) {
                             code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2];
-//                            if (!next2) System.out.println(code);
-                            if (!next2 && hash.equals(getSha1(code))) return code;
+//                            if (!next2) System.out.println(code + " = " + getSha1(code));
+                            if (!next2 && Arrays.equals(digest.digest(code.getBytes()), hexStringToByteArray)) return code;
                             if (!next2 && i0 == alphabet.length - 1 && i1 == alphabet.length - 1 && i2 == alphabet.length - 1) {
 //                                System.out.println("33333333333333333333333333333333333333333333");
                                 next2 = true;
@@ -205,7 +223,7 @@ public class Solution {
                                 for (int i3 = 0; i3 < alphabet.length; i3++) {
                                     code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2] + alphabet[i3];
 //                                    if (!next3) System.out.println(code);
-                                    if (!next3 && hash.equals(getSha1(code))) return code;
+                                    if (!next3 && Arrays.equals(digest.digest(code.getBytes()), hexStringToByteArray)) return code;
                                     if (!next3 && i0 == alphabet.length - 1 && i1 == alphabet.length - 1 && i2 == alphabet.length - 1 && i3 == alphabet.length - 1) {
 //                                        System.out.println("444444444444444444444444444444444444444444444");
                                         next3 = true;
@@ -215,7 +233,8 @@ public class Solution {
                                         for (int i4 = 0; i4 < alphabet.length; i4++) {
                                             code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2] + alphabet[i3] + alphabet[i4];
 //                                            System.out.println(code);
-                                            if (hash.equals(getSha1(code))) return code;
+                                            if (Arrays.equals(digest.digest(code.getBytes()), hexStringToByteArray)) return code;
+                                            else code = "";
                                         }
                                     }
                                 }
@@ -229,7 +248,8 @@ public class Solution {
     }
 
     public static String passwordCracker1(String hash) {
-        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+//        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        char[] alphabet = "azbycxdwevfugthsirjqkplomn".toCharArray();
         String code = null;
         for (int i0 = 0; i0 < alphabet.length; i0++) {
             code = "" + alphabet[i0];
@@ -274,6 +294,15 @@ public class Solution {
         return code;
     }
 
+    public static byte[] hexStringToByteArray(String s) {
+        int len = s.length();
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte)((Character.digit(s.charAt(i), 16) << 4) + Character.digit(s.charAt(i + 1), 16));
+        }
+        return data;
+    }
+
     public static String getSha12(String value) {
         try {
             digest = MessageDigest.getInstance("SHA-1");
@@ -292,11 +321,10 @@ public class Solution {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
             byte[] messageDigest = md.digest(input.getBytes());
             BigInteger no = new BigInteger(1, messageDigest);
-//            System.out.println(no);
             String hashtext = no.toString(16);
-//            while (hashtext.length() < 32) {
-//                hashtext = "0" + hashtext;
-//            }
+            while (hashtext.length() < 40) {
+                hashtext = "0" + hashtext;
+            }
             return hashtext;
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
