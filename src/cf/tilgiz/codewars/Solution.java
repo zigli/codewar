@@ -4,6 +4,9 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -168,11 +171,11 @@ public class Solution {
     public static String passwordCracker0(String hash) {
         String out = null;
         try {
-            out = new Cracker(1, 5,hash).doWork();
+            out = new Cracker(1, 5, hash).doWork();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        return (out == null)? "" : out;
+        return (out == null) ? "" : out;
     }
 
     public static String passwordCracker(String hash) {
@@ -213,7 +216,8 @@ public class Solution {
                         for (int i2 = 0; i2 < alphabet.length; i2++) {
                             code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2];
 //                            if (!next2) System.out.println(code + " = " + getSha1(code));
-                            if (!next2 && Arrays.equals(digest.digest(code.getBytes()), hexStringToByteArray)) return code;
+                            if (!next2 && Arrays.equals(digest.digest(code.getBytes()), hexStringToByteArray))
+                                return code;
                             if (!next2 && i0 == alphabet.length - 1 && i1 == alphabet.length - 1 && i2 == alphabet.length - 1) {
 //                                System.out.println("33333333333333333333333333333333333333333333");
                                 next2 = true;
@@ -223,7 +227,8 @@ public class Solution {
                                 for (int i3 = 0; i3 < alphabet.length; i3++) {
                                     code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2] + alphabet[i3];
 //                                    if (!next3) System.out.println(code);
-                                    if (!next3 && Arrays.equals(digest.digest(code.getBytes()), hexStringToByteArray)) return code;
+                                    if (!next3 && Arrays.equals(digest.digest(code.getBytes()), hexStringToByteArray))
+                                        return code;
                                     if (!next3 && i0 == alphabet.length - 1 && i1 == alphabet.length - 1 && i2 == alphabet.length - 1 && i3 == alphabet.length - 1) {
 //                                        System.out.println("444444444444444444444444444444444444444444444");
                                         next3 = true;
@@ -233,7 +238,8 @@ public class Solution {
                                         for (int i4 = 0; i4 < alphabet.length; i4++) {
                                             code = "" + alphabet[i0] + alphabet[i1] + alphabet[i2] + alphabet[i3] + alphabet[i4];
 //                                            System.out.println(code);
-                                            if (Arrays.equals(digest.digest(code.getBytes()), hexStringToByteArray)) return code;
+                                            if (Arrays.equals(digest.digest(code.getBytes()), hexStringToByteArray))
+                                                return code;
                                             else code = "";
                                         }
                                     }
@@ -298,7 +304,7 @@ public class Solution {
         int len = s.length();
         byte[] data = new byte[len / 2];
         for (int i = 0; i < len; i += 2) {
-            data[i / 2] = (byte)((Character.digit(s.charAt(i), 16) << 4) + Character.digit(s.charAt(i + 1), 16));
+            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4) + Character.digit(s.charAt(i + 1), 16));
         }
         return data;
     }
@@ -522,7 +528,7 @@ public class Solution {
 //        System.out.println("l=" + l);
         long i = (long) (Math.pow(10, l) - 1 - Math.floor((num - n) / l));
 //        System.out.println(i);
-        long l1 = (long) (num - n) % l;
+        long l1 = (num - n) % l;
 //        System.out.println(l1);
         int pos = (int) (String.valueOf(i).length() - 1 - l1);
         return Integer.parseInt(String.valueOf(String.valueOf(i).charAt(pos)));
@@ -566,5 +572,35 @@ public class Solution {
 
 //        return rangeClosed(1, arr.length).map(i -> i * arr[i - 1].chars().reduce(0, (s, c) -> s + Math.max(c - 96, 0))).toArray();
 
+    }
+
+    public static String[] solve(int a, int b) {
+        int extWeekends = 0;
+        String first = null;
+        String last = null;
+        Calendar calendar = new GregorianCalendar();
+        for (int i = a; i <= b; i++) {
+//            System.out.println(i);
+            calendar.set(Calendar.YEAR, i);
+            for (int j = 0; j < 12; j++) {
+                calendar.set(Calendar.MONTH, j);
+                calendar.set(Calendar.DAY_OF_MONTH, 1);
+                int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+                int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+                if (daysInMonth == 31 && dayOfWeek == 6) {
+                    LocalDate localDate = LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
+                    if (first == null) first = localDate.getMonth().toString();
+                    last = localDate.getMonth().toString();
+//                    System.out.println("Month is: " + localDate.getMonth());
+//                    System.out.println("Days in month: " + calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+//                    System.out.println("Day of week: " + calendar.get(Calendar.DAY_OF_WEEK));
+                    extWeekends++;
+                }
+            }
+//            System.out.println("=================");
+        }
+//        System.out.println(extWeekends);
+
+        return new String[]{first, last, String.valueOf(extWeekends)};
     }
 }

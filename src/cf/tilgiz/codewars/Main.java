@@ -296,7 +296,7 @@ public class Main {
 //        System.out.println(TopWords.top3("  ...  "));
 //        System.out.println(TopWords.top3("  '  "));
 //        System.out.println(TopWords.top3("  '''  "));
-        System.out.println(TopWords.top3("utrnooqrht utrnooqrht utrnooqrht utrnooqrht utrnooqrht-utrnooqrhtutrnooqrhtutrnooqrht"));
+//        System.out.println(TopWords.top3("utrnooqrht utrnooqrht utrnooqrht utrnooqrht utrnooqrht-utrnooqrhtutrnooqrhtutrnooqrht"));
 //        System.out.println(TopWords.top3("ma'vtq gmhyqkold ma'vtqdthiidsgmhyqkold gmhyqkold gmhyqkold gmhyqkold:gmhyqkold:dthiidsgmhyqkold-gmhyqkold dthiids yvghosma'vtqdthiids gmhyqkold gmhyqkolddthiids-ma'vtq dthiidsgmhyqkold dthiids dthiids dthiids ma'vtq dthiids gmhyqkold gmhyqkold gmhyqkold dthiids dthiids dthiids ma'vtq dthiids:dthiids gmhyqkold:gmhyqkolddthiids-dthiidsgmhyqkold:ma'vtqgmhyqkold ma'vtq dthiids:dthiids gmhyqkold gmhyqkoldgmhyqkold dthiidsgmhyqkold yvghosgmhyqkold dthiids ma'vtq gmhyqkold dthiids ma'vtq gmhyqkold dthiids ma'vtq gmhyqkold:dthiids dthiids dthiids gmhyqkold dthiids gmhyqkold"));
 //        System.out.println(TopWords.top3(Stream
 //                .of("In a village of La Mancha, the name of which I have no desire to call to",
@@ -407,6 +407,7 @@ public class Main {
 //        long v = (n - 1) * (long) Math.pow(10, n) + ((long) (Math.pow(10, n - 1) - 1) / 9) * 8 * 10 + 9;
 //        System.out.println(v);
 
+        System.out.println(Arrays.toString(Solution.solve(2016, 2020)));
 
     }
 
