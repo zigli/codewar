@@ -9,14 +9,14 @@ import static java.util.stream.Collectors.toMap;
 public class TopWords {
     public static List<String> top3(String s) {
 //        System.out.println(s);
-        s = s.toLowerCase().trim().replaceAll("[\\.\\,\\/\\n]", "").replaceAll("^\\'+", "").trim();
-//        System.out.println(s);
+        s = s.toLowerCase().trim().replaceAll("[\\n]", "").replaceAll("[;:!?/.,-_]", " ").trim();
+        System.out.println(s);
         HashMap<String, Integer> count = new HashMap<>();
         String[] s1 = s.split("\\s+");
         Set<String> targetSet = new TreeSet<>(Arrays.asList(s1));
 
         for (String s2 : targetSet) {
-            Pattern pattern = Pattern.compile("(" + s2 + ")");
+            Pattern pattern = Pattern.compile("\\b(?:" + s2.replaceAll("'", "\\\\\\\'") + ")\\b");
             Matcher matcher = pattern.matcher(s);
             int cnt = 0;
             while (matcher.find()) {
