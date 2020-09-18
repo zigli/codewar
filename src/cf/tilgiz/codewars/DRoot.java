@@ -1,7 +1,5 @@
 package cf.tilgiz.codewars;
 
-import java.util.Arrays;
-
 public class DRoot {
     public static int digital_root(int n) {
         do {
