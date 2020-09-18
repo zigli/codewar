@@ -8,5 +8,8 @@ public class DRoot {
             n = String.valueOf(n).chars().mapToObj(x -> Integer.parseInt(String.valueOf((char) x))).reduce((x, y) -> x + y).get();
         } while (String.valueOf(n).length() > 1);
         return n;
+
+//        return --n % 9 + 1;
+
     }
 }
