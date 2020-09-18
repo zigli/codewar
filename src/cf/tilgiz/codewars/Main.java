@@ -1,13 +1,7 @@
 package cf.tilgiz.codewars;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.util.Arrays;
 
 public class Main {
 
@@ -296,7 +290,7 @@ public class Main {
 //        System.out.println(TopWords.top3("utrnooqrht utrnooqrht utrnooqrht utrnooqrht utrnooqrht-utrnooqrhtutrnooqrhtutrnooqrht"));
 //        System.out.println(TopWords.top3("kJyuKwyn;cMVrMrtZZV zdRci;zdRci kJyuKwyn:zdRci;EIBItHJ!cMVrMrtZZV OulVYjwmpN;KPTib zdRci OulVYjwmpN bXJ_zdRci?cMVrMrtZZV EIBItHJ cMVrMrtZZV OulVYjwmpN OulVYjwmpN hgwO cMVrMrtZZV;zdRci OulVYjwmpN/hgwO hgwO!OulVYjwmpN/hgwO_OulVYjwmpN:cMVrMrtZZV?OulVYjwmpN KPTib.hgwO KPTib?KPTib:OulVYjwmpN?zdRci/zdRci,hgwO_OulVYjwmpN cMVrMrtZZV/cMVrMrtZZV!zdRci cMVrMrtZZV.OulVYjwmpN OulVYjwmpN,hgwO,cMVrMrtZZV zdRci!kJyuKwyn-EIBItHJ-KPTib KPTib/bXJ,bXJ hgwO hgwO?KPTib!zdRci hgwO:OulVYjwmpN bXJ:bXJ OulVYjwmpN-hgwO_bXJ:bXJ hgwO OulVYjwmpN bXJ!hgwO:OulVYjwmpN hgwO/bXJ/bXJ KPTib bXJ KPTib/hgwO EIBItHJ hgwO OulVYjwmpN!OulVYjwmpN cMVrMrtZZV.cMVrMrtZZV!OulVYjwmpN.OulVYjwmpN bXJ;zdRci!KPTib,EtVLcDI hgwO hgwO bXJ_KPTib OulVYjwmpN bXJ;bXJ hgwO cMVrMrtZZV bXJ OulVYjwmpN,cMVrMrtZZV!OulVYjwmpN zdRci.bXJ KPTib:OulVYjwmpN/OulVYjwmpN zdRci "));
 //        System.out.println(TopWords.top3("UOZhELE kbHS CPBOJFNOW uxV UOZhELE AfOQVEUjU BzZXl.kbHS HpvoyTM!NIg?CPBOJFNOW CPBOJFNOW?RvIoyKbGP uxV-kieVRRFJQr BzZXl kbHS WhzvcWQUu:SJxw uxV mOEnCWLcy NIg:RvIoyKbGP WhzvcWQUu ukTNnhiKBB-NIg.CPBOJFNOW:bLtIJxbQKs,kbHS/NIg mOEnCWLcy/zwDeHrg HpvoyTM kieVRRFJQr-BzZXl BzZXl SJxw Ly'z.bLtIJxbQKs BzZXl BzZXl kieVRRFJQr_CPBOJFNOW/AfOQVEUjU BzZXl SJxw rGQtNy'LRh RvIoyKbGP CPBOJFNOW,Ly'z_SJxw:WhzvcWQUu kieVRRFJQr?CPBOJFNOW mOEnCWLcy Ly'z AfOQVEUjU FPBT;WhzvcWQUu,uxV kieVRRFJQr BzZXl kbHS;NIg-NIg mOEnCWLcy-NIg rGQtNy'LRh FPBT-AfOQVEUjU.SJxw/HpvoyTM:AfOQVEUjU AfOQVEUjU/uxV;uxV_SJxw?bLtIJxbQKs SJxw CPBOJFNOW_mOEnCWLcy NIg?zwDeHrg FPBT BzZXl,CPBOJFNOW kieVRRFJQr.RvIoyKbGP?kieVRRFJQr uxV RvIoyKbGP BzZXl BzZXl/bLtIJxbQKs?rGQtNy'LRh NIg?HpvoyTM_WhzvcWQUu FPBT SJxw WhzvcWQUu;Ly'z/CPBOJFNOW HpvoyTM bLtIJxbQKs uxV?NIg mOEnCWLcy.bLtIJxbQKs bLtIJxbQKs SJxw HpvoyTM rGQtNy'LRh uxV,uxV BzZXl:Ly'z!FPBT rGQtNy'LRh kbHS SJxw:AfOQVEUjU?NIg kbHS BzZXl!bLtIJxbQKs-rGQtNy'LRh bLtIJxbQKs_NIg uxV,CPBOJFNOW:rGQtNy'LRh CPBOJFNOW ukTNnhiKBB FPBT_bLtIJxbQKs BzZXl_HpvoyTM;WhzvcWQUu HpvoyTM.UOZhELE-WhzvcWQUu kbHS RvIoyKbGP SJxw RvIoyKbGP-uxV_NIg Ly'z AfOQVEUjU-HpvoyTM!CPBOJFNOW/FPBT,BzZXl kbHS!SJxw Ly'z zwDeHrg-WhzvcWQUu:HpvoyTM,HpvoyTM FPBT SJxw_kieVRRFJQr Ly'z tttuXsllx BzZXl;SJxw:Ly'z:RvIoyKbGP rGQtNy'LRh:mOEnCWLcy,RvIoyKbGP RvIoyKbGP-WhzvcWQUu kieVRRFJQr RvIoyKbGP.FPBT,bLtIJxbQKs-bLtIJxbQKs;zwDeHrg uxV ukTNnhiKBB AfOQVEUjU SJxw kbHS_CPBOJFNOW RvIoyKbGP AfOQVEUjU CPBOJFNOW,uxV HpvoyTM,rGQtNy'LRh mOEnCWLcy FPBT!CPBOJFNOW/mOEnCWLcy-kbHS bLtIJxbQKs.bLtIJxbQKs/Ly'z.uxV AfOQVEUjU/kbHS!kieVRRFJQr!AfOQVEUjU_uxV SJxw FPBT-AfOQVEUjU!SJxw:BzZXl FPBT uxV RvIoyKbGP FPBT SJxw CPBOJFNOW kbHS bLtIJxbQKs-WhzvcWQUu Ly'z;AfOQVEUjU:Ly'z BzZXl bLtIJxbQKs.BzZXl?RvIoyKbGP RvIoyKbGP FPBT:HpvoyTM RvIoyKbGP_HpvoyTM/bLtIJxbQKs!SJxw!CPBOJFNOW RvIoyKbGP.BzZXl!RvIoyKbGP!BzZXl:NIg!rGQtNy'LRh bLtIJxbQKs HpvoyTM SJxw/bLtIJxbQKs AfOQVEUjU SJxw FPBT WhzvcWQUu BzZXl/kbHS HpvoyTM,FPBT:RvIoyKbGP rGQtNy'LRh-kbHS UOZhELE uxV Ly'z,mOEnCWLcy/rGQtNy'LRh CPBOJFNOW.kieVRRFJQr:AfOQVEUjU kbHS SJxw;AfOQVEUjU SJxw NIg;FPBT.kbHS kbHS_SJxw SJxw,AfOQVEUjU,mOEnCWLcy kieVRRFJQr WhzvcWQUu bLtIJxbQKs:bLtIJxbQKs Ly'z:CPBOJFNOW!SJxw:CPBOJFNOW.bLtIJxbQKs,NIg rGQtNy'LRh HpvoyTM-uxV AfOQVEUjU AfOQVEUjU_Ly'z AfOQVEUjU UOZhELE,RvIoyKbGP:kbHS?kbHS:RvIoyKbGP AfOQVEUjU?NIg-NIg Ly'z-bLtIJxbQKs/CPBOJFNOW_SJxw BzZXl;Ly'z rGQtNy'LRh FPBT/kbHS-BzZXl SJxw:WhzvcWQUu/kbHS.uxV RvIoyKbGP BzZXl:mOEnCWLcy HpvoyTM mOEnCWLcy?bLtIJxbQKs:WhzvcWQUu,FPBT bLtIJxbQKs;RvIoyKbGP mOEnCWLcy BzZXl-SJxw-bLtIJxbQKs/kieVRRFJQr;bLtIJxbQKs FPBT AfOQVEUjU SJxw!kieVRRFJQr-bLtIJxbQKs?WhzvcWQUu NIg NIg uxV FPBT/AfOQVEUjU_NIg kbHS/CPBOJFNOW"));
-        String s = "MFd' MFd'/MFd'!MFd';MFd'";
+//        String s = "MFd' MFd'/MFd'!MFd';MFd'";
 //        System.out.println(TopWords.top3(s));
 //        System.out.println(TopWords.top3(Stream
 //                .of("In a village of La Mancha, the name of which I have no desire to call to",
@@ -429,6 +423,8 @@ public class Main {
 
 //        System.out.println(Arrays.toString(Solution.solve(2016, 2020)));
 
+
+        System.out.println(Arrays.toString(Solution.dup(new String[]{"ccooddddddewwwaaaaarrrrsssss", "piccaninny", "hubbubbubboo"})));
     }
 
 }

@@ -603,4 +603,23 @@ public class Solution {
 
         return new String[]{first, last, String.valueOf(extWeekends)};
     }
+
+    public static String[] dup(String[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int index = 0;
+            while (arr[i].length() > index) {
+                char c = arr[i].charAt(index);
+                arr[i] = arr[i].replaceAll("[" + c + "]+", String.valueOf(c));
+//                System.out.println(s);
+                index++;
+            }
+            arr[i] = arr[i];
+        }
+        return arr;
+
+//        for(int i = 0; i < arr.length; i++)
+//            arr[i] = arr[i].replaceAll("(.)\\1+", "$1");
+//        return arr;
+    }
+
 }
