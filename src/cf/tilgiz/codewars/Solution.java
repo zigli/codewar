@@ -12,6 +12,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
+import static java.util.stream.Collectors.toMap;
+
 /**
  * @author Ilgiz Tukhvatov
  */
@@ -620,6 +622,65 @@ public class Solution {
 //        for(int i = 0; i < arr.length; i++)
 //            arr[i] = arr[i].replaceAll("(.)\\1+", "$1");
 //        return arr;
+    }
+
+    public static Object[] longestRepetition(String s) {
+        System.out.println(s);
+        if (s.isEmpty()) return new Object[]{"", 0};
+        Map<String, Integer> characterList = new LinkedHashMap<>();
+        String temp = String.valueOf(s.charAt(0));
+        int start = 0, stop = 0;
+        for (int i = 1; i < s.length(); i++) {
+            if (!temp.equals(String.valueOf(s.charAt(i)))) {
+                characterList.put(s.substring(start, stop + 1), s.substring(start, stop + 1).length());
+//                System.out.println("===> " + s.substring(start, stop + 1));
+                start = s.indexOf(s.charAt(i), stop + 1);
+            }
+            stop++;
+            temp = String.valueOf(s.charAt(i));
+//            System.out.println(start + " " + stop);
+        }
+        characterList.put(s.substring(start, stop + 1), s.substring(start, stop + 1).length());
+//        System.out.println(s.substring(start, stop + 1));
+
+        System.out.println(characterList);
+        Map<String, Integer> sorted = characterList
+                .entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .collect(
+                        toMap(e -> e.getKey(), e -> e.getValue(),
+                                (e1, e2) -> e2, LinkedHashMap::new));
+
+//        System.out.println(sorted);
+        if (sorted.isEmpty()) return new Object[]{"", 0};
+        else {
+            Map.Entry<String, Integer> entry = sorted.entrySet().iterator().next();
+            return new Object[]{String.valueOf(entry.getKey().charAt(0)), entry.getValue()};
+        }
+
+//        Pattern PATTERN = Pattern.compile("(.)(\\1*)");
+//        Object[] result = new Object[]{"", 0};
+//        Matcher matcher = PATTERN.matcher(s);
+//        while (matcher.find()) {
+//            if (matcher.group().length() > (int) result[1]) {
+//                result[0] = matcher.group().substring(0, 1);
+//                result[1] = matcher.group().length();
+//            }
+//        }
+//        return result;
+
+
+//        char lastch = '\0';
+//        Object ret[] = new Object[]{"", 0};
+//        int n = 0, max = 0;
+//        for (char c : s.toCharArray()) {
+//            n = lastch == c ? ++n : 1;
+//            if (n > max) { ret = new Object[]{""+c,n}; max = n; }
+//            lastch = c;
+//        }
+//        return ret;
+
     }
 
 }
