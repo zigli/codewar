@@ -683,4 +683,16 @@ public class Solution {
 
     }
 
+    public static int solve1(String s){
+        Pattern PATTERN = Pattern.compile("(\\d)+");
+        int max = 0;
+        Matcher matcher = PATTERN.matcher(s);
+        while (matcher.find()) {
+            max = Math.max(max, Integer.parseInt(matcher.group()));
+        }
+        return max;
+
+//        return Arrays.asList(s.split("[a-z]+")).stream().filter(e-> !e.isEmpty()).mapToInt(Integer::parseInt).max().getAsInt();
+    }
+
 }

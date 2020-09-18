@@ -427,10 +427,14 @@ public class Main {
 //        System.out.println(Arrays.toString(Solution.dup(new String[]{"ccooddddddewwwaaaaarrrrsssss", "piccaninny", "hubbubbubboo"})));
 
 
-        System.out.println(Arrays.toString(Solution.longestRepetition("enky2ch30db1xbawq29vdxqcp1mdxfkbyeue0n65otyi9wtz1vy7w25anuup08odog27h3wgaqnuvclxx4uehykn1rls2ga25xidp1shuksinbmurh1sgmkpn2kuexkmba9tgywopsnytvs8liwjtluusjuh5y18med7fw0g3ilfbj6s0dqf4tp27qtgl59dao7cr1hdoou7qt4e4muqmzgtjoh3iktg1")));
+//        System.out.println(Arrays.toString(Solution.longestRepetition("enky2ch30db1xbawq29vdxqcp1mdxfkbyeue0n65otyi9wtz1vy7w25anuup08odog27h3wgaqnuvclxx4uehykn1rls2ga25xidp1shuksinbmurh1sgmkpn2kuexkmba9tgywopsnytvs8liwjtluusjuh5y18med7fw0g3ilfbj6s0dqf4tp27qtgl59dao7cr1hdoou7qt4e4muqmzgtjoh3iktg1")));
 //        System.out.println(Arrays.toString(Solution.longestRepetition("m511ng8170aervwi8xpm5bim33d0ip6mlspa3skzj6uwu44awm67k5l9xu99dvqg3vydp2puvm0htbf2hmxs93gtmcw9xznc3ypmncnr7iyfa4nvmwnv115yn373aso45lox09sprzw5yvit5wylyka974okuy2hjhj38s4vtf0qunkzs52h8kp8lzuk40uccr46qaaeocdvrj2cwbspno6nyz0et1jk0nwjroz9x0hzv765ndjfx6m20s7m31yuz9xmfytn2uqhrsp891wkh99qd2fx67erpnpi7z442obhful0om7nh7bntp4j3t27s9k8hf5npfdjyq3dbtez05qtxzvhryk2ie8pe1lag36wx3xv80d4jtay62dgatw2i5hr066herxqlsweer5fqtz6surrg4jxphbdlhqln4hsuuiw8gp5gwg5dzvmpstql")));
 //        System.out.println(Arrays.toString(Solution.longestRepetition("imlu822pdgupmntjka1fdea0fa6q2j0va5uvf56332ug4d1jcxs953e8vgk690w4zv77j06f94bs2gx3czqw8doz0vdm88hbba0izh419u3gyud2oxp6bckccvulsmaav99bht8yd4ckpu6afs2p3gv7mq3mr3kqkvdig0ikjqkpwztznskhi3x0o23ic6dqr5awbq0r9sozair77mnobdl0igrptmvb5dna461yukdtipro3klqxbqjmdnw7rrffkhlmasqvinf5tdv08irg51mm8")));
 //        System.out.println(Arrays.toString(Solution.longestRepetition("tnqa3cu85aly8bmmpr9vlzpyva5btg7z2tmhbl8uq12jo75bgvuv6es81i7hod0691lgi9qlxjqaibi263azvl7vl0bbf06h05o31qbhecztujj6c")));
+
+
+        System.out.println(Solution.solve1("2ti99iei7qhr5"));
+
     }
 
 }
