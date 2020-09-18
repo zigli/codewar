@@ -433,8 +433,10 @@ public class Main {
 //        System.out.println(Arrays.toString(Solution.longestRepetition("tnqa3cu85aly8bmmpr9vlzpyva5btg7z2tmhbl8uq12jo75bgvuv6es81i7hod0691lgi9qlxjqaibi263azvl7vl0bbf06h05o31qbhecztujj6c")));
 
 
-        System.out.println(Solution.solve1("2ti99iei7qhr5"));
+//        System.out.println(Solution.solve1("2ti99iei7qhr5"));
 
+
+        System.out.println(DRoot.digital_root(456));
     }
 
 }
