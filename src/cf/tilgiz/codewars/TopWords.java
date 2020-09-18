@@ -8,15 +8,13 @@ import static java.util.stream.Collectors.toMap;
 
 public class TopWords {
     public static List<String> top3(String s) {
-//        System.out.println(s);
-        s = s.toLowerCase().trim().replaceAll("[\\n]", "").replaceAll("[;:!?/.,-_]", " ").trim();
-        System.out.println(s);
+        int random = (int)(Math.random()*100000000);
+        s = s.toLowerCase().replaceAll("\\s\\'+", "").trim().replaceAll("[\\n]", "").replaceAll("[;:!?/.,-_]", " ").replaceAll("\\s\\'+", "").replaceAll("\\'", String.valueOf(random)).trim();
         HashMap<String, Integer> count = new HashMap<>();
-        String[] s1 = s.split("\\s+");
-        Set<String> targetSet = new TreeSet<>(Arrays.asList(s1));
+        Set<String> targetSet = new TreeSet<>(Arrays.asList(s.split("\\s+")));
 
         for (String s2 : targetSet) {
-            Pattern pattern = Pattern.compile("\\b(?:" + s2.replaceAll("'", "\\\\\\\'") + ")\\b");
+            Pattern pattern = Pattern.compile("\\b(?:" + s2 + ")\\b");
             Matcher matcher = pattern.matcher(s);
             int cnt = 0;
             while (matcher.find()) {
@@ -34,7 +32,7 @@ public class TopWords {
 //                .sorted(comparingByValue())
                 .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
                 .collect(
-                        toMap(e -> e.getKey(), e -> e.getValue(),
+                        toMap(e -> e.getKey().replaceAll(String.valueOf(random),"'"), e -> e.getValue(),
                                 (e1, e2) -> e2, LinkedHashMap::new));
 
         System.out.println(sorted);
@@ -48,7 +46,7 @@ public class TopWords {
 
 
         HashMap<String, Integer> count = new HashMap<>();
-        s = s.toLowerCase().trim().replaceAll("[\\.\\,\\/\\n]", "").replaceAll("^\\'+", "").replaceAll("[;-_!]", " ").trim();
+        s = s.toLowerCase().trim().replaceAll("[\\n]", "").replaceAll("[;:!?/.,-_]", " ").trim();
         System.out.println(s);
         String[] s1 = s.split("\\s+");
         for (int i = 0; i < s1.length; i++) {
