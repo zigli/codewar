@@ -683,7 +683,7 @@ public class Solution {
 
     }
 
-    public static int solve1(String s){
+    public static int solve1(String s) {
         Pattern PATTERN = Pattern.compile("(\\d)+");
         int max = 0;
         Matcher matcher = PATTERN.matcher(s);
@@ -693,6 +693,21 @@ public class Solution {
         return max;
 
 //        return Arrays.asList(s.split("[a-z]+")).stream().filter(e-> !e.isEmpty()).mapToInt(Integer::parseInt).max().getAsInt();
+    }
+
+    public static int solve(int[] arr) {
+        int count = 0;
+        for (int i = 0; i < arr.length - (arr.length % 2); i += 2) {
+            if (Math.abs(Math.abs(arr[i]) - Math.abs(arr[i + 1])) == 1 && (arr[i] + arr[i + 1] == 2 * Math.max(arr[i],arr[i + 1]) - 1)) {
+                count++;
+            }
+        }
+        return count;
+
+//        int c = 0;
+//        for (int i = 1; i < arr.length; i+=2)
+//            if (Math.abs(arr[i] - arr[i-1]) == 1) c++;
+//        return c;
     }
 
 }
