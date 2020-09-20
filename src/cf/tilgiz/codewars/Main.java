@@ -444,8 +444,16 @@ public class Main {
 //        System.out.println(Dubstep.SongDecoder("RWUBWUBWUBLWUB"));
 
 
-        System.out.println(QuickCalc.choose(10, 20));
+//        System.out.println(QuickCalc.choose(10, 20));
 //        System.out.println(QuickCalc.choose(52, 5));
+
+        System.out.println(5/4);
+
+        String clear = "Romani ite domum",
+                crypt = "Rntodomiimuea  m";
+        System.out.println(InterlacedSpiralCipher.encode(clear));
+        System.out.println(InterlacedSpiralCipher.decode(crypt));
+
 
     }
 
