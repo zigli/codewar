@@ -447,8 +447,8 @@ public class Main {
 //        System.out.println(QuickCalc.choose(10, 20));
 //        System.out.println(QuickCalc.choose(52, 5));
 
-        String clear = "Romani ite domum",
-//        String clear = "Roman",
+//        String clear = "Romani ite domum",
+        String clear = "Romaniytu",
                 crypt = "Rntodomiimuea  m";
 
         System.out.println(InterlacedSpiralCipher.encode(clear));
