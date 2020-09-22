@@ -54,7 +54,7 @@ public class InterlacedSpiralCipher {
 
             fillFinalCharArray(s, square_size, array, plainArrayAll);
 
-            showResult(array);
+//            System.out.println(showResult(array));
 
             beginIndex = endIndex;
             count++;
@@ -66,7 +66,68 @@ public class InterlacedSpiralCipher {
 
         fillFinalCharArray(s, square_size, array, plainArrayAll);
 
-        drawResult(array);
+        drawSquare(array);
+
+        return showResult(array);
+    }
+
+    public static String decode(String s) {
+        int square_size = (int) Math.ceil(Math.sqrt(s.length()));
+
+        char[][] array = new char[square_size][square_size];
+        for (int i = 0, t = 0; i < square_size; i++) {
+            for (int j = 0; j < square_size; j++, t++) {
+                array[i][j] = s.charAt(t);
+            }
+        }
+
+        drawSquare(array);
+
+        int[] plainArrayAll = new int[0];
+        int count = 0;
+        int beginIndex = 0;
+        int endIndex = 0;
+        do {
+            System.out.println("===============");
+            int current_square_size = square_size - 2 * count;
+            System.out.println("Current square side is: " + current_square_size);
+            System.out.println("count = " +  count);
+            int square_perimeter = ((square_size - 2 * count - 1) * 4);
+            System.out.println("square_perimeter = " +  square_perimeter);
+            if (square_perimeter == 0) endIndex = s.length();
+            else endIndex = beginIndex + square_perimeter;
+            System.out.println("beginIndex = " +  beginIndex);
+            System.out.println("endIndex = " +  endIndex);
+//            String substring = s.substring(beginIndex, endIndex);
+//            System.out.println("|" + substring + "|");
+
+//            Get plain perimeter order of square
+            int[] plainPerimeterOrder = getPlainPerimeterOrder(square_size, count);
+            System.out.println("Plain order [" + count + "]: " + Arrays.toString(plainPerimeterOrder));
+
+//            Get encoder order of perimeter
+            int[] encodeOrder = getEncoderOrder(current_square_size);
+            System.out.println("Encode order [" + count + "]: " + Arrays.toString(encodeOrder));
+
+            int[] plainArray = getDecodedArray(square_perimeter, plainPerimeterOrder, encodeOrder);
+
+            System.out.println("Encoded array [" + count + "]: " + Arrays.toString(plainArray));
+
+            plainArrayAll = IntStream.concat(Arrays.stream(plainArrayAll), Arrays.stream(plainArray))
+                    .toArray();
+
+            fillFinalCharArray(s, square_size, array, plainArrayAll);
+
+            showResult(array);
+
+            beginIndex = endIndex;
+            count++;
+
+        } while (endIndex < s.length());
+
+        fillFinalCharArray(s, square_size, array, plainArrayAll);
+
+        drawSquare(array);
 
         return showResult(array);
     }
@@ -77,7 +138,6 @@ public class InterlacedSpiralCipher {
             array[plainArrayAll[i] / square_size][plainArrayAll[i] % square_size] = s.charAt(i);
         }
     }
-
     private static String showResult(char[][] array) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < array.length; i++) {
@@ -87,7 +147,8 @@ public class InterlacedSpiralCipher {
         }
         return builder.toString();
     }
-    private static void drawResult(char[][] array) {
+
+    private static void drawSquare(char[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 System.out.print("[" + array[i][j] + "]");
@@ -102,6 +163,17 @@ public class InterlacedSpiralCipher {
         for (int i = 0; i < square_perimeter; i++) {
 //            System.out.println(encodeOrder[i]);
             plainArray[i] = plainPerimeterOrder[encodeOrder[i]];
+        }
+        return plainArray;
+    }
+
+    private static int[] getDecodedArray(int square_perimeter, int[] plainPerimeterOrder, int[] encodeOrder) {
+        if (square_perimeter == 0) square_perimeter = 1;
+        int[] plainArray = new int[square_perimeter];
+        for (int i = 0; i < square_perimeter; i++) {
+//            System.out.println(encodeOrder[i]);
+            plainArray[i] = plainPerimeterOrder[encodeOrder[i]];
+//            plainArray[i] = encodeOrder[plainPerimeterOrder[i]];
         }
         return plainArray;
     }
@@ -177,11 +249,6 @@ public class InterlacedSpiralCipher {
             }
             return encodeOrder;
         }
-    }
-
-    public static String decode(String s) {
-        // Your code here!
-        return "";
     }
 
     public static int getItem(int x, int y, int size) {

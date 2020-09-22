@@ -451,8 +451,8 @@ public class Main {
 //        String clear = "Romaniytu",
 //        String clear = "Romayreweetfdhghtwtwetwet",
 //        String clear = "Romayreweetfdhghtwtwetwetqgdfdsfhffdherewryweryweryfghfghfg53ggd",
-//        String clear = "Romani ite domum",
-        String clear = "Sic transit gloria mundi",
+//        String clear = "Sic transit gloria mundi",
+        String clear = "Romani ite domum",
                 crypt = "Rntodomiimuea  m";
         System.out.println(InterlacedSpiralCipher.encode(clear));
         System.out.println(InterlacedSpiralCipher.decode(crypt));
