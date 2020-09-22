@@ -45,7 +45,7 @@ public class InterlacedSpiralCipher {
             int[] encodeOrder = getEncoderOrder(current_square_size);
 //            System.out.println("Encode order [" + count + "]: " + Arrays.toString(encodeOrder));
 
-            int[] plainArray = getEncodedArray(square_perimeter, plainPerimeterOrder, encodeOrder);
+            int[] plainArray = getEncoderArray(square_perimeter, plainPerimeterOrder, encodeOrder);
 
 //            System.out.println("Encoded array [" + count + "]: " + Arrays.toString(plainArray));
 
@@ -109,7 +109,7 @@ public class InterlacedSpiralCipher {
             int[] encodeOrder = getEncoderOrder(current_square_size);
 //            System.out.println("Encode order [" + count + "]: " + Arrays.toString(encodeOrder));
 
-            int[] plainArray = getDecodedArray(square_perimeter, plainPerimeterOrder, encodeOrder);
+            int[] plainArray = getEncoderArray(square_perimeter, plainPerimeterOrder, encodeOrder);
 
 //            System.out.println("Decoded array [" + count + "]: " + Arrays.toString(plainArray));
 
@@ -131,7 +131,7 @@ public class InterlacedSpiralCipher {
 
 //        drawSquare(array);
 
-        return showResult(array);
+        return showResult(array).replaceAll("\\s+$", "");
     }
 
     private static void fillFinalCharArray(String s, int square_size, char[][] array, int[] plainArrayAll, boolean encode) {
@@ -161,23 +161,12 @@ public class InterlacedSpiralCipher {
         }
     }
 
-    private static int[] getEncodedArray(int square_perimeter, int[] plainPerimeterOrder, int[] encodeOrder) {
+    private static int[] getEncoderArray(int square_perimeter, int[] plainPerimeterOrder, int[] encodeOrder) {
         if (square_perimeter == 0) square_perimeter = 1;
         int[] plainArray = new int[square_perimeter];
         for (int i = 0; i < square_perimeter; i++) {
 //            System.out.println(encodeOrder[i]);
             plainArray[i] = plainPerimeterOrder[encodeOrder[i]];
-        }
-        return plainArray;
-    }
-
-    private static int[] getDecodedArray(int square_perimeter, int[] plainPerimeterOrder, int[] encodeOrder) {
-        if (square_perimeter == 0) square_perimeter = 1;
-        int[] plainArray = new int[square_perimeter];
-        for (int i = 0; i < square_perimeter; i++) {
-//            System.out.println(encodeOrder[i]);
-            plainArray[i] = plainPerimeterOrder[encodeOrder[i]];
-//            plainArray[i] = encodeOrder[plainPerimeterOrder[i]];
         }
         return plainArray;
     }

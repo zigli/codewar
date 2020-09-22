@@ -454,8 +454,8 @@ public class Main {
 //        String clear = "Sic transit gloria mundi",
         String clear = "Romani ite domum",
                 crypt = "Rntodomiimuea  m";
-        clear = "Sic transit gloria mundi";
-        crypt = "Stsgiriuar i ninmd l otac";
+//        clear = "Sic transit gloria mundi";
+        crypt = " UHBfb^:!qxZ[drnEG{X:M/cKk@rAW@je}p.:!DXItj[u:UR,tFci_Y@_DfZ@zJPW$pebYn /*Vybuh Zog   % )xnRkg//  GVlKGv-^moCuPmGcbWqEy@Lr%X^uayz;]zbAeJ^m_g-_RRPwoZ%.MSdMrQP$_-*F(FsYkgY";
         System.out.println(InterlacedSpiralCipher.encode(clear));
         System.out.println(InterlacedSpiralCipher.decode(crypt));
 
