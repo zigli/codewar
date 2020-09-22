@@ -15,9 +15,9 @@ public class InterlacedSpiralCipher {
 //        System.out.println("Square side is: " + square_size);
 
         char[][] array = new char[square_size][square_size];
-        for (char[] arr : array) {
-            Arrays.fill(arr, '.');
-        }
+//        for (char[] arr : array) {
+//            Arrays.fill(arr, '.');
+//        }
 
         int[] plainArrayAll = new int[0];
         int count = 0;
@@ -52,7 +52,7 @@ public class InterlacedSpiralCipher {
             plainArrayAll = IntStream.concat(Arrays.stream(plainArrayAll), Arrays.stream(plainArray))
                     .toArray();
 
-            fillFinalCharArray(s, square_size, array, plainArrayAll);
+            fillFinalCharArray(s, square_size, array, plainArrayAll, true);
 
 //            System.out.println(showResult(array));
 
@@ -64,9 +64,9 @@ public class InterlacedSpiralCipher {
 
 //        System.out.println("Encoded total array: " + Arrays.toString(plainArrayAll));
 
-        fillFinalCharArray(s, square_size, array, plainArrayAll);
+        fillFinalCharArray(s, square_size, array, plainArrayAll, true);
 
-        drawSquare(array);
+//        drawSquare(array);
 
         return showResult(array);
     }
@@ -81,63 +81,67 @@ public class InterlacedSpiralCipher {
             }
         }
 
-        drawSquare(array);
+//        drawSquare(array);
 
         int[] plainArrayAll = new int[0];
         int count = 0;
         int beginIndex = 0;
         int endIndex = 0;
         do {
-            System.out.println("===============");
+//            System.out.println("===============");
             int current_square_size = square_size - 2 * count;
-            System.out.println("Current square side is: " + current_square_size);
-            System.out.println("count = " +  count);
+//            System.out.println("Current square side is: " + current_square_size);
+//            System.out.println("count = " + count);
             int square_perimeter = ((square_size - 2 * count - 1) * 4);
-            System.out.println("square_perimeter = " +  square_perimeter);
+//            System.out.println("square_perimeter = " + square_perimeter);
             if (square_perimeter == 0) endIndex = s.length();
             else endIndex = beginIndex + square_perimeter;
-            System.out.println("beginIndex = " +  beginIndex);
-            System.out.println("endIndex = " +  endIndex);
+//            System.out.println("beginIndex = " + beginIndex);
+//            System.out.println("endIndex = " + endIndex);
 //            String substring = s.substring(beginIndex, endIndex);
 //            System.out.println("|" + substring + "|");
 
 //            Get plain perimeter order of square
             int[] plainPerimeterOrder = getPlainPerimeterOrder(square_size, count);
-            System.out.println("Plain order [" + count + "]: " + Arrays.toString(plainPerimeterOrder));
+//            System.out.println("Plain order [" + count + "]: " + Arrays.toString(plainPerimeterOrder));
 
 //            Get encoder order of perimeter
             int[] encodeOrder = getEncoderOrder(current_square_size);
-            System.out.println("Encode order [" + count + "]: " + Arrays.toString(encodeOrder));
+//            System.out.println("Encode order [" + count + "]: " + Arrays.toString(encodeOrder));
 
             int[] plainArray = getDecodedArray(square_perimeter, plainPerimeterOrder, encodeOrder);
 
-            System.out.println("Encoded array [" + count + "]: " + Arrays.toString(plainArray));
+//            System.out.println("Decoded array [" + count + "]: " + Arrays.toString(plainArray));
 
             plainArrayAll = IntStream.concat(Arrays.stream(plainArrayAll), Arrays.stream(plainArray))
                     .toArray();
 
-            fillFinalCharArray(s, square_size, array, plainArrayAll);
+            fillFinalCharArray(s, square_size, array, plainArrayAll, false);
 
-            showResult(array);
+//            showResult(array);
 
             beginIndex = endIndex;
             count++;
 
         } while (endIndex < s.length());
 
-        fillFinalCharArray(s, square_size, array, plainArrayAll);
+//        System.out.println("Encoded total array: " + Arrays.toString(plainArrayAll));
 
-        drawSquare(array);
+        fillFinalCharArray(s, square_size, array, plainArrayAll, false);
+
+//        drawSquare(array);
 
         return showResult(array);
     }
 
-    private static void fillFinalCharArray(String s, int square_size, char[][] array, int[] plainArrayAll) {
+    private static void fillFinalCharArray(String s, int square_size, char[][] array, int[] plainArrayAll, boolean encode) {
         for (int i = 0; i < plainArrayAll.length; i++) {
 //            System.out.println(i + " :: array[" + plainArrayAll[i] / square_size + "][" + plainArrayAll[i] % square_size + "] = " + s.charAt(i));
-            array[plainArrayAll[i] / square_size][plainArrayAll[i] % square_size] = s.charAt(i);
+            if (encode) array[plainArrayAll[i] / square_size][plainArrayAll[i] % square_size] = s.charAt(i);
+            else array[i / square_size][i % square_size] = s.charAt(plainArrayAll[i]);
         }
     }
+
     private static String showResult(char[][] array) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < array.length; i++) {
