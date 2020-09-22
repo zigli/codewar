@@ -260,14 +260,14 @@ public class Kata {
         fruits[100] = "pineapple";
 
         int result = n;
-        do{
+        do {
             result = getResult(result);
-        }while (result > 100);
+        } while (result > 100);
 
         return fruits[result];
     }
 
-    public static int getResult (int n){
+    public static int getResult(int n) {
         int sum = 0;
         int nOrig = n;
         while (n > 0) {
@@ -283,7 +283,8 @@ public class Kata {
     static String alternateCase(final String string) {
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < string.length(); i++) {
-            if(Character.isLowerCase(string.charAt(i))) stringBuffer.append(String.valueOf(string.charAt(i)).toUpperCase());
+            if (Character.isLowerCase(string.charAt(i)))
+                stringBuffer.append(String.valueOf(string.charAt(i)).toUpperCase());
             else stringBuffer.append(String.valueOf(string.charAt(i)).toLowerCase());
 //            if((int)string.charAt(i) > 91) stringBuffer.append(String.valueOf(string.charAt(i)).toUpperCase());
 //            else stringBuffer.append(String.valueOf(string.charAt(i)).toLowerCase());
@@ -311,5 +312,22 @@ public class Kata {
         }
         return (find.matches("(.*)([aáoóuú])(.*)")) ? word + "nak" : (find.matches("(.*)([eéiíöőüű])(.*)")) ? word + "nek" : word;
     }
+
+    public final static String COLOURS = "RGB";
+    public static char triangle(final String row) {
+        if(row.length() < 2) return row.charAt(0);
+
+        char[] chars = row.toCharArray();
+        do {
+            char[] newChars = new char[chars.length - 1];
+            for (int i = 1; i < chars.length; i++) {
+                newChars[i - 1] = (chars[i - 1] == chars[i]) ? chars[i] : COLOURS.charAt(3 - COLOURS.indexOf(chars[i - 1]) - COLOURS.indexOf(chars[i]));
+            }
+            chars = newChars;
+        } while (chars.length > 1);
+
+        return chars[0];
+    }
+
 
 }

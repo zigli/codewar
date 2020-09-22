@@ -452,14 +452,20 @@ public class Main {
 //        String clear = "Romayreweetfdhghtwtwetwet",
 //        String clear = "Romayreweetfdhghtwtwetwetqgdfdsfhffdherewryweryweryfghfghfg53ggd",
 //        String clear = "Sic transit gloria mundi",
-        String clear = "Romani ite domum",
-                crypt = "Rntodomiimuea  m";
+//        String clear = "Romani ite domum",
+//                crypt = "Rntodomiimuea  m";
 //        clear = "Sic transit gloria mundi";
-        crypt = " UHBfb^:!qxZ[drnEG{X:M/cKk@rAW@je}p.:!DXItj[u:UR,tFci_Y@_DfZ@zJPW$pebYn /*Vybuh Zog   % )xnRkg//  GVlKGv-^moCuPmGcbWqEy@Lr%X^uayz;]zbAeJ^m_g-_RRPwoZ%.MSdMrQP$_-*F(FsYkgY";
-        System.out.println(InterlacedSpiralCipher.encode(clear));
-        System.out.println(InterlacedSpiralCipher.decode(crypt));
+//        crypt = " UHBfb^:!qxZ[drnEG{X:M/cKk@rAW@je}p.:!DXItj[u:UR,tFci_Y@_DfZ@zJPW$pebYn /*Vybuh Zog   % )xnRkg//  GVlKGv-^moCuPmGcbWqEy@Lr%X^uayz;]zbAeJ^m_g-_RRPwoZ%.MSdMrQP$_-*F(FsYkgY";
+//        System.out.println(InterlacedSpiralCipher.encode(clear));
+//        System.out.println(InterlacedSpiralCipher.decode(crypt));
 
 
+//        System.out.println(Kata.triangle("GB"));
+//        System.out.println(Kata.triangle("RRR"));
+//        System.out.println(Kata.triangle("RGBG"));
+//        System.out.println( Kata.triangle("RBRGBRB"));
+//        System.out.println(Kata.triangle("RBRGBRBGGRRRBGBBBGG"));
+        System.out.println(Kata.triangle("B"));
 
 
     }
