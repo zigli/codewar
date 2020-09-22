@@ -314,19 +314,27 @@ public class Kata {
     }
 
     public final static String COLOURS = "RGB";
+
     public static char triangle(final String row) {
-        if(row.length() < 2) return row.charAt(0);
+        if (row.length() < 2) return row.charAt(0);
 
-        char[] chars = row.toCharArray();
-        do {
-            char[] newChars = new char[chars.length - 1];
-            for (int i = 1; i < chars.length; i++) {
-                newChars[i - 1] = (chars[i - 1] == chars[i]) ? chars[i] : COLOURS.charAt(3 - COLOURS.indexOf(chars[i - 1]) - COLOURS.indexOf(chars[i]));
-            }
-            chars = newChars;
-        } while (chars.length > 1);
+        char[] newChars = new char[row.length() - 1];
+        for (int i = 1; i < row.length(); i++)
+            newChars[i - 1] = (row.charAt(i - 1) == row.charAt(i)) ? row.charAt(i) : COLOURS.charAt(3 - COLOURS.indexOf(row.charAt(i - 1)) - COLOURS.indexOf(row.charAt(i)));
+        return triangle(String.valueOf(newChars));
 
-        return chars[0];
+//        if(row.length() < 2) return row.charAt(0);
+//
+//        char[] chars = row.toCharArray();
+//        do {
+//            char[] newChars = new char[chars.length - 1];
+//            for (int i = 1; i < chars.length; i++) {
+//                newChars[i - 1] = (chars[i - 1] == chars[i]) ? chars[i] : COLOURS.charAt(3 - COLOURS.indexOf(chars[i - 1]) - COLOURS.indexOf(chars[i]));
+//            }
+//            chars = newChars;
+//        } while (chars.length > 1);
+//
+//        return chars[0];
     }
 
 
