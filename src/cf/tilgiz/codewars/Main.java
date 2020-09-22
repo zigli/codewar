@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    public static void main(String[] args) throws NoSuchAlgorithmException {
+    public static void main(String[] args){
 
 //        System.out.print(ReversWords.reverse("This is test"));
 
@@ -447,10 +447,13 @@ public class Main {
 //        System.out.println(QuickCalc.choose(10, 20));
 //        System.out.println(QuickCalc.choose(52, 5));
 
-//        String clear = "Romani ite domum",
-        String clear = "Romaniytu",
+//        String clear = "Roma",
+//        String clear = "Romaniytu",
+//        String clear = "Romayreweetfdhghtwtwetwet",
+//        String clear = "Romayreweetfdhghtwtwetwetqgdfdsfhffdherewryweryweryfghfghfg53ggd",
+        String clear = "Romani ite domum",
                 crypt = "Rntodomiimuea  m";
-
+        System.out.println(clear.length());
         System.out.println(InterlacedSpiralCipher.encode(clear));
         System.out.println(InterlacedSpiralCipher.decode(crypt));
 
