@@ -7,7 +7,16 @@ import java.util.stream.IntStream;
  * @author Ilgiz Tukhvatov
  */
 public class InterlacedSpiralCipher {
+
     public static String encode(String s) {
+        return encodeDecode(s,true);
+    }
+
+    public static String decode(String s) {
+        return encodeDecode(s,false);
+    }
+
+    public static String encodeDecode(String s, boolean encode) {
         int square_size = (int) Math.ceil(Math.sqrt(s.length()));
         s = String.format("%1$-" + square_size * square_size + "s", s);
 
@@ -15,9 +24,14 @@ public class InterlacedSpiralCipher {
 //        System.out.println("Square side is: " + square_size);
 
         char[][] array = new char[square_size][square_size];
-//        for (char[] arr : array) {
-//            Arrays.fill(arr, '.');
-//        }
+
+        if (!encode){
+            for (int i = 0, t = 0; i < square_size; i++) {
+                for (int j = 0; j < square_size; j++, t++) {
+                    array[i][j] = s.charAt(t);
+                }
+            }
+        }
 
         int[] plainArrayAll = new int[0];
         int count = 0;
@@ -52,7 +66,7 @@ public class InterlacedSpiralCipher {
             plainArrayAll = IntStream.concat(Arrays.stream(plainArrayAll), Arrays.stream(plainArray))
                     .toArray();
 
-            fillFinalCharArray(s, square_size, array, plainArrayAll, true);
+//            fillFinalCharArray(s, square_size, array, plainArrayAll, encode);
 
 //            System.out.println(showResult(array));
 
@@ -64,70 +78,7 @@ public class InterlacedSpiralCipher {
 
 //        System.out.println("Encoded total array: " + Arrays.toString(plainArrayAll));
 
-        fillFinalCharArray(s, square_size, array, plainArrayAll, true);
-
-//        drawSquare(array);
-
-        return showResult(array);
-    }
-
-    public static String decode(String s) {
-        int square_size = (int) Math.ceil(Math.sqrt(s.length()));
-
-        char[][] array = new char[square_size][square_size];
-        for (int i = 0, t = 0; i < square_size; i++) {
-            for (int j = 0; j < square_size; j++, t++) {
-                array[i][j] = s.charAt(t);
-            }
-        }
-
-//        drawSquare(array);
-
-        int[] plainArrayAll = new int[0];
-        int count = 0;
-        int beginIndex = 0;
-        int endIndex = 0;
-        do {
-//            System.out.println("===============");
-            int current_square_size = square_size - 2 * count;
-//            System.out.println("Current square side is: " + current_square_size);
-//            System.out.println("count = " + count);
-            int square_perimeter = ((square_size - 2 * count - 1) * 4);
-//            System.out.println("square_perimeter = " + square_perimeter);
-            if (square_perimeter == 0) endIndex = s.length();
-            else endIndex = beginIndex + square_perimeter;
-//            System.out.println("beginIndex = " + beginIndex);
-//            System.out.println("endIndex = " + endIndex);
-//            String substring = s.substring(beginIndex, endIndex);
-//            System.out.println("|" + substring + "|");
-
-//            Get plain perimeter order of square
-            int[] plainPerimeterOrder = getPlainPerimeterOrder(square_size, count);
-//            System.out.println("Plain order [" + count + "]: " + Arrays.toString(plainPerimeterOrder));
-
-//            Get encoder order of perimeter
-            int[] encodeOrder = getEncoderOrder(current_square_size);
-//            System.out.println("Encode order [" + count + "]: " + Arrays.toString(encodeOrder));
-
-            int[] plainArray = getEncoderArray(square_perimeter, plainPerimeterOrder, encodeOrder);
-
-//            System.out.println("Decoded array [" + count + "]: " + Arrays.toString(plainArray));
-
-            plainArrayAll = IntStream.concat(Arrays.stream(plainArrayAll), Arrays.stream(plainArray))
-                    .toArray();
-
-            fillFinalCharArray(s, square_size, array, plainArrayAll, false);
-
-//            showResult(array);
-
-            beginIndex = endIndex;
-            count++;
-
-        } while (endIndex < s.length());
-
-//        System.out.println("Encoded total array: " + Arrays.toString(plainArrayAll));
-
-        fillFinalCharArray(s, square_size, array, plainArrayAll, false);
+        fillFinalCharArray(s, square_size, array, plainArrayAll, encode);
 
 //        drawSquare(array);
 
