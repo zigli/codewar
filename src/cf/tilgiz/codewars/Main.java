@@ -465,8 +465,10 @@ public class Main {
 //        System.out.println(Kata.triangle("RGBG"));
 //        System.out.println( Kata.triangle("RBRGBRB"));
 //        System.out.println(Kata.triangle("RBRGBRBGGRRRBGBBBGG"));
-        System.out.println(Kata.triangle("B"));
+//        System.out.println(Kata.triangle("B"));
 
+
+        System.out.println(Arrays.toString(SequenceSum.sumOfN(-4)));
 
     }
 
