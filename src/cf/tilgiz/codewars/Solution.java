@@ -710,4 +710,35 @@ public class Solution {
 //        return c;
     }
 
+
+    public static long solvePrime(long n){
+        int i = 0;
+        long cNumLeft = 0;
+        long cNumRight = 0;
+        while(true){
+            cNumLeft = n - i;
+            cNumRight = n + i;
+            System.out.println(i + " => " + cNumLeft);
+            System.out.println(i + " => " + cNumRight);
+            if (checkPrime(cNumLeft)) return cNumLeft;
+            if (checkPrime(cNumRight)) return cNumRight;
+            i++;
+        }
+    }
+
+    public static boolean checkPrime(long n) {
+        if (n <= 1)
+            return false;
+        if (n <= 3)
+            return true;
+        if (n % 2 == 0 || n % 3 == 0)
+            return false;
+
+        for (int i = 2; i < Math.sqrt(n); i++) {
+            if (n % i == 0 && n != i) return false;
+        }
+        return true;
+    }
+
+
 }

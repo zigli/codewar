@@ -468,8 +468,12 @@ public class Main {
 //        System.out.println(Kata.triangle("B"));
 
 
-        System.out.println(Arrays.toString(SequenceSum.sumOfN(-4)));
+//        System.out.println(Arrays.toString(SequenceSum.sumOfN(-4)));
 
+
+
+//        System.out.println(Solution.checkPrime(4L));
+        System.out.println(Solution.solvePrime(4L));
     }
 
 }
