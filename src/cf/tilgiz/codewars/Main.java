@@ -473,7 +473,9 @@ public class Main {
 
 
 //        System.out.println(Solution.checkPrime(4L));
-        System.out.println(Solution.solvePrime(4L));
+//        System.out.println(Solution.solvePrime(4L));
+
+        System.out.println(Prime.isPrime(326094337));
     }
 
 }
