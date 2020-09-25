@@ -478,7 +478,11 @@ public class Main {
 //        System.out.println(Prime.isPrime(326094337));
 
 
-        System.out.println(MorseCodeDecoder.decode(".... . -.--   .--- ..- -.. ."));
+//        System.out.println(MorseCodeDecoder.decode(".... . -.--   .--- ..- -.. ."));
+
+
+        System.out.println(Maskify.maskify("4556364607935616"));
+        System.out.println(Maskify.maskify("1"));
     }
 
 }
