@@ -1,9 +1,9 @@
 package cf.tilgiz.codewars;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -335,7 +335,45 @@ public class Kata {
 //        } while (chars.length > 1);
 //
 //        return chars[0];
+
+
     }
 
+
+    public static String[] mostFrequentDays(int year) {
+//        GregorianCalendar calendar = new GregorianCalendar(year , 0, 1);
+//        GregorianCalendar calendar1 = new GregorianCalendar(year , 0, 2);
+//        int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+//        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+//        boolean leapYear = calendar.isLeapYear(year);
+//        LocalDate localDate = LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
+//        LocalDate localDate1 = LocalDateTime.ofInstant(calendar1.toInstant(), calendar1.getTimeZone().toZoneId()).toLocalDate();
+//        String string = localDate.getDayOfWeek().toString();
+//        String string1 = localDate1.getDayOfWeek().toString();
+//        System.out.println(localDate.lengthOfYear());
+        LocalDate date = LocalDate.of(year, 1, 1);
+//        System.out.println(date.getDayOfWeek());
+//        date = date.plusDays(1);
+
+
+//        System.out.println(365%7);
+//        System.out.println(366%7);
+//        System.out.println(dayOfWeek);
+//        System.out.println(string);
+//        System.out.println(leapYear);
+        String firstDay = capitalizeFirstLetter(String.valueOf(date.getDayOfWeek()));
+        if (date.isLeapYear()) {
+            String secondDay = capitalizeFirstLetter(String.valueOf(date.plusDays(1).getDayOfWeek()));
+            if (firstDay.equals("Sunday")) return new String[]{secondDay, firstDay};
+            else return new String[]{firstDay, secondDay};
+        } else return new String[]{firstDay};
+    }
+
+    public static String capitalizeFirstLetter(String original) {
+        if (original == null || original.length() == 0) {
+            return original;
+        }
+        return original.toLowerCase().substring(0, 1).toUpperCase() + original.toLowerCase().substring(1);
+    }
 
 }

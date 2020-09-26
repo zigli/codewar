@@ -481,8 +481,11 @@ public class Main {
 //        System.out.println(MorseCodeDecoder.decode(".... . -.--   .--- ..- -.. ."));
 
 
-        System.out.println(Maskify.maskify("4556364607935616"));
-        System.out.println(Maskify.maskify("1"));
+//        System.out.println(Maskify.maskify("4556364607935616"));
+//        System.out.println(Maskify.maskify("1"));
+
+        System.out.println(Arrays.toString(Kata.mostFrequentDays(1984)));
+
     }
 
 }
