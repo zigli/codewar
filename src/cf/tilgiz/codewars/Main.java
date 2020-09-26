@@ -484,8 +484,13 @@ public class Main {
 //        System.out.println(Maskify.maskify("4556364607935616"));
 //        System.out.println(Maskify.maskify("1"));
 
-        System.out.println(Arrays.toString(Kata.mostFrequentDays(1984)));
+//        System.out.println(Arrays.toString(Kata.mostFrequentDays(1984)));
 
+
+        final BackspacesInString bis = new BackspacesInString();
+        System.out.println(bis.cleanString("abc#d##c"));
+        System.out.println(bis.cleanString("abc####d##c#"));
+        System.out.println(bis.cleanString("fW##r##LPu#QHj#"));
     }
 
 }
