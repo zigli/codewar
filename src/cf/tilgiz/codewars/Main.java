@@ -495,6 +495,8 @@ public class Main {
 //        System.out.println(FirstNonConsecutive.find(new int[]{1, 2, 3, 4, 6, 7, 8}));
 //        System.out.println(FirstNonConsecutive.find(new int[]{1, 2, 3, 4, 5, 6, 7, 8}));
 
+        System.out.println("12l455".matches("[\\d]{4}|[\\d]{6}"));
+
     }
 
 }
