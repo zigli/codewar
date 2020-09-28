@@ -487,10 +487,14 @@ public class Main {
 //        System.out.println(Arrays.toString(Kata.mostFrequentDays(1984)));
 
 
-        final BackspacesInString bis = new BackspacesInString();
-        System.out.println(bis.cleanString("abc#d##c"));
-        System.out.println(bis.cleanString("abc####d##c#"));
-        System.out.println(bis.cleanString("fW##r##LPu#QHj#"));
+//        final BackspacesInString bis = new BackspacesInString();
+//        System.out.println(bis.cleanString("abc#d##c"));
+//        System.out.println(bis.cleanString("abc####d##c#"));
+//        System.out.println(bis.cleanString("fW##r##LPu#QHj#"));
+
+//        System.out.println(FirstNonConsecutive.find(new int[]{1, 2, 3, 4, 6, 7, 8}));
+//        System.out.println(FirstNonConsecutive.find(new int[]{1, 2, 3, 4, 5, 6, 7, 8}));
+
     }
 
 }
