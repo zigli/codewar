@@ -1,42 +1,39 @@
 package cf.tilgiz.codewars;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /**
  * @author Ilgiz Tukhvatov
  */
 public class CasinoChips {
-    public static int solve(int[] arr) {
+    public static int solve(int[] arr, int chipNum) {
+        if(chipNum <= 0 || chipNum >= arr.length) return -1;
+
         System.out.println(Arrays.toString(arr));
 
-        int maxIndex, secondMaxIndex, count = 0;
-//        int maxIndex = (arr[0] > arr[1]) ? (arr[0] > arr[2]) ? 0 : 2 : (arr[1] > arr[2]) ? 1 : 2;
-//        int secondMaxIndex = (maxIndex == 0) ? (arr[1] > arr[2]) ? 1 : 2 : (maxIndex == 1) ? (arr[0] > arr[2]) ? 0 : 2 : (arr[0] > arr[1]) ? 0 : 1;
+        int maxIndex, count = 0;
+        ArrayList<Integer> maxIndexList = new ArrayList<>();
 
         while (true) {
-//            System.out.println(arr[0]);
-            maxIndex = getIndexOfMaxValue(arr, -1);
-//            System.out.println("maxIndex: " + maxIndex + ", value is: " + arr[maxIndex]);
-            secondMaxIndex = getIndexOfMaxValue(arr, maxIndex);
-//            System.out.println("secondMaxIndex: " + secondMaxIndex + ", value is: " + arr[secondMaxIndex]);
-            arr[maxIndex]--;
-            arr[secondMaxIndex]--;
-            if(arr[0] == -1 || arr[1] == -1 || arr[2] == -1) break;
+            maxIndexList.clear();
+            for (int i = 0; i < chipNum; i++) {
+                maxIndex = getIndexOfMaxValue(arr, maxIndexList);
+                maxIndexList.add(maxIndex);
+            }
+            maxIndexList.forEach(x -> arr[x]--);
+            if(IntStream.of(arr).anyMatch(x -> x == -1)) break;
             count++;
             System.out.println("count: " + count + " => " + Arrays.toString(arr));
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
         }
         return count;
     }
 
-    public static int getIndexOfMaxValue(int[] array, int skipIndex) {
-        int maxAt = (array.length + 1 - skipIndex) % 2;
+    public static int getIndexOfMaxValue(int[] array, ArrayList<Integer> skipIndexList) {
+        int maxAt = -1;
         for (int i = 0; i < array.length; i++) {
-            if (skipIndex != i) maxAt = array[i] > array[maxAt] ? i : maxAt;
+            if (!skipIndexList.contains(i)) maxAt = (maxAt == -1 || array[i] > array[maxAt]) ? i : maxAt;
         }
         return maxAt;
     }

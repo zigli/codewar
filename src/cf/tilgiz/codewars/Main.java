@@ -1,11 +1,13 @@
 package cf.tilgiz.codewars;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
 //        System.out.print(ReversWords.reverse("This is test"));
 
@@ -471,7 +473,6 @@ public class Main {
 //        System.out.println(Arrays.toString(SequenceSum.sumOfN(-4)));
 
 
-
 //        System.out.println(Solution.checkPrime(4L));
 //        System.out.println(Solution.solvePrime(4L));
 
@@ -499,7 +500,9 @@ public class Main {
 
 
 //        System.out.println(CasinoChips.solve(new int[]{1, 1, 1}));
-        System.out.println(CasinoChips.solve(new int[]{8,2,8,4}));
+        System.out.println(CasinoChips.solve(new int[]{8,2,8,4,4,1,6,5,3}, 6));
+//        System.out.println(CasinoChips.getIndexOfMaxValue1(new int[]{1, 1, 1, 1}, 0));
+//        System.out.println(CasinoChips.getIndexOfMaxValue(new int[]{1, 1, 1, 1}, new ArrayList<Integer>(){{ add(0); add(1); add(2); }}));
 
     }
 
