@@ -434,4 +434,26 @@ public class Kata {
         return result;
     }
 
+    public static String highAndLow(String numbers) {
+        System.out.println(numbers);
+        String[] s = numbers.split(" ");
+        int min = Integer.parseInt(s[0]), max = Integer.parseInt(s[0]);
+        for (String value : s) {
+            max = Math.max(Integer.parseInt(value), max);
+            min = Math.min(Integer.parseInt(value), min);
+        }
+
+//        int min = Arrays.stream(numbers.split(" "))
+//                .mapToInt(i -> Integer.parseInt(i))
+//                .min()
+//                .getAsInt();
+//
+//        int max = Arrays.stream(numbers.split(" "))
+//                .mapToInt(i -> Integer.parseInt(i))
+//                .max()
+//                .getAsInt();
+
+        return String.format("%d %d", max, min);
+    }
+
 }
