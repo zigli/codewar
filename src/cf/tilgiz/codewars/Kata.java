@@ -376,4 +376,52 @@ public class Kata {
         return original.toLowerCase().substring(0, 1).toUpperCase() + original.toLowerCase().substring(1);
     }
 
+    public static String printNumber(int num, char ch) {
+        int[][][] numbers = {{{0, 1, 1, 1, 1, 0 , 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 0}},
+                {{0, 0, 1, 1, 0, 0, 0}, {0, 1, 1, 1, 0, 0, 0}, {1, 0, 1, 1, 0, 0, 0}, {0, 0, 1, 1, 0, 0, 0}, {0, 0, 1, 1, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 0}},
+                {{0, 1, 1, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 0, 0, 1, 1, 0, 0}, {0, 0, 1, 1, 0, 0, 0}, {0, 1, 1, 0, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 0}},
+                {{0, 1, 1, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 0, 0, 1, 1, 0, 0}, {0, 0, 0, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 0}},
+                {{1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 1, 1, 1, 1, 1, 0}, {0, 0, 0, 0, 1, 1, 0}, {0, 0, 0, 0, 1, 1, 0}},
+                {{1, 1, 1, 1, 1, 1, 0}, {1, 1, 0, 0, 0, 0, 0}, {1, 1, 1, 1, 1, 0, 0}, {0, 0, 0, 0, 1, 1, 0}, {0, 0, 0, 0, 1, 1, 0}, {1, 1, 1, 1, 1, 0, 0}},
+                {{0, 0, 0, 1, 1, 0, 0}, {0, 0, 1, 1, 0, 0, 0}, {0, 1, 1, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 0}},
+                {{1, 1, 1, 1, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 0, 0, 1, 1, 0, 0}, {0, 0, 1, 1, 0, 0, 0}, {0, 1, 1, 0, 0, 0, 0}, {0, 1, 1, 0, 0, 0, 0}},
+                {{0, 1, 1, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 0}, {0, 1, 1, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 0}},
+                {{0, 1, 1, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 0}, {0, 0, 1, 1, 0, 0, 0}, {0, 1, 1, 0, 0, 0, 0}}};
+        int[][] emptyLine = {{0}, {0}, {0}, {0}, {0}, {0}};
+        int[][] fullLine = {{1}, {1}, {1}, {1}, {1}, {1}};
+        String numString = String.format("%05d", num);
+        int[][] output = new int[6][40];
+        IntStream.range(0, 6).forEach(i -> output[i][0] = fullLine[i][0]);
+        IntStream.range(0, 6).forEach(i -> output[i][1] = emptyLine[i][0]);
+        IntStream.range(0, 6).forEach(i -> output[i][2] = emptyLine[i][0]);
+        for (int i = 0; i < numString.length(); i++) {
+            int textNum = Integer.parseInt(String.valueOf(numString.charAt(i)));
+            for (int j = 0; j < 6; j++) {
+                for (int k = 0; k < 7; k++) {
+                    output[j][(i * 7) + k + 3] = numbers[textNum][j][k];
+                }
+            }
+        }
+        IntStream.range(0, 6).forEach(i -> output[i][38] = emptyLine[i][0]);
+        IntStream.range(0, 6).forEach(i -> output[i][39] = fullLine[i][0]);
+
+        String builder = String.format("%040d", 0).replace('0', ch) + "\n" +
+                ch + String.format("%038d", 0).replace('0', ' ') + ch + "\n" +
+                draw(ch, output) +
+                ch + String.format("%038d", 0).replace('0', ' ') + ch + "\n" +
+                String.format("%040d", 0).replace('0', ch);
+        return builder;
+    }
+
+    private static String draw(char ch, int[][] number) {
+        StringBuilder builder = new StringBuilder();
+        for (int[] ints : number) {
+            for (int anInt : ints) {
+                builder.append((anInt == 1) ? ch : " ");
+            }
+            builder.append("\n");
+        }
+        return builder.toString();
+    }
+
 }

@@ -500,10 +500,12 @@ public class Main {
 
 
 //        System.out.println(CasinoChips.solve(new int[]{1, 1, 1}));
-        System.out.println(CasinoChips.solve(new int[]{8,2,8,4,4,1,6,5,3}, 6));
+//        System.out.println(CasinoChips.solve(new int[]{8,2,8,4,4,1,6,5,3}, 6));
 //        System.out.println(CasinoChips.getIndexOfMaxValue1(new int[]{1, 1, 1, 1}, 0));
 //        System.out.println(CasinoChips.getIndexOfMaxValue(new int[]{1, 1, 1, 1}, new ArrayList<Integer>(){{ add(0); add(1); add(2); }}));
 
+
+        System.out.println(Kata.printNumber(99, '*'));
     }
 
 }
