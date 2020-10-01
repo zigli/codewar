@@ -424,4 +424,14 @@ public class Kata {
         return builder.toString();
     }
 
+    public static int[][] matrixAddition(int[][] a, int[][] b) {
+        int[][] result = new int[a.length][a.length];
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result.length; j++) {
+                result[i][j] = a[i][j] + b[i][j];
+            }
+        }
+        return result;
+    }
+
 }

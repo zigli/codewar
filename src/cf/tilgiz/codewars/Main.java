@@ -505,7 +505,12 @@ public class Main {
 //        System.out.println(CasinoChips.getIndexOfMaxValue(new int[]{1, 1, 1, 1}, new ArrayList<Integer>(){{ add(0); add(1); add(2); }}));
 
 
-        System.out.println(Kata.printNumber(99, '*'));
+//        System.out.println(Kata.printNumber(99, '*'));
+
+
+        System.out.println(Arrays.deepToString(Kata.matrixAddition(
+                new int[][]{{1, 2, 3}, {3, 2, 1}, {1, 1, 1}},
+                new int[][]{{2, 2, 1}, {3, 2, 3}, {1, 1, 3}})));
     }
 
 }
