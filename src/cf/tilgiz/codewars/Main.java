@@ -508,9 +508,13 @@ public class Main {
 //        System.out.println(Kata.printNumber(99, '*'));
 
 
-        System.out.println(Arrays.deepToString(Kata.matrixAddition(
-                new int[][]{{1, 2, 3}, {3, 2, 1}, {1, 1, 1}},
-                new int[][]{{2, 2, 1}, {3, 2, 3}, {1, 1, 3}})));
+//        System.out.println(Arrays.deepToString(Kata.matrixAddition(
+//                new int[][]{{1, 2, 3}, {3, 2, 1}, {1, 1, 1}},
+//                new int[][]{{2, 2, 1}, {3, 2, 3}, {1, 1, 3}})));
+
+        System.out.println(Arrays.toString(GCDsum.solve(6, 3)));
+        System.out.println(Arrays.toString(GCDsum.solve(8,2)));
+        System.out.println(Arrays.toString(GCDsum.solve(10,2)));
     }
 
 }
