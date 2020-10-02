@@ -519,7 +519,11 @@ public class Main {
 //        System.out.println(Kata.highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
 //        System.out.println(Kata.highAndLow("-1 -1 0"));
 
-        System.out.println(DnaStrand.makeComplement("AAAA"));
+//        System.out.println(DnaStrand.makeComplement("AAAA"));
+
+
+        Bio b = new Bio();
+        System.out.println(b.dnaToRna("TTTT"));
 
     }
 
