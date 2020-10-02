@@ -456,4 +456,8 @@ public class Kata {
         return String.format("%d %d", max, min);
     }
 
+    public static String reverseLetter(final String str) {
+        return new StringBuilder(str.replaceAll("[^a-z]", "")).reverse().toString();
+    }
+
 }
