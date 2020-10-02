@@ -522,9 +522,11 @@ public class Main {
 //        System.out.println(DnaStrand.makeComplement("AAAA"));
 
 
-        Bio b = new Bio();
-        System.out.println(b.dnaToRna("TTTT"));
+//        Bio b = new Bio();
+//        System.out.println(b.dnaToRna("TTTT"));
 
+
+        System.out.println(Solution.binaryToText("0100100001100101011011000110110001101111"));
     }
 
 }

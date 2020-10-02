@@ -698,7 +698,7 @@ public class Solution {
     public static int solve(int[] arr) {
         int count = 0;
         for (int i = 0; i < arr.length - (arr.length % 2); i += 2) {
-            if (Math.abs(Math.abs(arr[i]) - Math.abs(arr[i + 1])) == 1 && (arr[i] + arr[i + 1] == 2 * Math.max(arr[i],arr[i + 1]) - 1)) {
+            if (Math.abs(Math.abs(arr[i]) - Math.abs(arr[i + 1])) == 1 && (arr[i] + arr[i + 1] == 2 * Math.max(arr[i], arr[i + 1]) - 1)) {
                 count++;
             }
         }
@@ -711,11 +711,11 @@ public class Solution {
     }
 
 
-    public static long solvePrime(long n){
+    public static long solvePrime(long n) {
         int i = 0;
         long cNumLeft = 0;
         long cNumRight = 0;
-        while(true){
+        while (true) {
             cNumLeft = n - i;
             cNumRight = n + i;
             System.out.println(i + " => " + cNumLeft);
@@ -740,5 +740,18 @@ public class Solution {
         return true;
     }
 
+    public static String binaryToText(String binary) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < binary.length(); i += 8) {
+            String binarySubstring = binary.substring(i, i + 8);
+//            builder.append((char) Integer.parseInt(binarySubstring.toString(), 2));
+            int sum = 0;
+            for (int p = 0, j = binarySubstring.length() - 1; j >= 0; p++, j--) {
+                sum += Integer.parseInt(String.valueOf(binarySubstring.charAt(j))) * (int) Math.pow(2, p);
+            }
+            builder.append((char) sum);
+        }
+        return builder.toString();
+    }
 
 }
