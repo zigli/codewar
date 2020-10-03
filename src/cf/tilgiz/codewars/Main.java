@@ -526,7 +526,9 @@ public class Main {
 //        System.out.println(b.dnaToRna("TTTT"));
 
 
-        System.out.println(Solution.binaryToText("0100100001100101011011000110110001101111"));
+//        System.out.println(Solution.binaryToText("0100100001100101011011000110110001101111"));
+
+        System.out.println(Arrays.toString(Solution.sortByFrequency(new int[]{2, 3, 5, 3, 7, 9, 5, 3, 7})));
     }
 
 }
