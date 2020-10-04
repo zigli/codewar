@@ -540,7 +540,10 @@ public class Main {
 
 //        System.out.println(TimeFormatter.formatDuration(1));
 //        System.out.println(TimeFormatter.formatDuration(62));
-        System.out.println(TimeFormatter.formatDuration(15731080));
+//        System.out.println(TimeFormatter.formatDuration(15731080));
+
+
+        System.out.println(HumanReadableTime.makeReadable(359999));
 
     }
 
