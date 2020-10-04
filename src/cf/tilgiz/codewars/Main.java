@@ -543,7 +543,22 @@ public class Main {
 //        System.out.println(TimeFormatter.formatDuration(15731080));
 
 
-        System.out.println(HumanReadableTime.makeReadable(359999));
+//        System.out.println(HumanReadableTime.makeReadable(359999));
+
+/*
+        String shape = String.join("\n", new String[] {"+------------+",
+                "|            |",
+                "|            |",
+                "|            |",
+                "+------+-----+",
+                "|      |     |",
+                "|      |     |",
+                "+------+-----+"});
+        System.out.println(Arrays.toString(BreakPieces.process(shape)));
+*/
+
+
+        System.out.println(GrassHopper.summation(8));
 
     }
 
