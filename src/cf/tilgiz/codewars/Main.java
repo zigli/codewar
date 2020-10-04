@@ -512,12 +512,15 @@ public class Main {
 //                new int[][]{{1, 2, 3}, {3, 2, 1}, {1, 1, 1}},
 //                new int[][]{{2, 2, 1}, {3, 2, 3}, {1, 1, 3}})));
 
+
 //        System.out.println(Arrays.toString(GCDsum.solve(6, 3)));
 //        System.out.println(Arrays.toString(GCDsum.solve(8,2)));
 //        System.out.println(Arrays.toString(GCDsum.solve(10,2)));
 
+
 //        System.out.println(Kata.highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
 //        System.out.println(Kata.highAndLow("-1 -1 0"));
+
 
 //        System.out.println(DnaStrand.makeComplement("AAAA"));
 
@@ -528,10 +531,17 @@ public class Main {
 
 //        System.out.println(Solution.binaryToText("0100100001100101011011000110110001101111"));
 
+
 //        System.out.println(Arrays.toString(Solution.sortByFrequency(new int[]{2, 3, 5, 3, 7, 9, 5, 3, 7})));
 
 
-        System.out.println(TriangleNumbers.isTriangleNumber(3126250));
+//        System.out.println(TriangleNumbers.isTriangleNumber(3126250));
+
+
+//        System.out.println(TimeFormatter.formatDuration(1));
+//        System.out.println(TimeFormatter.formatDuration(62));
+        System.out.println(TimeFormatter.formatDuration(15731080));
+
     }
 
 }
