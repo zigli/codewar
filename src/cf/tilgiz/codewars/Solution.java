@@ -756,10 +756,10 @@ public class Solution {
 
     public static int[] sortByFrequency(int[] array) {
         int[] out = new int[array.length];
-        TreeMap<Integer,Integer> treeMap = new TreeMap<>();
+        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
         for (int i : array) {
-            if(treeMap.containsKey(i)) treeMap.put(i,treeMap.get(i) + 1);
-            else treeMap.put(i,1);
+            if (treeMap.containsKey(i)) treeMap.put(i, treeMap.get(i) + 1);
+            else treeMap.put(i, 1);
         }
 
         Map<Integer, Integer> sorted = treeMap
@@ -767,14 +767,25 @@ public class Solution {
                 .stream()
                 .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
                 .collect(toMap(Map.Entry::getKey, Map.Entry::getValue,
-                                (e1, e2) -> e2, LinkedHashMap::new));
+                        (e1, e2) -> e2, LinkedHashMap::new));
 
         final int[] counter = {0};
-        sorted.forEach((k,v)->{
+        sorted.forEach((k, v) -> {
             for (int i = 0; i < v; i++, counter[0]++) {
                 out[counter[0]] = k;
             }
         });
         return out;
     }
+
+    public static String whatCentury(int year) {
+        int number = (year % 100 == 0) ? year / 100 : year / 100 + 1;
+        StringBuilder builder = new StringBuilder().append(number);
+        if (number % 10 == 1 && number % 100 != 11) builder.append("st");
+        else if (number % 10 == 2 && number % 100 != 12) builder.append("nd");
+        else if (number % 10 == 3 && number % 100 != 13) builder.append("rd");
+        else builder.append("th");
+        return builder.toString();
+    }
+
 }

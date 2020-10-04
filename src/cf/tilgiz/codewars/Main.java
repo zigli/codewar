@@ -558,7 +558,10 @@ public class Main {
 */
 
 
-        System.out.println(GrassHopper.summation(8));
+//        System.out.println(GrassHopper.summation(8));
+
+
+        System.out.println(Solution.whatCentury(1999));
 
     }
 
