@@ -564,7 +564,9 @@ public class Main {
 //        System.out.println(Solution.whatCentury(1999));
 
 
-        System.out.println(new Solution().solution(16));
+//        System.out.println(new Solution().solution(16));
+
+        System.out.println(Arrays.toString(DeadFish.parse("iiisdosodddddiso")));
 
     }
 
