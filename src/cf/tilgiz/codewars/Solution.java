@@ -788,4 +788,16 @@ public class Solution {
         return builder.toString();
     }
 
+    public int solution(int number) {
+        int sum = 0;
+        number--;
+        while (number > 0) {
+            if (number % 5 == 0 || number % 3 == 0) sum+=number;
+            number--;
+        }
+        return sum;
+
+//        return IntStream.range(3, number).filter(n -> n % 3 == 0 || n % 5 == 0).sum();
+    }
+
 }
