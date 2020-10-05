@@ -566,7 +566,10 @@ public class Main {
 
 //        System.out.println(new Solution().solution(16));
 
-        System.out.println(Arrays.toString(DeadFish.parse("iiisdosodddddiso")));
+//        System.out.println(Arrays.toString(DeadFish.parse("iiisdosodddddiso")));
+
+
+        System.out.println(Persist.persistence(39));
 
     }
 
