@@ -698,7 +698,7 @@ public class Solution {
     public static int solve(int[] arr) {
         int count = 0;
         for (int i = 0; i < arr.length - (arr.length % 2); i += 2) {
-            if (Math.abs(Math.abs(arr[i]) - Math.abs(arr[i + 1])) == 1 && (arr[i] + arr[i + 1] == 2 * Math.max(arr[i],arr[i + 1]) - 1)) {
+            if (Math.abs(Math.abs(arr[i]) - Math.abs(arr[i + 1])) == 1 && (arr[i] + arr[i + 1] == 2 * Math.max(arr[i], arr[i + 1]) - 1)) {
                 count++;
             }
         }
@@ -711,11 +711,11 @@ public class Solution {
     }
 
 
-    public static long solvePrime(long n){
+    public static long solvePrime(long n) {
         int i = 0;
         long cNumLeft = 0;
         long cNumRight = 0;
-        while(true){
+        while (true) {
             cNumLeft = n - i;
             cNumRight = n + i;
             System.out.println(i + " => " + cNumLeft);
@@ -740,5 +740,71 @@ public class Solution {
         return true;
     }
 
+    public static String binaryToText(String binary) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < binary.length(); i += 8) {
+            String binarySubstring = binary.substring(i, i + 8);
+//            builder.append((char) Integer.parseInt(binarySubstring.toString(), 2));
+            int sum = 0;
+            for (int p = 0, j = binarySubstring.length() - 1; j >= 0; p++, j--) {
+                sum += Integer.parseInt(String.valueOf(binarySubstring.charAt(j))) * (int) Math.pow(2, p);
+            }
+            builder.append((char) sum);
+        }
+        return builder.toString();
+    }
+
+    public static int[] sortByFrequency(int[] array) {
+        int[] out = new int[array.length];
+        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
+        for (int i : array) {
+            if (treeMap.containsKey(i)) treeMap.put(i, treeMap.get(i) + 1);
+            else treeMap.put(i, 1);
+        }
+
+        Map<Integer, Integer> sorted = treeMap
+                .entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (e1, e2) -> e2, LinkedHashMap::new));
+
+        final int[] counter = {0};
+        sorted.forEach((k, v) -> {
+            for (int i = 0; i < v; i++, counter[0]++) {
+                out[counter[0]] = k;
+            }
+        });
+        return out;
+    }
+
+    public static String whatCentury(int year) {
+        int number = (year % 100 == 0) ? year / 100 : year / 100 + 1;
+        StringBuilder builder = new StringBuilder().append(number);
+        if (number % 10 == 1 && number % 100 != 11) builder.append("st");
+        else if (number % 10 == 2 && number % 100 != 12) builder.append("nd");
+        else if (number % 10 == 3 && number % 100 != 13) builder.append("rd");
+        else builder.append("th");
+        return builder.toString();
+    }
+
+    public int solution(int number) {
+        int sum = 0;
+        number--;
+        while (number > 0) {
+            if (number % 5 == 0 || number % 3 == 0) sum += number;
+            number--;
+        }
+        return sum;
+
+//        return IntStream.range(3, number).filter(n -> n % 3 == 0 || n % 5 == 0).sum();
+    }
+
+    public static long solve(int n) {
+        for (long p = 1;p < n ;p++) {
+            if (Math.sqrt(n + p * p) % 1 == 0) return p * p;
+        }
+        return -1;
+    }
 
 }
