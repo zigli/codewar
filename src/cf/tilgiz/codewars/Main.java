@@ -572,7 +572,12 @@ public class Main {
 //        System.out.println(Persist.persistence(39));
 
 
-        System.out.println(Solution.solve(17));
+//        System.out.println(Solution.solve(17));
+
+
+        int[] test = {1, 2, 3, 4, 5};
+        System.out.println(Arrays.toString(Kata.beggars(test, 0)));
+
     }
 
 }

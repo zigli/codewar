@@ -377,7 +377,7 @@ public class Kata {
     }
 
     public static String printNumber(int num, char ch) {
-        int[][][] numbers = {{{0, 1, 1, 1, 1, 0 , 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 0}},
+        int[][][] numbers = {{{0, 1, 1, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 0}},
                 {{0, 0, 1, 1, 0, 0, 0}, {0, 1, 1, 1, 0, 0, 0}, {1, 0, 1, 1, 0, 0, 0}, {0, 0, 1, 1, 0, 0, 0}, {0, 0, 1, 1, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 0}},
                 {{0, 1, 1, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 0, 0, 1, 1, 0, 0}, {0, 0, 1, 1, 0, 0, 0}, {0, 1, 1, 0, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 0}},
                 {{0, 1, 1, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 0, 0, 1, 1, 0, 0}, {0, 0, 0, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 0}},
@@ -458,6 +458,16 @@ public class Kata {
 
     public static String reverseLetter(final String str) {
         return new StringBuilder(str.replaceAll("[^a-z]", "")).reverse().toString();
+    }
+
+    public static int[] beggars(int[] values, int n) {
+        int[] out = new int[n];
+        if (n == 0) return out;
+        for (int i = 0, index = 0; i < values.length; i++, index++) {
+            if (index >= n) index = 0;
+            out[index] = out[index] + values[i];
+        }
+        return out;
     }
 
 }
