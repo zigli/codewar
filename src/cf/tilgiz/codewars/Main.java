@@ -595,8 +595,8 @@ public class Main {
 //        System.out.println(FindOutlier.find(exampleTest3));
 
 
-        System.out.println(Dinglemouse.tvRemote("codewars"));
-        System.out.println(Dinglemouse.tvRemote("e.nql"));
+//        System.out.println(Dinglemouse.tvRemote("codewars"));
+        System.out.println(Dinglemouse.tvRemote("Code Wars"));
 
     }
 

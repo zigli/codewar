@@ -55,16 +55,27 @@ public class Dinglemouse {
         keyboard.put('_', new int[]{4, 6});
         keyboard.put('/', new int[]{4, 7});
 
+        keyboard.put(' ', new int[]{5, 1});
+
         int path = 0;
         int[] start = {0,0};
+        int[] aA = {5,0};
+        boolean shiftKey = false;
         for (int i = 0; i < word.length(); i++) {
-            int[] next = keyboard.get(word.charAt(i));
+            char charAt = word.charAt(i);
+            if (Character.isUpperCase(charAt) && !shiftKey) {
+                path += Math.abs(aA[0] - start[0]) + Math.abs(aA[1] - start[1]) + 1;
+                shiftKey = true;
+                start = aA;
+            }else if (Character.isLowerCase(charAt) && shiftKey) {
+                path += Math.abs(aA[0] - start[0]) + Math.abs(aA[1] - start[1]) + 1;
+                shiftKey = false;
+                start = aA;
+            }
+            int[] next = keyboard.get(Character.toLowerCase(charAt));
             path += Math.abs(next[0] - start[0]) + Math.abs(next[1] - start[1]) + 1;
             start = next;
-//            System.out.println(path);
         }
-
-        // Your code here
         return path;
     }
 }
