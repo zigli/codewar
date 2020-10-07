@@ -4,6 +4,9 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -805,6 +808,32 @@ public class Solution {
             if (Math.sqrt(n + p * p) % 1 == 0) return p * p;
         }
         return -1;
+    }
+
+    public static String solveTimeDiff(String [] arr){
+        int[] out = new int[arr.length];
+        int diff = 0;
+        for (int i = 1; i < out.length; i++) {
+            out[i - 1] = Integer.parseInt(arr[i - 1].substring(0,2)) * 3600 + Integer.parseInt(arr[i - 1].substring(3,5)) * 60;
+            out[i] = Integer.parseInt(arr[i].substring(0,2)) * 3600 + Integer.parseInt(arr[i].substring(3,5)) * 60;
+//            System.out.println(out[i - 1]);
+            System.out.println(Math.abs(out[i - 1] - out[i]));
+            diff = Math.max(Math.abs(out[i - 1] - out[i]), diff);
+
+        }
+        System.out.println();
+        System.out.println(diff);
+        System.out.println(diff/3600);
+        System.out.println(diff/60);
+        Arrays.sort(out);
+        System.out.println(Arrays.toString(out));
+        for (int i = 1; i < out.length; i++) {
+            diff = Math.max(Math.abs(out[i - 1] - out[i]), diff);
+        }
+        System.out.println();
+        System.out.println(diff);
+
+        return "";
     }
 
 }
