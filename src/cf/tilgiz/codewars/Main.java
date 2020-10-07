@@ -580,8 +580,9 @@ public class Main {
 //        System.out.println(Arrays.toString(Kata.beggars(test, 0)));
 
 
+        System.out.println(Solution.solveTimeDiff(new String[]{"14:51"}));
 //        System.out.println(Solution.solveTimeDiff(new String[]{"21:14", "15:34", "14:51", "06:25", "15:30"}));
-        System.out.println(Solution.solveTimeDiff(new String[]{"23:00","04:22","18:05","06:24"}));
+//        System.out.println(Solution.solveTimeDiff(new String[]{"23:00","04:22","18:05","06:24"}));
     }
 
 }

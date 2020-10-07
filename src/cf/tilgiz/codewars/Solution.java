@@ -804,36 +804,30 @@ public class Solution {
     }
 
     public static long solve(int n) {
-        for (long p = 1;p < n ;p++) {
+        for (long p = 1; p < n; p++) {
             if (Math.sqrt(n + p * p) % 1 == 0) return p * p;
         }
         return -1;
     }
 
-    public static String solveTimeDiff(String [] arr){
-        int[] out = new int[arr.length];
+    public static String solveTimeDiff(String[] arr) {
+//        if (arr.length == 1) return "23:59";
+        Arrays.sort(arr);
+//        System.out.println(Arrays.toString(arr));
         int diff = 0;
-        for (int i = 1; i < out.length; i++) {
-            out[i - 1] = Integer.parseInt(arr[i - 1].substring(0,2)) * 3600 + Integer.parseInt(arr[i - 1].substring(3,5)) * 60;
-            out[i] = Integer.parseInt(arr[i].substring(0,2)) * 3600 + Integer.parseInt(arr[i].substring(3,5)) * 60;
-//            System.out.println(out[i - 1]);
-            System.out.println(Math.abs(out[i - 1] - out[i]));
-            diff = Math.max(Math.abs(out[i - 1] - out[i]), diff);
-
+        for (int i = 0; i < arr.length; i++) {
+            int a = Integer.parseInt(arr[i].substring(0, 2)) * 60 + Integer.parseInt(arr[i].substring(3, 5));
+            int bInd = i + 1, mult = 0;
+            if (bInd == arr.length) {
+                bInd = 0;
+                mult = 1;
+            }
+            int b = Integer.parseInt(arr[bInd].substring(0, 2)) * 60 + Integer.parseInt(arr[bInd].substring(3, 5));
+            diff = Math.max(Math.abs(1440 * mult + (b - a)) - 1, diff);
+//            System.out.println("a " + a + " b " + b + " = " + (b - (a+1)) + " diff= " + diff);
         }
-        System.out.println();
-        System.out.println(diff);
-        System.out.println(diff/3600);
-        System.out.println(diff/60);
-        Arrays.sort(out);
-        System.out.println(Arrays.toString(out));
-        for (int i = 1; i < out.length; i++) {
-            diff = Math.max(Math.abs(out[i - 1] - out[i]), diff);
-        }
-        System.out.println();
-        System.out.println(diff);
-
-        return "";
+//        System.out.println(diff);
+        return String.format("%02d:%02d", diff / 60 % 60, diff % 60);
     }
 
 }
