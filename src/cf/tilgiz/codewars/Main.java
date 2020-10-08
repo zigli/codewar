@@ -596,7 +596,11 @@ public class Main {
 
 
 //        System.out.println(Dinglemouse.tvRemote("codewars"));
-        System.out.println(Dinglemouse.tvRemote("Code Wars"));
+//        System.out.println(Dinglemouse.tvRemote("Code Wars"));
+        System.out.println(Dinglemouse.tvRemoteWrap("Code Wars"));
+        System.out.println(Dinglemouse.tvRemoteWrap("Solution"));
+        System.out.println(Dinglemouse.tvRemoteWrap("SOLUTION"));
+
 
     }
 

@@ -1,5 +1,7 @@
 package cf.tilgiz.codewars;
 
+import java.awt.*;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -8,8 +10,9 @@ import java.util.HashMap;
  */
 public class Dinglemouse {
 
-   public static int tvRemote(final String word) {
-        HashMap<Character, int[]> keyboard = new HashMap<>();
+    private static HashMap<Character, int[]> keyboard = new HashMap<>();
+
+    static {
         keyboard.put('a', new int[]{0, 0});
         keyboard.put('b', new int[]{0, 1});
         keyboard.put('c', new int[]{0, 2});
@@ -56,10 +59,59 @@ public class Dinglemouse {
         keyboard.put('/', new int[]{4, 7});
 
         keyboard.put(' ', new int[]{5, 1});
+    }
+
+    public static int tvRemoteWrap(final String word) {
+
+        int yMax = 6;
+        int xMax = 8;
+        int path = 0;
+        int[] start = {0, 0};
+        int[] aA = {5, 0};
+        boolean shiftKey = false;
+        for (int i = 0; i < word.length(); i++) {
+            char charAt = word.charAt(i);
+            if (Character.isUpperCase(charAt) && !shiftKey) {
+//                System.out.println(charAt);
+//                System.out.printf("yMax %d, Math.abs(aA[0] - start[0]) %d\n", yMax, Math.abs(aA[0] - start[0]));
+                int i1 = Math.min(yMax - Math.abs(aA[0] - start[0]), Math.abs(aA[0] - start[0]));
+                int i2 = Math.min(xMax - Math.abs(aA[1] - start[1]), Math.abs(aA[1] - start[1]));
+                path = path + i1 + i2 + 1;
+                shiftKey = true;
+                start = aA;
+//                System.out.println(path);
+            } else if (Character.isLowerCase(charAt) && shiftKey) {
+                int i1 = Math.min(yMax - Math.abs(aA[0] - start[0]), Math.abs(aA[0] - start[0]));
+                int i2 = Math.min(xMax - Math.abs(aA[1] - start[1]), Math.abs(aA[1] - start[1]));
+                path = path + i1 + i2 + 1;
+                shiftKey = false;
+                start = aA;
+//                System.out.println(path);
+            }
+            int[] next = keyboard.get(Character.toLowerCase(charAt));
+//            System.out.print(Arrays.toString(start));
+//            System.out.print(" => ");
+//            System.out.println(Arrays.toString(next));
+
+            int i1 = Math.min(yMax - Math.abs(next[0] - start[0]), Math.abs(next[0] - start[0]));
+            int i2 = Math.min(xMax - Math.abs(next[1] - start[1]), Math.abs(next[1] - start[1]));
+//            System.out.println(i1);
+//            System.out.println(i2);
+            path = path + i1 + i2 + 1;
+
+            start = next;
+//            System.out.println(path);
+//            System.out.println("=======");
+        }
+        return path;
+    }
+
+
+    public static int tvRemote(final String word) {
 
         int path = 0;
-        int[] start = {0,0};
-        int[] aA = {5,0};
+        int[] start = {0, 0};
+        int[] aA = {5, 0};
         boolean shiftKey = false;
         for (int i = 0; i < word.length(); i++) {
             char charAt = word.charAt(i);
@@ -67,7 +119,7 @@ public class Dinglemouse {
                 path += Math.abs(aA[0] - start[0]) + Math.abs(aA[1] - start[1]) + 1;
                 shiftKey = true;
                 start = aA;
-            }else if (Character.isLowerCase(charAt) && shiftKey) {
+            } else if (Character.isLowerCase(charAt) && shiftKey) {
                 path += Math.abs(aA[0] - start[0]) + Math.abs(aA[1] - start[1]) + 1;
                 shiftKey = false;
                 start = aA;
@@ -78,4 +130,5 @@ public class Dinglemouse {
         }
         return path;
     }
+
 }
