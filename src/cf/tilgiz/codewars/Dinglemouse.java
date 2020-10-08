@@ -1,6 +1,5 @@
 package cf.tilgiz.codewars;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -100,49 +99,81 @@ public class Dinglemouse {
 
     }
 
-    public static int toggleShift(int currentState, int requiredState){
+    private static final int Y_MAX = 6;
+    private static final int X_MAX = 8;
+
+    public static int toggleShift(int currentState, int requiredState) {
         return (requiredState > currentState) ? requiredState - currentState : 3 - (currentState - requiredState);
     }
 
-    public static int tvRemoteSymbols(final String words) {
+    public static int distance(int[] from, int[] to) {
+        return Math.min(Y_MAX - Math.abs(from[0] - to[0]), Math.abs(from[0] - to[0])) +
+                Math.min(X_MAX - Math.abs(from[1] - to[1]), Math.abs(from[1] - to[1]));
+    }
 
-        int yMax = 6;
-        int xMax = 8;
+    public static int tvRemoteSymbols(final String words) {
+        System.out.println(words);
         int path = 0;
         int[] start = {0, 0, 0};
+        int[] current = start;
         int[] aA = {5, 0, 0};
         int shiftKey = 0;
         for (int i = 0; i < words.length(); i++) {
             char charAt = words.charAt(i);
-            if (Character.isUpperCase(charAt) && shiftKey != 1) {
-//                System.out.println(charAt);
-//                System.out.printf("yMax %d, Math.abs(aA[0] - start[0]) %d\n", yMax, Math.abs(aA[0] - start[0]));
-                int i1 = Math.min(yMax - Math.abs(aA[0] - start[0]), Math.abs(aA[0] - start[0]));
-                int i2 = Math.min(xMax - Math.abs(aA[1] - start[1]), Math.abs(aA[1] - start[1]));
-                path = path + i1 + i2 + toggleShift(shiftKey,1);;
-                shiftKey = 1;
-                start = aA;
-//                System.out.println(path);
-            } else if (Character.isLowerCase(charAt) && shiftKey !=0) {
-                int i1 = Math.min(yMax - Math.abs(aA[0] - start[0]), Math.abs(aA[0] - start[0]));
-                int i2 = Math.min(xMax - Math.abs(aA[1] - start[1]), Math.abs(aA[1] - start[1]));
-                path = path + i1 + i2 + toggleShift(shiftKey,0);
-                shiftKey = 0;
-                start = aA;
-//                System.out.println(path);
-            }
             int[] next = keyboard.get(Character.toLowerCase(charAt));
-//            System.out.print(Arrays.toString(start));
-//            System.out.print(" => ");
-//            System.out.println(Arrays.toString(next));
+            System.out.println("char: " + charAt + " at: " + Arrays.toString(next) + " shiftKey: " + shiftKey);
 
-            int i1 = Math.min(yMax - Math.abs(next[0] - start[0]), Math.abs(next[0] - start[0]));
-            int i2 = Math.min(xMax - Math.abs(next[1] - start[1]), Math.abs(next[1] - start[1]));
-//            System.out.println(i1);
-//            System.out.println(i2);
-            path = path + i1 + i2 + 1;
+            if (next[2] == 0) {
+                int dist = distance(aA, current);
+                if (shiftKey <= 1) {
+                    if (Character.isUpperCase(charAt) && shiftKey == 0) {
+                        System.out.print(Arrays.toString(current) + " =Up> " + Arrays.toString(aA) + "\n dist: ");
+                        System.out.println(dist);
+                        System.out.print(" OK: ");
+                        System.out.print(toggleShift(shiftKey, 1));
+                        System.out.println("");
+                        path = path + dist + toggleShift(shiftKey, 1);
+                        shiftKey = 1;
+                        current = aA;
+                    } else if (Character.isLowerCase(charAt) && shiftKey == 1) {
+                        System.out.print(Arrays.toString(current) + " =Lo> " + Arrays.toString(aA) + "\n dist: ");
+                        System.out.println(dist);
+                        System.out.print(" OK: ");
+                        System.out.print(toggleShift(shiftKey, 0));
+                        System.out.println("");
+                        path = path + dist + toggleShift(shiftKey, 0);
+                        shiftKey = 0;
+                        current = aA;
+                    }
+                } else {
+                    System.out.print(Arrays.toString(current) + " =sY> " + Arrays.toString(aA) + "\n dist: ");
+                    System.out.println(dist);
+                    System.out.print(" OK: ");
+                    System.out.print(toggleShift(shiftKey, 0));
+                    System.out.println("");
+                    path = path + dist + toggleShift(shiftKey, 0);
+                    shiftKey = 0;
+                    current = aA;
+                }
+            } else if (next[2] == 1 && shiftKey <= 1) {
+                int dist = distance(aA, current);
+                System.out.print(Arrays.toString(current) + " =Sy> " + Arrays.toString(aA) + "\n dist: ");
+                System.out.println(dist);
+                System.out.print(" OK: ");
+                System.out.print(toggleShift(shiftKey, 2));
+                System.out.println("");
+                path = path + dist + toggleShift(shiftKey, 2);
+                shiftKey = 2;
+                current = aA;
+            }
+            int dist = distance(next, current);
+            System.out.print(Arrays.toString(current) + " ==> " + Arrays.toString(next) + "\n dist: ");
+            System.out.println(dist);
+            System.out.print(" OK: ");
+            System.out.println(1);
+            path = path + dist + 1;
+            current = next;
 
-            start = next;
             System.out.println(path);
             System.out.println("=======");
         }
