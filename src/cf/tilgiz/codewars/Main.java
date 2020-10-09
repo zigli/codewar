@@ -602,7 +602,12 @@ public class Main {
 //        System.out.println(Dinglemouse.tvRemoteWrap("SOLUTION"));
 //        System.out.println(Dinglemouse.tvRemoteSymbols("Too Easy?"));
 //        System.out.println(Dinglemouse.tvRemoteSymbols("$your$"));
-        System.out.println(Dinglemouse.tvRemoteSymbols("Dg7'. 1^t 1I\\@/>+_ §EEn@Y Lm@T"));
+//        System.out.println(Dinglemouse.tvRemoteSymbols("Dg7'. 1^t 1I\\@/>+_ §EEn@Y Lm@T"));
+//        System.out.println(Dinglemouse.tvRemoteSymbols("v5F:mVFP\"YH1M8@'  Jo@B/B"));
+//        System.out.println(Dinglemouse.tvRemoteSymbols("o.H¥A"));
+//        System.out.println(Dinglemouse.tvRemoteSymbols("..._^_--9__"));
+        System.out.println(Dinglemouse.tvRemoteSymbols("^~?!'\"()-:;+&%*=<>€£$¥¤\\[]{},.@§#¿¡_/ "));
+//        System.out.println(Dinglemouse.tvRemoteSymbols("    x   X    "));
 
 
 
