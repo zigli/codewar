@@ -604,9 +604,10 @@ public class Main {
 //        System.out.println(Dinglemouse.tvRemoteSymbols("v5F:mVFP\"YH1M8@'  Jo@B/B"));
 //        System.out.println(Dinglemouse.tvRemoteSymbols("o.H¥A"));
 //        System.out.println(Dinglemouse.tvRemoteSymbols("..._^_--9__"));
-        System.out.println(Dinglemouse.tvRemoteSymbols("^~?!'\"()-:;+&%*=<>€£$¥¤\\[]{},.@§#¿¡_/ "));
+//        System.out.println(Dinglemouse.tvRemoteSymbols("^~?!'\"()-:;+&%*=<>€£$¥¤\\[]{},.@§#¿¡_/ "));
 //        System.out.println(Dinglemouse.tvRemoteSymbols("    x   X    "));
 
+/*
         String[] KEYBOARDS = {"abcde123fghij456klmno789pqrst.@0uvwxyz_/\u0014 ",
                 "ABCDE123FGHIJ456KLMNO789PQRST.@0UVWXYZ_/\u0014 ",
                 "^~?!'\"()-:;+&%*=<>€£$¥¤\\[]{},.@§#¿¡\u0017\u0015\u0016_/\u0014 "};
@@ -625,9 +626,14 @@ public class Main {
                         .collect(Collectors.toMap(j -> KEYBOARDS[i].charAt(j), j -> new int[]{j / WIDTH, j % WIDTH})))
                 .collect(Collectors.toList());
 
+*/
 //        System.out.println(Arrays.toString(collect.get(0).get('3')));
 
 //        System.out.println(Dinglemouse.getShiftMod('5',1));
+
+
+        System.out.println(Arrays.toString(Kata.sortArray(new int[]{5, 3, 2, 8, 1, 4})));
+
 
     }
 

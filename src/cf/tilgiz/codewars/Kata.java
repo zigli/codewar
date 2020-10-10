@@ -11,6 +11,8 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toMap;
+
 /**
  * @author Ilgiz Tukhvatov
  */
@@ -470,4 +472,47 @@ public class Kata {
         return out;
     }
 
+    public static int[] sortArray(int[] array) {
+        HashMap<Integer, Integer> oddNumbers = IntStream.range(0, array.length)
+                .filter(i -> array[i] % 2 != 0)
+                .collect(HashMap::new, (m, i) -> m.put(i, array[i]), Map::putAll);
+
+        HashMap<Integer, Integer> evenNumbers = IntStream.range(0, array.length)
+                .filter(i -> array[i] % 2 == 0)
+                .collect(HashMap::new, (m, i) -> m.put(i, array[i]), Map::putAll);
+
+        Map<Integer, Integer> sortedOddNumbers = oddNumbers
+                .entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(
+                        toMap(e -> e.getKey(), e -> e.getValue(),
+                                (e1, e2) -> e2, LinkedHashMap::new));
+
+//        System.out.println(oddNumbers);
+//        System.out.println(sortedOddNumbers);
+        List<Integer> listOfValues = new ArrayList<>(sortedOddNumbers.values());
+        System.out.println(listOfValues);
+
+        int[] arrayNew = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            if(evenNumbers.containsKey(i)) arrayNew[i] = evenNumbers.get(i);
+            else {
+                arrayNew[i] = listOfValues.get(0);
+                listOfValues.remove(0);
+            }
+        }
+
+        return arrayNew;
+//
+//        // Sort the odd numbers only
+//        final int[] sortedOdd = Arrays.stream(array).filter(e -> e % 2 == 1).sorted().toArray();
+//
+//        // Then merge them back into original array
+//        for (int j = 0, s = 0; j < array.length; j++) {
+//            if (array[j] % 2 == 1) array[j] = sortedOdd[s++];
+//        }
+//
+//        return array;
+    }
 }
