@@ -1,9 +1,7 @@
 package cf.tilgiz.codewars;
 
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.function.Supplier;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
@@ -609,7 +607,27 @@ public class Main {
         System.out.println(Dinglemouse.tvRemoteSymbols("^~?!'\"()-:;+&%*=<>€£$¥¤\\[]{},.@§#¿¡_/ "));
 //        System.out.println(Dinglemouse.tvRemoteSymbols("    x   X    "));
 
+        String[] KEYBOARDS = {"abcde123fghij456klmno789pqrst.@0uvwxyz_/\u0014 ",
+                "ABCDE123FGHIJ456KLMNO789PQRST.@0UVWXYZ_/\u0014 ",
+                "^~?!'\"()-:;+&%*=<>€£$¥¤\\[]{},.@§#¿¡\u0017\u0015\u0016_/\u0014 "};
 
+        int WIDTH = 8, HEIGHT = 6;
+
+        List<Map<Character, int[]>> collect = Arrays.stream(KEYBOARDS)
+                .map(keyboard -> IntStream.range(0, keyboard.length())
+                        .boxed()
+                        .collect(Collectors.toMap(keyboard::charAt, j -> new int[]{j / WIDTH, j % WIDTH})))
+                .collect(Collectors.toList());
+
+        List<Map<Character, int[]>> collect1 = IntStream.range(0, KEYBOARDS.length)
+                .mapToObj(i -> IntStream.range(0, KEYBOARDS[i].length())
+                        .boxed()
+                        .collect(Collectors.toMap(j -> KEYBOARDS[i].charAt(j), j -> new int[]{j / WIDTH, j % WIDTH})))
+                .collect(Collectors.toList());
+
+//        System.out.println(Arrays.toString(collect.get(0).get('3')));
+
+//        System.out.println(Dinglemouse.getShiftMod('5',1));
 
     }
 

@@ -2,6 +2,10 @@ package cf.tilgiz.codewars;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * @author tilgiz
@@ -154,8 +158,17 @@ public class Dinglemouse {
 
     }
 
+    private final static String[] KEYS = {"abcde123fghij456klmno789pqrst.@0uvwxyz_/\u0010 ",
+            "ABCDE123FGHIJ456KLMNO789PQRST.@0UVWXYZ_/\u0010 ",
+            "^~?!'\"()-:;+&%*=<>€£$¥¤\\[]{},.@§#¿¡\u0010\u0011\u0012_/\u0013 "};
+
     private static final int Y_MAX = 6;
     private static final int X_MAX = 8;
+
+    private final static List<Map<Character, int[]>> keypads = Arrays.stream(KEYS).map(keyboard -> IntStream.range(0, keyboard.length())
+            .boxed()
+            .collect(Collectors.toMap(keyboard::charAt, i -> new int[]{i / X_MAX, i % X_MAX})))
+            .collect(Collectors.toList());
 
     public static int toggleShift(int currentMode, int requiredMode) {
         return (requiredMode > currentMode) ? requiredMode - currentMode : 3 - (currentMode - requiredMode);
@@ -167,14 +180,31 @@ public class Dinglemouse {
     }
 
     public static int[] searchChar(char ch, int shiftKey) {
-        if(shiftKey == 0) return keypad0.containsKey(ch) ? keypad0.get(ch) : keypad1.containsKey(ch) ? keypad1.get(ch) : keypad2.get(ch);
-        else if(shiftKey == 1) return keypad1.containsKey(ch) ? keypad1.get(ch) : keypad2.containsKey(ch) ? keypad2.get(ch) : keypad0.get(ch);
-        else return keypad2.containsKey(ch) ? keypad2.get(ch) : keypad0.containsKey(ch) ? keypad0.get(ch) : keypad1.get(ch);
+        while (!keypads.get(shiftKey).containsKey(ch)) {
+            shiftKey = ++shiftKey % 3;
+        }
+        return keypads.get(shiftKey).get(ch);
     }
 
-    public static int getKeymod(char ch, int shiftKey) {
-        if(shiftKey == 0) return keypad0.containsKey(ch) ? 0 : keypad1.containsKey(ch) ? 1 : 2;
-        else if(shiftKey == 1) return keypad1.containsKey(ch) ? 1 : keypad2.containsKey(ch) ? 2 : 0;
+    public static int[] searchChar1(char ch, int shiftKey) {
+        if (shiftKey == 0)
+            return keypad0.containsKey(ch) ? keypad0.get(ch) : keypad1.containsKey(ch) ? keypad1.get(ch) : keypad2.get(ch);
+        else if (shiftKey == 1)
+            return keypad1.containsKey(ch) ? keypad1.get(ch) : keypad2.containsKey(ch) ? keypad2.get(ch) : keypad0.get(ch);
+        else
+            return keypad2.containsKey(ch) ? keypad2.get(ch) : keypad0.containsKey(ch) ? keypad0.get(ch) : keypad1.get(ch);
+    }
+
+    public static int getShiftMod(char ch, int shiftKey) {
+        while (!keypads.get(shiftKey).containsKey(ch)) {
+            shiftKey = ++shiftKey % 3;
+        }
+        return shiftKey;
+    }
+
+    public static int getShiftMod1(char ch, int shiftKey) {
+        if (shiftKey == 0) return keypad0.containsKey(ch) ? 0 : keypad1.containsKey(ch) ? 1 : 2;
+        else if (shiftKey == 1) return keypad1.containsKey(ch) ? 1 : keypad2.containsKey(ch) ? 2 : 0;
         else return keypad2.containsKey(ch) ? 2 : keypad0.containsKey(ch) ? 0 : 1;
     }
 
@@ -186,11 +216,16 @@ public class Dinglemouse {
         int shiftKeyCurrent = 0;
         for (int i = 0; i < words.length(); i++) {
             char charAt = words.charAt(i);
-            int[] next = searchChar(charAt,shiftKeyCurrent);
-            int shiftKeyRequired = getKeymod(charAt,shiftKeyCurrent);
-            System.out.println("char: " + charAt + " at: " + Arrays.toString(next) + " shiftKeyCurrent: " + shiftKeyCurrent + " shiftKeyRequired: " + shiftKeyRequired);
+//            int[] nextChar = searchChar(charAt, shiftKeyCurrent);
+//            int shiftKeyRequired = getShiftMod(charAt, shiftKeyCurrent);
+            int shiftKeyRequired = shiftKeyCurrent;
+            while (!keypads.get(shiftKeyRequired).containsKey(charAt)) {
+                shiftKeyRequired = ++shiftKeyRequired % 3;
+            }
+            int[] nextChar = keypads.get(shiftKeyRequired).get(charAt);
+            System.out.println("char: " + charAt + " at: " + Arrays.toString(nextChar) + " shiftKeyCurrent: " + shiftKeyCurrent + " shiftKeyRequired: " + shiftKeyRequired);
 
-/*            if (next[2] == 0) {
+/*            if (nextChar[2] == 0) {
                 int dist = distance(shiftKey, current);
                 if (shiftKeyCurrent <= 1) {
                     if (Character.isUpperCase(charAt) && shiftKeyCurrent == 0) {
@@ -222,7 +257,7 @@ public class Dinglemouse {
                     shiftKeyCurrent = shiftKeyRequired;
                     current = shiftKey;
                 }
-            } else if (next[2] == 2 && shiftKeyCurrent <= 1) {
+            } else if (nextChar[2] == 2 && shiftKeyCurrent <= 1) {
                 int dist = distance(shiftKey, current);
                 System.out.print(Arrays.toString(current) + " =Sy> " + Arrays.toString(shiftKey) + "\n dist: ");
                 System.out.println(dist);
@@ -244,13 +279,13 @@ public class Dinglemouse {
                 shiftKeyCurrent = shiftKeyRequired;
                 current = shiftKey;
             }
-            int dist = distance(next, current);
-            System.out.print(Arrays.toString(current) + " ==> " + Arrays.toString(next) + "\n dist: ");
+            int dist = distance(nextChar, current);
+            System.out.print(Arrays.toString(current) + " ==> " + Arrays.toString(nextChar) + "\n dist: ");
             System.out.println(dist);
             System.out.print(" OK: ");
             System.out.println(1);
             path = path + dist + 1;
-            current = next;
+            current = nextChar;
 
             System.out.println(path);
             System.out.println("=======");
