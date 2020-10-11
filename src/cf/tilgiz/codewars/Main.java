@@ -632,8 +632,11 @@ public class Main {
 //        System.out.println(Dinglemouse.getShiftMod('5',1));
 
 
-        System.out.println(Arrays.toString(Kata.sortArray(new int[]{5, 3, 2, 8, 1, 4})));
+//        System.out.println(Arrays.toString(Kata.sortArray(new int[]{5, 3, 2, 8, 1, 4})));
 
+
+        System.out.println(QueenOnChessboard.availableMoves("work?"));
+        System.out.println(QueenOnChessboard.availableMoves("C5"));
 
     }
 
