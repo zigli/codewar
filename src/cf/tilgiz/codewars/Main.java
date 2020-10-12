@@ -636,7 +636,7 @@ public class Main {
 
 
         System.out.println(QueenOnChessboard.availableMoves("work?"));
-        System.out.println(QueenOnChessboard.availableMoves("C5"));
+        System.out.println(QueenOnChessboard.availableMoves("H3"));
 
     }
 
