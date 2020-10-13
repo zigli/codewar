@@ -635,9 +635,14 @@ public class Main {
 //        System.out.println(Arrays.toString(Kata.sortArray(new int[]{5, 3, 2, 8, 1, 4})));
 
 
-        System.out.println(QueenOnChessboard.availableMoves("work?"));
-        System.out.println(QueenOnChessboard.availableMoves("C5"));
+//        System.out.println(QueenOnChessboard.availableMoves("work?"));
+//        System.out.println(QueenOnChessboard.availableMoves("C5"));
 
+
+
+        System.out.println(Arrays.toString(Walker.solve(12,20,18,45,30,60)));
+        System.out.println(Arrays.toString(Walker.solve(15,15,19,50,29,55)));
+        System.out.println(Arrays.toString(Walker.solve(14,25,17,41,35,59)));
     }
 
 }
