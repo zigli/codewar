@@ -49,4 +49,21 @@ public class QueenOnChessboard {
 
         return output;
     }
+//
+//    public static List<String> availableMoves1(String position) {
+//        List<String> result = new ArrayList<>();
+//        if ((position == null) || (!position.matches("[A-H][1-8]"))) return result;
+//        for (char x: "ABCDEFGH".toCharArray())
+//            for (char y : "12345678".toCharArray())
+//            {
+//                int dX = Math.abs(x - position.charAt(0));
+//                int dY = Math.abs(y - position.charAt(1));
+//                System.out.println(Character.toString(x) + " + " + Character.toString(y) + " - " + dX + " " + dY);
+//                if (((dX == dY) && (dX * dY > 0)) || ((dX * dY == 0) && (dX != dY))) {
+//                    System.out.println(dX + " => " + dY);
+//                    result.add(Character.toString(x) + y);
+//                }
+//            }
+//        return result;
+//    }
 }
