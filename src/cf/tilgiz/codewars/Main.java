@@ -646,6 +646,7 @@ public class Main {
 
 
         String s = "0 9026315 -827&()";
+//        s = "aqdf& 0 1 xyz 153 777.777";
         Cubes c = new Cubes();
         System.out.println(c.isSumOfCubes(s));
 
