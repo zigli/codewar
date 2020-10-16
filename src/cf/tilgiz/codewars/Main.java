@@ -651,10 +651,12 @@ public class Main {
 //        System.out.println(c.isSumOfCubes(s));
 
         String s = "hSgdHQ\nHnDMao\nClNNxX\niRvxxH\nbqTVvA\nwvSyRu";
-        System.out.println(Opstrings.oper(Opstrings::vertMirror, s));
+//        System.out.println(Opstrings.oper(Opstrings::vertMirror, s));
 //        System.out.println(Opstrings.vertMirror(s));
 //        System.out.println(Opstrings.horMirror(s));
 
+//        System.out.println(Opstrings.oper(Opstrings1::ret, s));
+        System.out.println(Opstrings.oper(Opstrings1::selfieAndRot, s));
 
     }
 
