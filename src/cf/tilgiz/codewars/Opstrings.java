@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.StringJoiner;
 import java.util.concurrent.Callable;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 public class Opstrings {
@@ -24,7 +25,11 @@ public class Opstrings {
         }
         return String.join("\n", result);
     }
-    public static String oper(UnaryOperator<String> operator, String s) {
+//    public static String oper(UnaryOperator<String> operator, String s) {
+//        return operator.apply(s);
+//    }
+
+    public static String oper(Function<String,String> operator, String s) {
         return operator.apply(s);
     }
 
