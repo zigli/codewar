@@ -645,10 +645,16 @@ public class Main {
 //        System.out.println(Arrays.toString(Walker.solve(14,25,17,41,35,59)));
 
 
-        String s = "0 9026315 -827&()";
+//        String s = "0 9026315 -827&()";
 //        s = "aqdf& 0 1 xyz 153 777.777";
-        Cubes c = new Cubes();
-        System.out.println(c.isSumOfCubes(s));
+//        Cubes c = new Cubes();
+//        System.out.println(c.isSumOfCubes(s));
+
+        String s = "hSgdHQ\nHnDMao\nClNNxX\niRvxxH\nbqTVvA\nwvSyRu";
+        System.out.println(Opstrings.oper(Opstrings::vertMirror, s));
+//        System.out.println(Opstrings.vertMirror(s));
+//        System.out.println(Opstrings.horMirror(s));
+
 
     }
 
