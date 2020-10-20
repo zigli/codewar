@@ -661,7 +661,12 @@ public class Main {
 
 //        System.out.println(Opstrings.oper(Opstrings2::diag1Sym, "wuUyPC\neNHWxw\nehifmi\ntBTlFI\nvWNpdv\nIFkGjZ"));
 //        System.out.println(Opstrings.oper(Opstrings2::rot90Clock, "rgavce\nvGcEKl\ndChZVW\nxNWgXR\niJBYDO\nSdmEKb"));
-        System.out.println(Opstrings.oper(Opstrings2::selfieAndDiag1, "NJVGhr\nMObsvw\ntPhCtl\nsoEnhi\nrtQRLK\nzjliWg"));
+//        System.out.println(Opstrings.oper(Opstrings2::selfieAndDiag1, "NJVGhr\nMObsvw\ntPhCtl\nsoEnhi\nrtQRLK\nzjliWg"));
+
+//        System.out.println(Opstrings.oper(Opstrings3::diag2Sym, "LmvLyg\nDKELBm\nylJhui\nXRXqHD\nzlisCT\nhPqxYb"));
+//        System.out.println(Opstrings.oper(Opstrings3::rot90Counter, "EcGcXJ\naaygcA\nNgIshN\nyOrCZE\neBEqpm\nNkxCgw"));
+        System.out.println(Opstrings.oper(Opstrings3::selfieDiag2Counterclock, "NJVGhr\nMObsvw\ntPhCtl\nsoEnhi\nrtQRLK\nzjliWg"));
+
 
     }
 
